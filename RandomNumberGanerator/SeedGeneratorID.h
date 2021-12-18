@@ -10,17 +10,17 @@
 
 namespace random_number_generator
 {
-    /**
-     * \brief シード生成器ID
-     */
-    enum class SeedGeneratorID {
-        // C++標準
-        StdRandomDevice = 0, //!< 予測不能な乱数生成器
-        // 固有
-        CurrentTime, //!< 現在時刻 (非推奨)
-        // Custom
-        Custom, //!< カスタム
-    };
+/**
+ * \brief シード生成器ID
+ */
+enum class SeedGeneratorID {
+    // C++標準
+    StdRandomDevice = 0, //!< 予測不能な乱数生成器
+    // 固有
+    CurrentTime, //!< 現在時刻 (非推奨)
+    // Custom
+    Custom, //!< カスタム
+};
 
-    constexpr SeedGeneratorID DEFAULT_SEED_GENERATOR_ID = SeedGeneratorID::StdRandomDevice;
+constexpr SeedGeneratorID DEFAULT_SEED_GENERATOR_ID = SeedGeneratorID::StdRandomDevice;
 } // namespace random_number_generator

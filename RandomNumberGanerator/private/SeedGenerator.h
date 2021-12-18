@@ -20,16 +20,16 @@ class SeedGenerator
 {
 public:
     /**
-     * \brief シード型
+     * \brief 乱数エンジンに渡すシードの型
      */
-    using Random = Type;
+    using Seed = Type;
 
 public:
     /**
      * \brief コンストラクタ
      * \param param シード生成器パラメータ
      */
-    SeedGenerator(SeedGeneratorParameter<Type> param)
+    SeedGenerator(SeedGeneratorParameter<Seed> param = {})
         : m_param(param)
     {
     }
@@ -38,21 +38,21 @@ public:
      * \brief シードを生成
      * \return シード
      */
-    Type operator()(void)
+    Seed operator()(void)
     {
-        return m_param();
+        return m_param.generator();
     }
 
     /**
      * \brief シード生成器パラメータを取得
      * \return シード生成器パラメータ
      */
-    SeedGeneratorParameter<Type> getParam(void) const
+    SeedGeneratorParameter<Seed> getParam(void) const
     {
         return m_param;
     }
 
 private:
-    SeedGeneratorParameter<Type> m_param;
+    SeedGeneratorParameter<Seed> m_param;
 };
 } // namespace random_number_generator

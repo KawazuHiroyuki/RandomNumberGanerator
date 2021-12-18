@@ -6,7 +6,34 @@
 
 int main()
 {
-    random_number_generator::RandomNumberGenerator<int> random;
+    random_number_generator::RandomNumberGenerator<unsigned int> random;
+
+    using namespace random_number_generator;
+    using Type = unsigned int;
+
+    SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::StdRandomDevice });
+    SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::CurrentTime });
+    SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::Custom, []() { return 0;  } });
+    StdRandomDeviceSeedGenerator<Type>();
+
+
+    StdLiearCongruentialRandomNumberEngine<Type, Type, 1, 1, 0>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdMersenneTwisterRandomNumberEngine<Type, Type, 32, 624, 397, 31,
+        0x9908b0df, 11, 0xffffffff, 7,
+        0x9d2c5680, 15, 0xefc60000, 18, 1812433253>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdSubtractWithCarryRandomNumberEngine<Type, Type, 24, 10, 24>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+
+    StdDefaultRandomEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdKnuthRandomNumberEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdMinStdRand0RandomNumberEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdMinStdRandRandomNumberEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdMt199937_32BitRandomNumberEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdRandomDevice<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+    StdRanlux24RandomNumberEngine<Type, Type>(std::make_shared<RandomNumberEngineParameter<Type, Type>>(), std::make_shared<SeedGenerator<Type>>());
+
+    using Type2 = unsigned long long;
+    StdMt199937_64BitRandomNumberEngine<Type2, Type2>(std::make_shared<RandomNumberEngineParameter<Type2, Type2>>(), std::make_shared<SeedGenerator<Type2>>());
+    StdRanlux48RandomNumberEngine<Type2, Type2>(std::make_shared<RandomNumberEngineParameter<Type2, Type2>>(), std::make_shared<SeedGenerator<Type2>>());
 
     std::cout << "Hello World!\n";
 }

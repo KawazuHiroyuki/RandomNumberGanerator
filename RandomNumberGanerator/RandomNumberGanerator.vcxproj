@@ -157,12 +157,27 @@
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
     <ClInclude Include="private\SeedGenerator.h" />
     <ClInclude Include="private\SeedGeneratorFactory.h" />
+    <ClInclude Include="private\StdDefaultRandomEngine.h" />
+    <ClInclude Include="private\StdKnuthRandomNumberEngine.h" />
+    <ClInclude Include="private\StdLiearCongruentialRandomNumberEngine.h" />
+    <ClInclude Include="private\StdMersenneTwisterRandomNumberEngine.h" />
+    <ClInclude Include="private\StdMinStdRand0RandomNumberEngine.h" />
+    <ClInclude Include="private\StdMinStdRandRandomNumberEngine.h" />
+    <ClInclude Include="private\StdMt199937_32BitRandomNumberEngine.h" />
+    <ClInclude Include="private\StdMt199937_64BitRandomNumberEngine.h" />
+    <ClInclude Include="private\StdRandomDevice.h" />
     <ClInclude Include="private\StdRandomDeviceSeedGenerator.h" />
+    <ClInclude Include="private\StdRanlux24RandomNumberEngine.h" />
+    <ClInclude Include="private\StdRanlux48RandomNumberEngine.h" />
+    <ClInclude Include="private\StdSubtractWithCarryRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
     <ClInclude Include="RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="SeedGeneratorID.h" />
     <ClInclude Include="SeedGeneratorParameter.h" />
+    <ClInclude Include="StdLiearCongruentialRandomNumberEngineParameter.h" />
+    <ClInclude Include="StdMersenneTwisterRandomNumberEngineParameter.h" />
+    <ClInclude Include="StdSubtractWithCarryRandomNumberEngineParameter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
