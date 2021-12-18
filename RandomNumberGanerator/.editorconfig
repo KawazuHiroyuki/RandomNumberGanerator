@@ -1,0 +1,20 @@
+﻿# Rules in this file were initially inferred by Visual Studio IntelliCode from the D:\Work\Application\L_0004_RandomNumberGanerator\RandomNumberGanerator\RandomNumberGanerator\ codebase based on best match to current usage at 2021/12/18
+# You can modify the rules from these initially generated values to suit your own policies
+# You can learn more about editorconfig here: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+root = true
+
+[*.h,*.cpp]
+# インデント時のスタイル設定（tab/space）
+indent_style = space
+# インデント時のサイズ設定
+indent_size = 4
+# 改行コード設定（lf/cr/crlf）
+end_of_line = crlf
+# 文字コード設定（latin1/utf-8/utf-8-bom/utf-16be/utf-16le/...）
+charset = utf-8-bom
+# 文末スペースの設定（true=削除）
+trim_trailing_whitespace = true
+# 最終行の改行設定（true=改行あり）
+insert_final_newline = true
+
+# Ref URL: https://rfs.jp/sb/vsc/editorconfig.html

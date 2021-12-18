@@ -93,4 +93,7 @@
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
 </Project>

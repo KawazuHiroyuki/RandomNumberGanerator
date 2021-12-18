@@ -1,22 +1,24 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   SeedGeneratorID.h
- * \brief  ƒV[ƒh¶¬ŠíID
+ * \brief  ã‚·ãƒ¼ãƒ‰ç”Ÿæˆå™¨ID
  * 
  * \author japan
  * \date   December 2021
  *********************************************************************/
+
 #pragma once
+
 namespace random_number_generator
 {
     /**
-     * \brief ƒV[ƒh¶¬ŠíID
+     * \brief ã‚·ãƒ¼ãƒ‰ç”Ÿæˆå™¨ID
      */
     enum class SeedGeneratorID {
-        // C++•W€
-        StdRandomDevice = 0, //!< —\‘ª•s”\‚È—”¶¬Ší
-        // ŒÅ—L
-        CurrentTime, //!< Œ»İ (”ñ„§)
+        // C++æ¨™æº–
+        StdRandomDevice = 0, //!< äºˆæ¸¬ä¸èƒ½ãªä¹±æ•°ç”Ÿæˆå™¨
+        // å›ºæœ‰
+        CurrentTime, //!< ç¾åœ¨æ™‚åˆ» (éæ¨å¥¨)
         // Custom
-        Custom, //!< ƒJƒXƒ^ƒ€
+        Custom, //!< ã‚«ã‚¹ã‚¿ãƒ 
     };
 } // namespace random_number_generator

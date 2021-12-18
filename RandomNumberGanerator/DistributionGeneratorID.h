@@ -1,42 +1,43 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   DistributionGeneratorID.h
- * \brief  •ª•z¶¬ŠíID
+ * \brief  åˆ†å¸ƒç”Ÿæˆå™¨ID
  * 
  * \author japan
  * \date   December 2021
  *********************************************************************/
 
 #pragma once
+
 namespace random_number_generator
 {
     /**
-     * \brief •ª•z¶¬ŠíID
+     * \brief åˆ†å¸ƒç”Ÿæˆå™¨ID
      */
     enum class DistributionGeneratorID {
-        NoAdjustment = 0, //!< –³’²®
-        // C++•W€:ˆê—l•ª•z
-        StdUniform, //!< ˆê—l•ª•z
-        // C++•W€:ƒxƒ‹ƒk[ƒC•ª•z
-        StdBernoulli, //!< ƒxƒ‹ƒk[ƒC•ª•z
-        StdBinomial, //!< “ñ€•ª•z
-        StdGeometric, //!< Šô‰½•ª•z
-        StdNegaivaBinomial, //!< •‰‚Ì“ñ€•ª•z
-        // C++•W€:ƒ|ƒƒ\ƒ“•ª•z
-        StdPoisson, //!< ƒ|ƒƒ\ƒ“•ª•z
-        StdExponetial, //!< w”•ª•z
-        StdGamma, //!< ƒKƒ“ƒ}•ª•z
-        StdWeibull, //!< ƒƒCƒuƒ‹•ª•z
-        StdExtreme, //!< ‹É’l•ª•z
-        // C++•W€:³‹K•ª•z
-        StdNormal, //!< ³‹K•ª•z
-        StdLognomarl, //!< ‘Î”³‹K•ª•z
-        StdChiSquared, //!< ƒJƒC“ñæ•ª•z
-        StdCauchy, //!< ƒR[ƒV[•ª•z
-        StdFisherF, //!< ƒtƒBƒbƒVƒƒ[F•ª•z
-        StdStudentT, //!< ƒXƒ`ƒ…[ƒfƒ“ƒgT•ª•z
-        // C++•W€:•W–{•ª•z
-        StdDiscrete, //!< ®”ƒCƒ“ƒfƒbƒNƒX‚²‚Æ‚É—£U‚µ‚½Šm—¦•ª•z
-        StdPiecewiseConstant, //!< ‹æŠÔ‚²‚Æ‚Ìd‚İ•t‚¯‚ğ’á”’l‚Æ‚µ‚½•ª•z
-        StdPiecewiseLinear, //!< ‹æŠÔ‚²‚Æ‚Ìd‚İ‚Ã‚¯‚ğüŒ`‚ÉÚ‘±‚µ‚½•ª•z
+        NoAdjustment = 0, //!< ç„¡èª¿æ•´
+        // C++æ¨™æº–:ä¸€æ§˜åˆ†å¸ƒ
+        StdUniform, //!< ä¸€æ§˜åˆ†å¸ƒ
+        // C++æ¨™æº–:ãƒ™ãƒ«ãƒŒãƒ¼ã‚¤åˆ†å¸ƒ
+        StdBernoulli, //!< ãƒ™ãƒ«ãƒŒãƒ¼ã‚¤åˆ†å¸ƒ
+        StdBinomial, //!< äºŒé …åˆ†å¸ƒ
+        StdGeometric, //!< å¹¾ä½•åˆ†å¸ƒ
+        StdNegaivaBinomial, //!< è² ã®äºŒé …åˆ†å¸ƒ
+        // C++æ¨™æº–:ãƒãƒ¯ã‚½ãƒ³åˆ†å¸ƒ
+        StdPoisson, //!< ãƒãƒ¯ã‚½ãƒ³åˆ†å¸ƒ
+        StdExponetial, //!< æŒ‡æ•°åˆ†å¸ƒ
+        StdGamma, //!< ã‚¬ãƒ³ãƒåˆ†å¸ƒ
+        StdWeibull, //!< ãƒ¯ã‚¤ãƒ–ãƒ«åˆ†å¸ƒ
+        StdExtreme, //!< æ¥µå€¤åˆ†å¸ƒ
+        // C++æ¨™æº–:æ­£è¦åˆ†å¸ƒ
+        StdNormal, //!< æ­£è¦åˆ†å¸ƒ
+        StdLognomarl, //!< å¯¾æ•°æ­£è¦åˆ†å¸ƒ
+        StdChiSquared, //!< ã‚«ã‚¤äºŒä¹—åˆ†å¸ƒ
+        StdCauchy, //!< ã‚³ãƒ¼ã‚·ãƒ¼åˆ†å¸ƒ
+        StdFisherF, //!< ãƒ•ã‚£ãƒƒã‚·ãƒ£ãƒ¼Fåˆ†å¸ƒ
+        StdStudentT, //!< ã‚¹ãƒãƒ¥ãƒ¼ãƒ‡ãƒ³ãƒˆTåˆ†å¸ƒ
+        // C++æ¨™æº–:æ¨™æœ¬åˆ†å¸ƒ
+        StdDiscrete, //!< æ•´æ•°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã”ã¨ã«é›¢æ•£ã—ãŸç¢ºç‡åˆ†å¸ƒ
+        StdPiecewiseConstant, //!< åŒºé–“ã”ã¨ã®é‡ã¿ä»˜ã‘ã‚’ä½æ•°å€¤ã¨ã—ãŸåˆ†å¸ƒ
+        StdPiecewiseLinear, //!< åŒºé–“ã”ã¨ã®é‡ã¿ã¥ã‘ã‚’ç·šå½¢ã«æ¥ç¶šã—ãŸåˆ†å¸ƒ
     };
 } // namespace random_number_generator

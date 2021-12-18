@@ -163,6 +163,9 @@
     <ClInclude Include="SeedGeneratorID.h" />
     <ClInclude Include="SeedGeneratorParameter.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
