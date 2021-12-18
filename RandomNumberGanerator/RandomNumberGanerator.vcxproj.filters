@@ -13,10 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator">
+      <UniqueIdentifier>{bf59c5f9-b364-475a-aad9-4179ebdd648a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\private">
+      <UniqueIdentifier>{bf7dc595-e9cf-4318-9303-d8fafc10238f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RandomNumberGanerator.cpp">
+    <ClCompile Include="RandomNumberGanerateEngine.cpp">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RandomNumberGanerateEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumberGanerator.h">
+      <Filter>ソース ファイル\RandomNumberGanerator</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

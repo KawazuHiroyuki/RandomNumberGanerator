@@ -139,7 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="RandomNumberGanerator.cpp" />
+    <ClCompile Include="RandomNumberGanerateEngine.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RandomNumberGanerateEngine.h" />
+    <ClInclude Include="RandomNumberGanerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

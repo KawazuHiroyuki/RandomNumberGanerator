@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "RandomNumberGanerator.h"
 
 int main()
 {
