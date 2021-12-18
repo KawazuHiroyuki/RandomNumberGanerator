@@ -1,7 +1,5 @@
-#pragma once
+#include "DistributionGanerator.h"
+
 namespace random_number_generator
 {
-class RandomNumberEngineFactory
-{
-};
 } // namespace random_number_generator

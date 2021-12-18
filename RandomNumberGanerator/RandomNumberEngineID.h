@@ -6,7 +6,7 @@
  * \date   December 2021
  *********************************************************************/
 #pragma once
-namespace random_number_ganerator
+namespace random_number_generator
 {
     /**
      * \brief 乱数エンジンID
@@ -28,4 +28,4 @@ namespace random_number_ganerator
         StdKnuth, //!< Knuthリオーダーアルゴリズム
         StdDefaultRandomEngine, //!< 非専門用途でデフォルト使用する疑似乱数エンジン (使用するエンジンは実装依存)
     };
-} // namespace random_number_ganerator
+} // namespace random_number_generator

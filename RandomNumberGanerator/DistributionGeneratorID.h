@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   DistributionGaneratorID.h
+ * \file   DistributionGeneratorID.h
  * \brief  分布生成器ID
  * 
  * \author japan
@@ -7,12 +7,12 @@
  *********************************************************************/
 
 #pragma once
-namespace random_number_ganerator
+namespace random_number_generator
 {
     /**
      * \brief 分布生成器ID
      */
-    enum class DistributionGaneratorID {
+    enum class DistributionGeneratorID {
         NoAdjustment = 0, //!< 無調整
         // C++標準:一様分布
         StdUniform, //!< 一様分布
@@ -39,4 +39,4 @@ namespace random_number_ganerator
         StdPiecewiseConstant, //!< 区間ごとの重み付けを低数値とした分布
         StdPiecewiseLinear, //!< 区間ごとの重みづけを線形に接続した分布
     };
-} // namespace random_number_ganerator
+} // namespace random_number_generator

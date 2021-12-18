@@ -1,7 +1,7 @@
 #pragma once
 namespace random_number_generator
 {
-class RandomNumberEngineFactory
+class RandomNumberGenerator
 {
 };
 } // namespace random_number_generator

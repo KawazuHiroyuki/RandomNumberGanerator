@@ -140,28 +140,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="private\DistributionGanerator.cpp" />
-    <ClCompile Include="private\DistributionGaneratorFactory.cpp" />
+    <ClCompile Include="private\DistributionGenerator.cpp" />
+    <ClCompile Include="private\DistributionGeneratorFactory.cpp" />
     <ClCompile Include="private\RandomNumberEngine.cpp" />
     <ClCompile Include="private\RandomNumberEngineFactory.cpp" />
-    <ClCompile Include="private\SeedGanerator.cpp" />
-    <ClCompile Include="private\SeedGaneratorFactory.cpp" />
-    <ClCompile Include="RandomNumberGanerator.cpp" />
+    <ClCompile Include="private\SeedGenerator.cpp" />
+    <ClCompile Include="private\SeedGeneratorFactory.cpp" />
+    <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DistributionGaneratorID.h" />
-    <ClInclude Include="DistributionGaneratorParameter.h" />
-    <ClInclude Include="private\DistributionGanerator.h" />
-    <ClInclude Include="private\DistributionGaneratorFactory.h" />
+    <ClInclude Include="DistributionGeneratorID.h" />
+    <ClInclude Include="DistributionGeneratorParameter.h" />
+    <ClInclude Include="private\DistributionGenerator.h" />
+    <ClInclude Include="private\DistributionGeneratorFactory.h" />
     <ClInclude Include="private\RandomNumberEngine.h" />
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
-    <ClInclude Include="private\SeedGanerator.h" />
-    <ClInclude Include="private\SeedGaneratorFactory.h" />
+    <ClInclude Include="private\SeedGenerator.h" />
+    <ClInclude Include="private\SeedGeneratorFactory.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
     <ClInclude Include="RandomNumberEngineParameter.h" />
-    <ClInclude Include="RandomNumberGanerator.h" />
-    <ClInclude Include="SeedGaneratorID.h" />
-    <ClInclude Include="SeedGaneratorParameter.h" />
+    <ClInclude Include="RandomNumberGenerator.h" />
+    <ClInclude Include="SeedGeneratorID.h" />
+    <ClInclude Include="SeedGeneratorParameter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
