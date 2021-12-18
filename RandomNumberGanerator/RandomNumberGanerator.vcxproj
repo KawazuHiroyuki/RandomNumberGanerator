@@ -139,27 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DistributionGanerator.cpp" />
-    <ClCompile Include="DistributionGaneratorFactory.cpp" />
-    <ClCompile Include="RandomNumberEngine.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RandomNumberEngineFactory.cpp" />
+    <ClCompile Include="private\DistributionGanerator.cpp" />
+    <ClCompile Include="private\DistributionGaneratorFactory.cpp" />
+    <ClCompile Include="private\RandomNumberEngine.cpp" />
+    <ClCompile Include="private\RandomNumberEngineFactory.cpp" />
+    <ClCompile Include="private\SeedGanerator.cpp" />
+    <ClCompile Include="private\SeedGaneratorFactory.cpp" />
     <ClCompile Include="RandomNumberGanerator.cpp" />
-    <ClCompile Include="SeedGanerator.cpp" />
-    <ClCompile Include="SeedGaneratorFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DistributionGanerator.h" />
-    <ClInclude Include="DistributionGaneratorFactory.h" />
     <ClInclude Include="DistributionGaneratorID.h" />
     <ClInclude Include="DistributionGaneratorParameter.h" />
-    <ClInclude Include="RandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberEngineFactory.h" />
+    <ClInclude Include="private\DistributionGanerator.h" />
+    <ClInclude Include="private\DistributionGaneratorFactory.h" />
+    <ClInclude Include="private\RandomNumberEngine.h" />
+    <ClInclude Include="private\RandomNumberEngineFactory.h" />
+    <ClInclude Include="private\SeedGanerator.h" />
+    <ClInclude Include="private\SeedGaneratorFactory.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
     <ClInclude Include="RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGanerator.h" />
-    <ClInclude Include="SeedGanerator.h" />
-    <ClInclude Include="SeedGaneratorFactory.h" />
     <ClInclude Include="SeedGaneratorID.h" />
     <ClInclude Include="SeedGaneratorParameter.h" />
   </ItemGroup>

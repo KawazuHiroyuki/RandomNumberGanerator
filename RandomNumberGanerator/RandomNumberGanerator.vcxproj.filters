@@ -27,52 +27,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RandomNumberEngine.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="RandomNumberGanerator.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator</Filter>
     </ClCompile>
-    <ClCompile Include="SeedGanerator.cpp">
+    <ClCompile Include="private\DistributionGaneratorFactory.cpp">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="private\RandomNumberEngineFactory.cpp">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="private\SeedGaneratorFactory.cpp">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="private\RandomNumberEngine.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClCompile>
-    <ClCompile Include="DistributionGanerator.cpp">
+    <ClCompile Include="private\DistributionGanerator.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClCompile>
-    <ClCompile Include="RandomNumberEngineFactory.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="SeedGaneratorFactory.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="DistributionGaneratorFactory.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    <ClCompile Include="private\SeedGanerator.cpp">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RandomNumberEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
-    </ClInclude>
     <ClInclude Include="RandomNumberGanerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator</Filter>
-    </ClInclude>
-    <ClInclude Include="SeedGanerator.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
-    </ClInclude>
-    <ClInclude Include="DistributionGanerator.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
-    </ClInclude>
-    <ClInclude Include="RandomNumberEngineFactory.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="SeedGaneratorFactory.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="DistributionGaneratorFactory.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberEngineID.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter</Filter>
@@ -91,6 +73,24 @@
     </ClInclude>
     <ClInclude Include="SeedGaneratorParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="private\DistributionGaneratorFactory.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="private\RandomNumberEngineFactory.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="private\SeedGaneratorFactory.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="private\RandomNumberEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
+    </ClInclude>
+    <ClInclude Include="private\DistributionGanerator.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
+    </ClInclude>
+    <ClInclude Include="private\SeedGanerator.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
