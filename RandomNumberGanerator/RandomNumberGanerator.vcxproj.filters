@@ -36,9 +36,6 @@
     <ClCompile Include="private\RandomNumberEngine.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClCompile>
-    <ClCompile Include="private\SeedGenerator.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
-    </ClCompile>
     <ClCompile Include="private\DistributionGeneratorFactory.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClCompile>
@@ -91,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="SeedGeneratorParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdRandomDeviceSeedGenerator.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
+    </ClInclude>
+    <ClInclude Include="private\CurrentTimeSeedGenerator.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

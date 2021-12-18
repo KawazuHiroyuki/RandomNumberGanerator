@@ -21,4 +21,6 @@ namespace random_number_generator
         // Custom
         Custom, //!< カスタム
     };
+
+    constexpr SeedGeneratorID DEFAULT_SEED_GENERATOR_ID = SeedGeneratorID::StdRandomDevice;
 } // namespace random_number_generator

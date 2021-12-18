@@ -15,7 +15,7 @@ namespace random_number_generator
      */
     enum class RandomNumberEngineID {
         // C++標準:真乱数生成器
-        StdRandomDevice, //!< 予測不能な乱数生成器
+        StdRandomDevice = 0, //!< 予測不能な乱数生成器
         // C++標準:疑似乱数生成器
         StdLiearCongruential, //!< 線形合同形法
         StdMersenneTwister, //!< メルセンヌツイスター法

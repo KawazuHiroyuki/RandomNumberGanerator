@@ -144,19 +144,20 @@
     <ClCompile Include="private\DistributionGeneratorFactory.cpp" />
     <ClCompile Include="private\RandomNumberEngine.cpp" />
     <ClCompile Include="private\RandomNumberEngineFactory.cpp" />
-    <ClCompile Include="private\SeedGenerator.cpp" />
     <ClCompile Include="private\SeedGeneratorFactory.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DistributionGeneratorID.h" />
     <ClInclude Include="DistributionGeneratorParameter.h" />
+    <ClInclude Include="private\CurrentTimeSeedGenerator.h" />
     <ClInclude Include="private\DistributionGenerator.h" />
     <ClInclude Include="private\DistributionGeneratorFactory.h" />
     <ClInclude Include="private\RandomNumberEngine.h" />
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
     <ClInclude Include="private\SeedGenerator.h" />
     <ClInclude Include="private\SeedGeneratorFactory.h" />
+    <ClInclude Include="private\StdRandomDeviceSeedGenerator.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
     <ClInclude Include="RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator.h" />

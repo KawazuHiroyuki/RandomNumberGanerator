@@ -6,6 +6,8 @@
 
 int main()
 {
+    random_number_generator::RandomNumberGenerator<int> random;
+
     std::cout << "Hello World!\n";
 }
 
