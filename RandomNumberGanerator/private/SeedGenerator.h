@@ -15,14 +15,14 @@ namespace random_number_generator
 /**
  * \brief シード生成器
  */
-template <typename Type>
+template <typename T>
 class SeedGenerator
 {
 public:
     /**
      * \brief 乱数エンジンに渡すシードの型
      */
-    using Seed = Type;
+    using Seed = T;
 
 public:
     /**

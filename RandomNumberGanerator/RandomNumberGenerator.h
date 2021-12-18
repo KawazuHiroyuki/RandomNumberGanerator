@@ -26,7 +26,7 @@
 
 namespace random_number_generator
 {
-template <typename Type>
+template <typename T>
 class RandomNumberGenerator
 {
 public:

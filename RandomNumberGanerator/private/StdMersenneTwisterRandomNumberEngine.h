@@ -17,15 +17,25 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::mersenne_twister_engine
  */
-template <typename Type, typename EngineType,
+template <typename T1, typename T2,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,
-    EngineType A, std::size_t U, EngineType D, std::size_t S,
-    EngineType B, std::size_t T,
-    EngineType C, std::size_t L, EngineType F
+    T2 A, std::size_t U, T2 D, std::size_t S,
+    T2 B, std::size_t T,
+    T2 C, std::size_t L, T2 F
 >
-class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<Type, EngineType>
+class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<T1, T2>
 {
-    static_assert(std::is_same<std::mersenne_twister_engine<EngineType, W, N, M, R, A, U, D, S, B, T, C, L, F>::result_type, EngineType>::value, "");
+    using RandomNumberEngine<T1, T2>::ResultType;
+
+    using RandomNumberEngine<T1, T2>::EngineResultType;
+
+    using RandomNumberEngine<T1, T2>::Seed;
+
+    using RandomNumberEngine<T1, T2>::getSeed;
+
+    using Engine = std::mersenne_twister_engine<EngineResultType, W, N, M, R, A, U, D, S, B, T, C, L, F>;
+
+    static_assert(std::is_same<Engine::result_type, EngineResultType>::value, "");
 
 public:
     /**
@@ -33,9 +43,9 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdMersenneTwisterRandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<Type, EngineType>> param, std::shared_ptr<SeedGenerator<EngineType>> seed)
-        : RandomNumberEngine<Type, EngineType>(param, seed)
-        , m_engine(RandomNumberEngine<Type, EngineType>::getSeed())
+    StdMersenneTwisterRandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
+        : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
+        , m_engine(getSeed())
     {
     }
 
@@ -43,7 +53,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    typename StdMersenneTwisterRandomNumberEngine::EngineRandom operator()(void) override
+    EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -70,7 +80,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    constexpr typename StdMersenneTwisterRandomNumberEngine::EngineRandom getMin(void) const override
+    constexpr EngineResultType getMin(void) const override
     {
         return m_engine.min();
     }
@@ -79,7 +89,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    constexpr typename StdMersenneTwisterRandomNumberEngine::EngineRandom getMax(void) const override
+    constexpr EngineResultType getMax(void) const override
     {
         return m_engine.max();
     }
@@ -88,6 +98,6 @@ private:
     /**
      * \brief メルセンヌツイスター法
      */
-    std::mersenne_twister_engine<EngineType, W, N, M, R, A, U, D, S, B, T, C, L, F> m_engine;
+    Engine m_engine;
 };
 } // namespace random_number_generator

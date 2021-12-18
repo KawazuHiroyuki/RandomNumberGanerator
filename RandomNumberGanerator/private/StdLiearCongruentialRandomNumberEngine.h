@@ -18,16 +18,23 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::linear_congruential_engine
  */
-template <typename Type, typename EngineType, 
-    EngineType A, EngineType C, EngineType M
+template <typename T1, typename T2, 
+    T2 A, T2 C, T2 M
     //template<class> class Param
 >
-class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<Type, EngineType>
+class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<T1, T2>
 {
-public:
-    using Engine = std::linear_congruential_engine<EngineType, A, C, M>;
+    using RandomNumberEngine<T1, T2>::ResultType;
 
-    static_assert(std::is_same<Engine::result_type, EngineType>::value, "");
+    using RandomNumberEngine<T1, T2>::EngineResultType;
+
+    using RandomNumberEngine<T1, T2>::Seed;
+
+    using RandomNumberEngine<T1, T2>::getSeed;
+
+    using Engine = std::linear_congruential_engine<EngineResultType, A, C, M>;
+
+    static_assert(std::is_same<Engine::result_type, EngineResultType>::value, "");
 
 public:
     /**
@@ -35,9 +42,9 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<Type, EngineType>> param, std::shared_ptr<SeedGenerator<EngineType>> seed)
-        : RandomNumberEngine<Type, EngineType>(param, seed)
-        , m_engine(RandomNumberEngine<Type, EngineType>::getSeed())
+    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
+        : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
+        , m_engine(getSeed())
     {
     }
 
@@ -45,7 +52,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    typename StdLiearCongruentialRandomNumberEngine::EngineRandom operator()(void) override
+    EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -72,7 +79,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    constexpr typename StdLiearCongruentialRandomNumberEngine::EngineRandom getMin(void) const override
+    constexpr EngineResultType getMin(void) const override
     {
         return m_engine.min();
     }
@@ -81,7 +88,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    constexpr typename StdLiearCongruentialRandomNumberEngine::EngineRandom getMax(void) const override
+    constexpr EngineResultType getMax(void) const override
     {
         return m_engine.max();
     }

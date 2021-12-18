@@ -17,12 +17,14 @@ namespace random_number_generator
 /**
  * \brief ÉVÅ[Éhê∂ê¨äÌ - std::random_device
  */
-template <typename Type>
-class StdRandomDeviceSeedGenerator : public SeedGenerator<Type>
+template <typename T>
+class StdRandomDeviceSeedGenerator : public SeedGenerator<T>
 {
+    using SeedGenerator<T>::Seed;
+
 public:
     StdRandomDeviceSeedGenerator(void)
-        : SeedGenerator<Type>(SeedGeneratorParameter<Type>{
+        : SeedGenerator<Seed>(SeedGeneratorParameter<Seed>{
             SeedGeneratorID::StdRandomDevice,
             []() { return std::random_device()(); }
             })

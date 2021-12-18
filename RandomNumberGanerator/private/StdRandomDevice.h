@@ -17,10 +17,20 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::random_device
  */
-template <typename Type, typename EngineType>
-class StdRandomDevice : public RandomNumberEngine<Type, EngineType>
+template <typename T1, typename T2>
+class StdRandomDevice : public RandomNumberEngine<T1, T2>
 {
-    static_assert(std::is_same<std::random_device::result_type, EngineType>::value, "");
+    using RandomNumberEngine<T1, T2>::ResultType;
+
+    using RandomNumberEngine<T1, T2>::EngineResultType;
+
+    using RandomNumberEngine<T1, T2>::Seed;
+
+    using RandomNumberEngine<T1, T2>::getSeed;
+
+    using Engine = std::random_device;
+
+    static_assert(std::is_same<Engine::result_type, EngineResultType>::value, "");
 
 public:
     /**
@@ -28,8 +38,8 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdRandomDevice(std::shared_ptr<RandomNumberEngineParameter<Type, EngineType>> param, std::shared_ptr<SeedGenerator<EngineType>> seed)
-        : RandomNumberEngine<Type, EngineType>(param, seed)
+    StdRandomDevice(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
+        : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
         , m_engine()
     {
     }
@@ -38,7 +48,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    typename StdRandomDevice::EngineRandom operator()(void) override
+    EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -65,7 +75,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    constexpr typename StdRandomDevice::EngineRandom getMin(void) const override
+    constexpr EngineResultType getMin(void) const override
     {
         return m_engine.min();
     }
@@ -74,7 +84,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    constexpr typename StdRandomDevice::EngineRandom getMax(void) const override
+    constexpr EngineResultType getMax(void) const override
     {
         return m_engine.max();
     }
@@ -83,6 +93,6 @@ private:
     /**
      * \brief 予測不能な乱数生成器
      */
-    std::random_device m_engine;
+    Engine m_engine;
 };
 } // namespace random_number_generator

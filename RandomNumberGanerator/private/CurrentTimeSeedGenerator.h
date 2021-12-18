@@ -17,14 +17,16 @@ namespace random_number_generator
 /**
  * \brief ÉVÅ[Éhê∂ê¨äÌ - åªç›éûçè
  */
-template <typename Type>
-class CurrentTimeSeedGenerator : public SeedGenerator<Type>
+template <typename T>
+class CurrentTimeSeedGenerator : public SeedGenerator<T>
 {
+    using SeedGenerator<T>::Seed;
+
 public:
     CurrentTimeSeedGenerator(void)
-        : SeedGenerator<Type>(SeedGeneratorParameter<Type>{
+        : SeedGenerator<Seed>(SeedGeneratorParameter<Seed>{
             SeedGeneratorID::CurrentTime,
-            []() { return static_cast<Type>(std::time(nullptr)); }
+            []() { return static_cast<Seed>(std::time(nullptr)); }
             })
     {
     }

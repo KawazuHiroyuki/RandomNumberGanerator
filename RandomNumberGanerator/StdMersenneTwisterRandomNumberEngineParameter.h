@@ -16,37 +16,24 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジンパラメータ - std::mersenne_twister_engine
  */
-template <typename Type, typename EngineType,
+template <typename T1, typename T2,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,
-    EngineType A, std::size_t U, EngineType D, std::size_t S,
-    EngineType B, std::size_t T,
-    EngineType C, std::size_t L, EngineType F
+    T2 A, std::size_t U, T2 D, std::size_t S,
+    T2 B, std::size_t T,
+    T2 C, std::size_t L, T2 F
 >
 struct StdMersenneTwisterRandomNumberEngineParameter
 {
     /**
      * \brief 生成する乱数の型
      */
-    using Random = Type;
+    using ResultType = T1;
 
     /**
      * \brief 乱数エンジンが生成する乱数の型
      */
-    using EngineRandom = EngineType;
+    using EngineResultType = T2;
 
-    /**
-     * \brief テンプレートパラメータ a 乗数
-     */
-    using Multiplier = A;
 
-    /**
-     * \brief テンプレートパラメータ c 増分
-     */
-    using Increment = C;
-
-    /**
-     * \brief テンプレートパラメータ m 法
-     */
-    using Modulus = M;
 };
 } // namespace random_number_generator

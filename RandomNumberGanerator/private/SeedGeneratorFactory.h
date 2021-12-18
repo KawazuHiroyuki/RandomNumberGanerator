@@ -22,19 +22,19 @@ namespace random_number_generator
 class SeedGeneratorFactory
 {
 public:
-    template <typename Type>
-    static std::shared_ptr<SeedGenerator<Type>> create(SeedGeneratorParameter<Type> param)
+    template <typename Seed>
+    static std::shared_ptr<SeedGenerator<Seed>> create(SeedGeneratorParameter<Seed> param)
     {
         switch (param.id) {
             case SeedGeneratorID::StdRandomDevice:
-                return std::make_shared<StdRandomDeviceSeedGenerator<Type>>();
+                return std::make_shared<StdRandomDeviceSeedGenerator<Seed>>();
             case SeedGeneratorID::CurrentTime:
-                return std::make_shared <CurrentTimeSeedGenerator<Type>>();
+                return std::make_shared <CurrentTimeSeedGenerator<Seed>>();
             case SeedGeneratorID::Custom:
                 if (!param.generator) {
                     return nullptr;
                 }
-                return std::make_shared<SeedGenerator<Type>>(param);
+                return std::make_shared<SeedGenerator<Seed>>(param);
             default:
                 return nullptr;
         }
