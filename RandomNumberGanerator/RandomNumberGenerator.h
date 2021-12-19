@@ -9,20 +9,9 @@
 #pragma once
 
 #include "private/SeedEngineFactory.h"
-#include "private/StdRandomDeviceSeedEngine.h"
+#include "private/RandomNumberEngineFactory.h"
 
-#include "private/StdDefaultRandomEngine.h"
-#include "private/StdKnuthRandomNumberEngine.h"
-#include "private/StdLiearCongruentialRandomNumberEngine.h"
-#include "private/StdMersenneTwisterRandomNumberEngine.h"
-#include "private/StdMinStdRand0RandomNumberEngine.h"
-#include "private/StdMinStdRandRandomNumberEngine.h"
-#include "private/StdMt199937_32BitRandomNumberEngine.h"
-#include "private/StdMt199937_64BitRandomNumberEngine.h"
-#include "private/StdRandomDevice.h"
-#include "private/StdRanlux24RandomNumberEngine.h"
-#include "private/StdRanlux48RandomNumberEngine.h"
-#include "private/StdSubtractWithCarryRandomNumberEngine.h"
+
 
 namespace random_number_generator
 {

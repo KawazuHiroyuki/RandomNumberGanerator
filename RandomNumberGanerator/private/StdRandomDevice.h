@@ -20,26 +20,18 @@ namespace random_number_generator
 template <typename ResultType_, typename EngineResultType_>
 class StdRandomDevice : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
-
-    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
-
-    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
-
-    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
+    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
 
     using Engine = std::random_device;
 
-    static_assert(std::is_same<Engine::result_type, EngineResultType>::value, "");
+    //static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 
 public:
     /**
      * \brief コンストラクタ
-     * \param param 乱数エンジンパラメータ
-     * \param seed シード生成器
      */
-    StdRandomDevice(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedEngine<Seed>> seed)
-        : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
+    StdRandomDevice(void)
+        : Base(makeRandomNumberEngineParameter<Base::ResultType, Base::EngineResultType>(RandomNumberEngineID::StdRandomDevice), nullptr)
         , m_engine()
     {
     }
@@ -48,7 +40,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    EngineResultType operator()(void) override
+    Base::EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -75,7 +67,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    constexpr EngineResultType getMin(void) const override
+    constexpr Base::EngineResultType getMin(void) const override
     {
         return m_engine.min();
     }
@@ -84,7 +76,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    constexpr EngineResultType getMax(void) const override
+    constexpr Base::EngineResultType getMax(void) const override
     {
         return m_engine.max();
     }

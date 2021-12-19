@@ -111,7 +111,7 @@ protected:
     std::shared_ptr<EngineParameter> m_param;
 
     /**
-     * \brief シード生成器
+     * \brief シードエンジン
      */
     std::shared_ptr<SeedEngine<Seed>> m_seed;
 };

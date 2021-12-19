@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <vector>
 #include "RandomNumberGenerator.h"
 
 int main()
@@ -9,16 +10,46 @@ int main()
     //random_number_generator::RandomNumberGenerator<unsigned int> random;
 
     using namespace random_number_generator;
+
+    using Seed = unsigned int;
+    std::vector<std::shared_ptr<SeedEngine<Seed>>> seeds = {
+        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::StdRandomDevice }),
+        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::CurrentTime }),
+        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::Custom, []() { return 10;  } })
+    };
+    std::cout << "--- Seed ---" << std::endl;
+    for (auto seed : seeds) {
+        std::cout << (*seed)() << std::endl;
+    }
+
     using Type = unsigned int;
-
-    auto seed0 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::StdRandomDevice });
-    auto seed1 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::CurrentTime });
-    auto seed2 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::Custom, []() { return 10;  } });
-
-    std::cout << (*seed0)() << "\n";
-    std::cout << (*seed1)() << "\n";
-    std::cout << (*seed2)() << "\n";
+    std::vector<std::shared_ptr<RandomNumberEngine<Type, Type>>> engines = {
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdRandomDevice)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdLiearCongruential)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMersenneTwister)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdSubtractWithCarry)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMinStdRand0)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMinStdRand)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMt199937_32Bit)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdRanlux24)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdKnuth)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdDefaultRandomEngine))
+    };
+    std::cout << "--- Random (32) ---" << std::endl;
+    for (auto engine : engines) {
+        std::cout << (*engine)() << std::endl;
+    }
     
+    using Type2 = unsigned long long;
+    std::vector<std::shared_ptr<RandomNumberEngine<Type2, Type2>>> engines2 = {
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2, Type2>(RandomNumberEngineID::StdMt199937_64Bit)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2, Type2>(RandomNumberEngineID::StdRanlux48))
+    };
+    std::cout << "--- Random (64) ---" << std::endl;
+    for (auto engine : engines2) {
+        std::cout << (*engine)() << std::endl;
+    }
+
 #if 0
     StdRandomDeviceSeedGenerator<Type>();
 
@@ -42,7 +73,7 @@ int main()
     StdRanlux48RandomNumberEngine<Type2, Type2>(std::make_shared<RandomNumberEngineParameter<Type2, Type2>>(), std::make_shared<SeedGenerator<Type2>>());
 #endif
 
-    std::cout << "Hello World!\n";
+    //std::cout << "Hello World!\n";
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー

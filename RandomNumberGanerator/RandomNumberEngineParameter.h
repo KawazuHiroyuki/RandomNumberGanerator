@@ -42,4 +42,12 @@ struct RandomNumberEngineParameter
      */
     RandomNumberEngineID id = DEFAULT_RANDOM_NUMBER_ENGINE_ID;
 };
+
+template <typename ResultType_, typename EngineResultType_>
+std::shared_ptr<RandomNumberEngineParameter<ResultType_, EngineResultType_>> 
+inline makeRandomNumberEngineParameter(RandomNumberEngineID id = DEFAULT_RANDOM_NUMBER_ENGINE_ID)
+{
+    return std::make_shared<RandomNumberEngineParameter<ResultType_, EngineResultType_>>(id);
+}
+
 } // namespace random_number_generator

@@ -28,7 +28,7 @@ public:
      * \return シートエンジン
      */
     template <typename Seed>
-    static std::shared_ptr<SeedEngine<Seed>> create(SeedEngineParameter<Seed> param)
+    static std::shared_ptr<SeedEngine<Seed>> create(SeedEngineParameter<Seed> param = {})
     {
         switch (param.id) {
             case SeedEngineID::StdRandomDevice:

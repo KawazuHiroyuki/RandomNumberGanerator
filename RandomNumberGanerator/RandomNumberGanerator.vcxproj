@@ -142,7 +142,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="private\DistributionGenerator.cpp" />
     <ClCompile Include="private\DistributionGeneratorFactory.cpp" />
-    <ClCompile Include="private\RandomNumberEngine.cpp" />
     <ClCompile Include="private\RandomNumberEngineFactory.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
