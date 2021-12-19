@@ -3,17 +3,12 @@
 
 #include <iostream>
 #include <vector>
+
 #include "RandomNumberGenerator.h"
-#include "private/RandomNumberEngineUtility.h"
 
 int main()
 {
     using namespace random_number_generator;
-
-    RandomNumberGenerator<unsigned int> random(RandomNumberEngineID::StdRandomDevice);
-
-
-    //std::uniform_int_distribution<>;
 
     using Seed = unsigned int;
     std::vector<std::shared_ptr<SeedEngine<Seed>>> seeds = {
@@ -31,7 +26,7 @@ int main()
     std::vector<RandomNumberGenerator<unsigned int>> engines = {
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRandomDevice, {SeedEngineID::StdRandomDevice}),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand0, {SeedEngineID::CurrentTime}),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand, {SeedEngineID::Custom, []() { return 10; }}),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand, {SeedEngineID::Custom, []() { return static_cast<std::uint64_t>(10); }}),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_32Bit),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_64Bit),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux24),
@@ -45,45 +40,6 @@ int main()
         std::cout << engine() << std::endl;
         engine.discard(0);
     }
-
-#if 0
-    //auto ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
-
-    auto engine1 = EngineFactory<StdMinStdRand0RandomNumberEngine>::create();
-    auto ptrEngine1 = std::dynamic_pointer_cast<StdMinStdRand0RandomNumberEngine>(engine1);
-
-    auto engine2 = EngineFactory<StdMinStdRandRandomNumberEngine>::create();
-    auto ptrEngine2 = std::dynamic_pointer_cast<StdMinStdRandRandomNumberEngine>(engine2);
-
-    auto engine3 = EngineFactory<StdMt199937_32BitRandomNumberEngine>::create();
-    auto ptrEngine3 = std::dynamic_pointer_cast<StdMt199937_32BitRandomNumberEngine>(engine3);
-
-    auto engine4 = EngineFactory<StdMt199937_64BitRandomNumberEngine>::create();
-    auto ptrEngine4 = std::dynamic_pointer_cast<StdMt199937_64BitRandomNumberEngine>(engine4);
-
-    auto engine5 = EngineFactory<StdRanlux24RandomNumberEngine>::create();
-    auto ptrEngine5 = std::dynamic_pointer_cast<StdRanlux24RandomNumberEngine>(engine5);
-
-    auto engine6 = EngineFactory<StdRanlux48RandomNumberEngine>::create();
-    auto ptrEngine6 = std::dynamic_pointer_cast<StdRanlux48RandomNumberEngine>(engine6);
-
-    auto engine7 = EngineFactory<StdKnuthRandomNumberEngine>::create();
-    auto ptrEngine7 = std::dynamic_pointer_cast<StdKnuthRandomNumberEngine>(engine7);
-
-    auto engine8 = EngineFactory<StdDefaultRandomEngine>::create();
-    std::shared_ptr<StdDefaultRandomEngine> ptrEngine8 = std::dynamic_pointer_cast<StdDefaultRandomEngine>(engine8);
-
-    std::cout << "--- Random ---" << std::endl;
-    //Bstd::cout << "StdRandomDevice : " << (*ptrEngine0)() << std::endl;
-    std::cout << "StdMinStdRand0RandomNumberEngine : " << (*ptrEngine1)() << std::endl;
-    std::cout << "StdMinStdRandRandomNumberEngine : " << (*ptrEngine2)() << std::endl;
-    std::cout << "StdMt199937_32BitRandomNumberEngine : " << (*ptrEngine3)() << std::endl;
-    std::cout << "StdMt199937_64BitRandomNumberEngine : " << (*ptrEngine4)() << std::endl;
-    std::cout << "StdRanlux24RandomNumberEngine : " << (*ptrEngine5)() << std::endl;
-    std::cout << "StdRanlux48RandomNumberEngine : " << (*ptrEngine6)() << std::endl;
-    std::cout << "StdKnuthRandomNumberEngine : " << (*ptrEngine7)() << std::endl;
-    std::cout << "StdDefaultRandomEngine : " << (*ptrEngine8)() << std::endl;
-#endif
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー

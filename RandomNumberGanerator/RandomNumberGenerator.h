@@ -41,7 +41,6 @@ public:
     using Seed = Seed_;
 
 public:
-    //template <typename Seed>
     RandomNumberGenerator(const RandomNumberEngineParameter& engineParam, const SeedEngineParameter<Seed>& seedParam = {})
         : m_engine()
     {

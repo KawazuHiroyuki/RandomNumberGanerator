@@ -59,23 +59,16 @@ public:
      */
     virtual EngineResultType operator()(void) = 0;
 
-
-
+    /**
+     * \brief 乱数エンジンIDを取得
+     * \return 乱数エンジンID
+     */
     RandomNumberEngineID getRandomNumberEngineID(void) const override
     {
         return m_param.id;
     }
 
 protected:
-    ///**
-    // * \brief 乱数エンジンパラメータを取得
-    // * \return 乱数エンジンパラメータ 
-    // */
-    //std::shared_ptr<RandomNumberEngineParameter<Type, EngineType>> getParam(void) const
-    //{
-    //    return m_param;
-    //}
-
     /**
      * \brief シードを取得
      * \return シード
