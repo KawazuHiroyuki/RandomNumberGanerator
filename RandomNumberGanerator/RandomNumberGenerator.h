@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include "private/SeedGeneratorFactory.h"
-#include "private/StdRandomDeviceSeedGenerator.h"
+#include "private/SeedEngineFactory.h"
+#include "private/StdRandomDeviceSeedEngine.h"
 
 #include "private/StdDefaultRandomEngine.h"
 #include "private/StdKnuthRandomNumberEngine.h"

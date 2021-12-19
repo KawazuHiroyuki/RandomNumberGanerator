@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   SeedGeneratorID.h
- * \brief  シード生成器ID
+ * \file   SeedEngineID.h
+ * \brief  シードエンジンID
  * 
  * \author japan
  * \date   December 2021
@@ -11,9 +11,9 @@
 namespace random_number_generator
 {
 /**
- * \brief シード生成器ID
+ * \brief シードエンジンID
  */
-enum class SeedGeneratorID {
+enum class SeedEngineID {
     // C++標準
     StdRandomDevice = 0, //!< 予測不能な乱数生成器
     // 固有
@@ -22,5 +22,5 @@ enum class SeedGeneratorID {
     Custom, //!< カスタム
 };
 
-constexpr SeedGeneratorID DEFAULT_SEED_GENERATOR_ID = SeedGeneratorID::StdRandomDevice;
+constexpr SeedEngineID DEFAULT_SEED_ENGINE_ID = SeedEngineID::StdRandomDevice;
 } // namespace random_number_generator

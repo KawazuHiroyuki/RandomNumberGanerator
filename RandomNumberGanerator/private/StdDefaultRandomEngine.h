@@ -42,7 +42,7 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdDefaultRandomEngine(std::shared_ptr<SeedGenerator<Seed>> seed)
+    StdDefaultRandomEngine(std::shared_ptr<SeedEngine<Seed>> seed)
         : Base(std::make_shared<EngineParameter>(RandomNumberEngineID::StdDefaultRandomEngine), seed)
         , m_engine(getSeed())
     {

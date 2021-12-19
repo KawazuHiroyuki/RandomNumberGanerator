@@ -28,20 +28,20 @@
     <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine">
       <UniqueIdentifier>{dbbecf0c-7057-43a7-9395-27ee98e0a746}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\private\SeedGenerator">
-      <UniqueIdentifier>{c7e32c7a-15f7-4513-a6fa-9e88c1bcd26c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\RandomNumberGanerator\private\DistributionGenerator">
       <UniqueIdentifier>{2ddb7e9b-f921-4526-9a6c-67b2db05c3ff}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine">
       <UniqueIdentifier>{8016a3c2-cf3b-4b62-b838-43684e634bf0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\Parameter\SeedGenerator">
-      <UniqueIdentifier>{867a6036-bda2-438c-a93a-1ee3a4d58cc8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\RandomNumberGanerator\Parameter\DistributionGenerator">
       <UniqueIdentifier>{72e09eb9-bd53-4a69-aea7-d4eee962a9a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\Parameter\SeedEngine">
+      <UniqueIdentifier>{867a6036-bda2-438c-a93a-1ee3a4d58cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\private\SeedEngine">
+      <UniqueIdentifier>{c7e32c7a-15f7-4513-a6fa-9e88c1bcd26c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,9 +52,6 @@
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClCompile>
     <ClCompile Include="private\RandomNumberEngineFactory.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="private\SeedGeneratorFactory.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClCompile>
     <ClCompile Include="RandomNumberGenerator.cpp">
@@ -74,20 +71,8 @@
     <ClInclude Include="private\RandomNumberEngineFactory.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="private\SeedGeneratorFactory.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
-    </ClInclude>
     <ClInclude Include="RandomNumberGenerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator</Filter>
-    </ClInclude>
-    <ClInclude Include="private\StdRandomDeviceSeedGenerator.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedGenerator</Filter>
-    </ClInclude>
-    <ClInclude Include="private\SeedGenerator.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedGenerator</Filter>
-    </ClInclude>
-    <ClInclude Include="private\CurrentTimeSeedGenerator.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedGenerator</Filter>
     </ClInclude>
     <ClInclude Include="private\DistributionGenerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\DistributionGenerator</Filter>
@@ -140,23 +125,35 @@
     <ClInclude Include="StdLiearCongruentialRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SeedGeneratorID.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedGenerator</Filter>
-    </ClInclude>
     <ClInclude Include="DistributionGeneratorParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\DistributionGenerator</Filter>
     </ClInclude>
     <ClInclude Include="DistributionGeneratorID.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\DistributionGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="SeedGeneratorParameter.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedGenerator</Filter>
-    </ClInclude>
     <ClInclude Include="StdMersenneTwisterRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
     <ClInclude Include="StdSubtractWithCarryRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SeedEngineID.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SeedEngineParameter.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="private\CurrentTimeSeedEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="private\SeedEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdRandomDeviceSeedEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\SeedEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="private\SeedEngineFactory.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

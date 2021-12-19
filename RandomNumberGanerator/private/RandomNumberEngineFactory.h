@@ -20,7 +20,7 @@ class RandomNumberEngineFactory
 public:
     template <typename ResultType, typename EngineResultType>
     static std::shared_ptr<RandomNumberEngine<ResultType, EngineResultType>> create(
-        std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<EngineResultType>> seed)
+        std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedEngine<EngineResultType>> seed)
     {
         switch (param->id) {
             case RandomNumberEngineID::StdRandomDevice:

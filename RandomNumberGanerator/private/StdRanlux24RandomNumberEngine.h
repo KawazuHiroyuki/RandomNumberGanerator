@@ -38,7 +38,7 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdRanlux24RandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
+    StdRanlux24RandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedEngine<Seed>> seed)
         : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
         , m_engine(getSeed())
     {

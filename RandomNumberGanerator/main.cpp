@@ -11,9 +11,9 @@ int main()
     using namespace random_number_generator;
     using Type = unsigned int;
 
-    auto seed0 = SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::StdRandomDevice });
-    auto seed1 = SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::CurrentTime });
-    auto seed2 = SeedGeneratorFactory::create(SeedGeneratorParameter<Type>{ SeedGeneratorID::Custom, []() { return 10;  } });
+    auto seed0 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::StdRandomDevice });
+    auto seed1 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::CurrentTime });
+    auto seed2 = SeedEngineFactory::create(SeedEngineParameter<Type>{ SeedEngineID::Custom, []() { return 10;  } });
 
     std::cout << (*seed0)() << "\n";
     std::cout << (*seed1)() << "\n";
