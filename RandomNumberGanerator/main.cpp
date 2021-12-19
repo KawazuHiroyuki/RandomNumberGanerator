@@ -22,33 +22,40 @@ int main()
         std::cout << (*seed)() << std::endl;
     }
 
-    using Type = unsigned int;
-    std::vector<std::shared_ptr<RandomNumberEngine<Type, Type>>> engines = {
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdRandomDevice)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdLiearCongruential)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMersenneTwister)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdSubtractWithCarry)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMinStdRand0)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMinStdRand)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdMt199937_32Bit)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdRanlux24)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdKnuth)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type, Type>(RandomNumberEngineID::StdDefaultRandomEngine))
+    using Type = std::uint32_t;
+    auto engine0 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRandomDevice));
+    std::shared_ptr<StdRandomDevice> ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
+    std::cout << "--- Random (32) ---" << std::endl;
+    std::cout << (*ptrEngine0)() << std::endl;
+
+#if 0
+    std::vector<std::shared_ptr<RandomNumberEngine<Type>>> engines = {
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRandomDevice)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdLiearCongruential)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMersenneTwister)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdSubtractWithCarry)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMinStdRand0)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMinStdRand)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMt199937_32Bit)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRanlux24)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdKnuth)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdDefaultRandomEngine))
     };
     std::cout << "--- Random (32) ---" << std::endl;
     for (auto engine : engines) {
         std::cout << (*engine)() << std::endl;
     }
     
-    using Type2 = unsigned long long;
-    std::vector<std::shared_ptr<RandomNumberEngine<Type2, Type2>>> engines2 = {
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2, Type2>(RandomNumberEngineID::StdMt199937_64Bit)),
-        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2, Type2>(RandomNumberEngineID::StdRanlux48))
+    using Type2 = std::uint64_t;
+    std::vector<std::shared_ptr<RandomNumberEngine<Type2>>> engines2 = {
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2>(RandomNumberEngineID::StdMt199937_64Bit)),
+        RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type2>(RandomNumberEngineID::StdRanlux48))
     };
     std::cout << "--- Random (64) ---" << std::endl;
     for (auto engine : engines2) {
         std::cout << (*engine)() << std::endl;
     }
+#endif
 
 #if 0
     StdRandomDeviceSeedGenerator<Type>();

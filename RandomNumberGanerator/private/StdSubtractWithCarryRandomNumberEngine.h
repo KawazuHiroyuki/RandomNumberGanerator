@@ -17,12 +17,12 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::subtract_with_carry_engine
  */
-template <typename ResultType_, typename EngineResultType_,
+template <typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R
 >
-class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
+class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
 {
-    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_>;
 
     using Engine = std::subtract_with_carry_engine<Base::EngineResultType, W, S, R>;
 
@@ -34,7 +34,7 @@ public:
      * \param seed シードエンジン
      */
     StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::ResultType, Base::EngineResultType>(RandomNumberEngineID::StdSubtractWithCarry), seed)
+        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdSubtractWithCarry), seed)
         , m_engine(Base::getSeed())
     {
     }

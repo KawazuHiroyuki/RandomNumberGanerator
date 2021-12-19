@@ -15,9 +15,15 @@
 
 namespace random_number_generator
 {
-template <typename T>
+template <typename ResultType_>
 class RandomNumberGenerator
 {
+public:
+    /**
+     * \brief 生成する乱数の型
+     */
+    using ResultType = ResultType_;
+
 public:
     RandomNumberGenerator(void)
     {
@@ -25,5 +31,8 @@ public:
 
 
     }
+
+private:
+    std::shared_ptr<RandomNumberEngine<ResultType>> m_engine;
 };
 } // namespace random_number_generator

@@ -140,14 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="private\AbstractRandomNumberEngine.cpp" />
     <ClCompile Include="private\DistributionGenerator.cpp" />
     <ClCompile Include="private\DistributionGeneratorFactory.cpp" />
-    <ClCompile Include="private\RandomNumberEngineFactory.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DistributionGeneratorID.h" />
     <ClInclude Include="DistributionGeneratorParameter.h" />
+    <ClInclude Include="private\AbstractRandomNumberEngine.h" />
     <ClInclude Include="private\CurrentTimeSeedEngine.h" />
     <ClInclude Include="private\DistributionGenerator.h" />
     <ClInclude Include="private\DistributionGeneratorFactory.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="StdLiearCongruentialRandomNumberEngineParameter.h" />
     <ClInclude Include="StdMersenneTwisterRandomNumberEngineParameter.h" />
     <ClInclude Include="StdSubtractWithCarryRandomNumberEngineParameter.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

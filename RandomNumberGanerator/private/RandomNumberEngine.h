@@ -12,6 +12,7 @@
 #include <cstdint>
 
 #include "../RandomNumberEngineParameter.h"
+#include "AbstractRandomNumberEngine.h"
 #include "SeedEngine.h"
 
 namespace random_number_generator
@@ -19,15 +20,10 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン
  */
-template <typename ResultType_, typename EngineResultType_>
-class RandomNumberEngine
+template <typename EngineResultType_>
+class RandomNumberEngine : public AbstractRandomNumberEngine
 {
 public:
-    /**
-     * \brief 生成する乱数の型
-     */
-    using ResultType = ResultType_;
-
     /**
      * \brief 乱数エンジンが生成する乱数の型
      */
@@ -36,7 +32,7 @@ public:
     /**
      * \brief 乱数エンジンパラメータの型
      */
-    using EngineParameter = RandomNumberEngineParameter<ResultType, EngineResultType>;
+    using EngineParameter = RandomNumberEngineParameter<EngineResultType>;
 
     /**
      * \brief シードの型
@@ -54,6 +50,8 @@ public:
         , m_seed(seed)
     {
     }
+
+    virtual ~RandomNumberEngine(void) = default;
 
     /**
      * \brief 乱数を生成
@@ -77,13 +75,13 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    virtual constexpr EngineResultType getMin(void) const = 0;
+    virtual EngineResultType getMin(void) const = 0;
 
     /**
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    virtual constexpr EngineResultType getMax(void) const = 0;
+    virtual EngineResultType getMax(void) const = 0;
 
 protected:
     ///**

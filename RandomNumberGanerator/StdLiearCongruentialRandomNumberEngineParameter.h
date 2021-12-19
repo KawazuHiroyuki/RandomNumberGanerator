@@ -15,16 +15,11 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジンパラメータ - std::linear_congruential_engine
  */
-template <typename ResultType_, typename EngineResultType_,
+template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M
 >
 struct StdLiearCongruentialRandomNumberEngineParameter
 {
-    /**
-     * \brief 生成する乱数の型
-     */
-    using ResultType = ResultType_;
-
     /**
      * \brief 乱数エンジンが生成する乱数の型
      */

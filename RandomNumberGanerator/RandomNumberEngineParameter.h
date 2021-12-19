@@ -15,16 +15,11 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジンパラメータ
  */
-template <typename ResultType_, typename EngineResultType_>
+template <typename EngineResultType_>
 struct RandomNumberEngineParameter
 {
     /**
-     * \brief 生成する乱数の型
-     */
-    using ResultType = ResultType_;
-
-    /**
-     * \brief 乱数エンジンが生成する乱数の型
+     * \brief 乱数エンジンが生成する乱数の型s
      */
     using EngineResultType = EngineResultType_;
 
@@ -43,11 +38,11 @@ struct RandomNumberEngineParameter
     RandomNumberEngineID id = DEFAULT_RANDOM_NUMBER_ENGINE_ID;
 };
 
-template <typename ResultType_, typename EngineResultType_>
-std::shared_ptr<RandomNumberEngineParameter<ResultType_, EngineResultType_>> 
+template <typename EngineResultType_>
+std::shared_ptr<RandomNumberEngineParameter<EngineResultType_>> 
 inline makeRandomNumberEngineParameter(RandomNumberEngineID id = DEFAULT_RANDOM_NUMBER_ENGINE_ID)
 {
-    return std::make_shared<RandomNumberEngineParameter<ResultType_, EngineResultType_>>(id);
+    return std::make_shared<RandomNumberEngineParameter<EngineResultType_>>(id);
 }
 
 } // namespace random_number_generator

@@ -18,13 +18,13 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::linear_congruential_engine
  */
-template <typename ResultType_, typename EngineResultType_,
+template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M
     //template<class> class Param
 >
-class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
+class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
 {
-    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_>;
 
     using Engine = std::linear_congruential_engine<Base::EngineResultType, A, C, M>;
 
@@ -36,7 +36,7 @@ public:
      * \param seed シードエンジン
      */
     StdLiearCongruentialRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::ResultType, Base::EngineResultType>(RandomNumberEngineID::StdLiearCongruential), seed)
+        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdLiearCongruential), seed)
         , m_engine(Base::getSeed())
     {
     }

@@ -17,23 +17,20 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::mt19937_64
  */
-template <typename ResultType_, typename EngineResultType_>
-class StdMt199937_64BitRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
+class StdMt199937_64BitRandomNumberEngine : public RandomNumberEngine<std::mt19937_64::result_type>
 {
-    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType>;
 
     using Engine = std::mt19937_64;
-
-    //static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 
 public:
     /**
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdMt199937_64BitRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::ResultType, Base::EngineResultType>(RandomNumberEngineID::StdMt199937_64Bit), seed)
-        , m_engine(Base::getSeed())
+    StdMt199937_64BitRandomNumberEngine(std::shared_ptr<SeedEngine<Seed>> seed)
+        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdMt199937_64Bit), seed)
+        , m_engine(getSeed())
     {
     }
 
@@ -41,7 +38,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    Base::EngineResultType operator()(void) override
+    EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -68,7 +65,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    constexpr Base::EngineResultType getMin(void) const override
+    EngineResultType getMin(void) const override
     {
         return m_engine.min();
     }
@@ -77,7 +74,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    constexpr Base::EngineResultType getMax(void) const override
+    EngineResultType getMax(void) const override
     {
         return m_engine.max();
     }

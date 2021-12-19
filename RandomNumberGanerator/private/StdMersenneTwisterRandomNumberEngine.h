@@ -17,15 +17,15 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::mersenne_twister_engine
  */
-template <typename ResultType_, typename EngineResultType_,
+template <typename EngineResultType_,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,
     EngineResultType_ A, std::size_t U, EngineResultType_ D, std::size_t S,
     EngineResultType_ B, std::size_t T,
     EngineResultType_ C, std::size_t L, EngineResultType_ F
 >
-class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
+class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
 {
-    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_>;
 
     using Engine = std::mersenne_twister_engine<Base::EngineResultType, W, N, M, R, A, U, D, S, B, T, C, L, F>;
 
@@ -37,7 +37,7 @@ public:
      * \param seed シードエンジン
      */
     StdMersenneTwisterRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::ResultType, Base::EngineResultType>(RandomNumberEngineID::StdMersenneTwister), seed)
+        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdMersenneTwister), seed)
         , m_engine(Base::getSeed())
     {
     }
