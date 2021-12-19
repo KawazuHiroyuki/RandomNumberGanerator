@@ -17,6 +17,9 @@ namespace random_number_generator
  */
 struct RandomNumberEngineParameter
 {
+    // TODO ↓復帰
+    // using EngineResultType = EngineResultType_;
+
     /**
      * \brief コンストラクタ
      * \param id_ 乱数エンジンID

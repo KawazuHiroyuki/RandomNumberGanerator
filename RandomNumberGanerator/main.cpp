@@ -21,24 +21,33 @@ int main()
         std::cout << (*seed)() << std::endl;
     }
 
-    using Type = std::uint32_t;
+    using Type = std::uint64_t;
 
-    std::vector<RandomNumberGenerator<unsigned int>> engines = {
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRandomDevice, {SeedEngineID::StdRandomDevice}),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand0, {SeedEngineID::CurrentTime}),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand, {SeedEngineID::Custom, []() { return static_cast<std::uint64_t>(10); }}),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_32Bit),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_64Bit),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux24),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux48),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdKnuth),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdDefaultRandomEngine)
+    std::vector<RandomNumberGenerator<uint64_t>> engines = {
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdRandomDevice, {SeedEngineID::StdRandomDevice}),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdMinStdRand0, {SeedEngineID::CurrentTime}),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdMinStdRand, {SeedEngineID::Custom, []() { return static_cast<std::uint64_t>(10); }}),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdMt199937_32Bit),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdMt199937_64Bit),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdRanlux24),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdRanlux48),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdKnuth),
+        RandomNumberGenerator<uint64_t>(RandomNumberEngineID::StdDefaultRandomEngine)
     };
 
     std::cout << "--- Random ---" << std::endl;
+    size_t n = 0;
     for (auto& engine : engines) {
-        std::cout << engine() << std::endl;
+        std::cout << "+++ " << n << " +++" << std::endl;
+        std::cout << "Min :" << engine.getMin() << std::endl;
+        std::cout << "Max :" << engine.getMax() << std::endl;
+        std::cout << "EngineMin :" << engine.getEngineMin() << std::endl;
+        std::cout << "EngineMax :" << engine.getEngineMax() << std::endl;
+        std::cout << "Engropy :" << engine.getEntropy() << std::endl;
+        std::cout << "Gene1 :" << engine() << std::endl;
         engine.discard(0);
+        std::cout << "Gene2 :" << engine() << std::endl;
+        n++;
     }
 }
 
