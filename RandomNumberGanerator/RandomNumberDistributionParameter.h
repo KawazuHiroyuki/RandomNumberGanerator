@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   DistributionGenerator.h
- * \brief  分布生成器
+ * \file   RandomNumberDistributionParameter.h
+ * \brief  乱数分布パラメータ
  * 
  * \author japan
  * \date   December 2021
@@ -10,7 +10,12 @@
 
 namespace random_number_generator
 {
-class DistributionGenerator
+/**
+ * \brief 乱数分布パラメータ
+ */
+struct RandomNumberDistributionParameter
 {
+
 };
 } // namespace random_number_generator
+

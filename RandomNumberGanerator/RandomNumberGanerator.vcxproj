@@ -141,17 +141,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="private\AbstractRandomNumberEngine.cpp" />
-    <ClCompile Include="private\DistributionGenerator.cpp" />
-    <ClCompile Include="private\DistributionGeneratorFactory.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DistributionGeneratorID.h" />
-    <ClInclude Include="DistributionGeneratorParameter.h" />
     <ClInclude Include="private\AbstractRandomNumberEngine.h" />
     <ClInclude Include="private\CurrentTimeSeedEngine.h" />
-    <ClInclude Include="private\DistributionGenerator.h" />
-    <ClInclude Include="private\DistributionGeneratorFactory.h" />
+    <ClInclude Include="private\RandomNumberDistribution.h" />
+    <ClInclude Include="private\RandomNumberDistributionFactory.h" />
     <ClInclude Include="private\RandomNumberEngine.h" />
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
     <ClInclude Include="private\SeedEngine.h" />
@@ -169,6 +165,8 @@
     <ClInclude Include="private\StdRanlux24RandomNumberEngine.h" />
     <ClInclude Include="private\StdRanlux48RandomNumberEngine.h" />
     <ClInclude Include="private\StdSubtractWithCarryRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberDistributionID.h" />
+    <ClInclude Include="RandomNumberDistributionParameter.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
     <ClInclude Include="RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator.h" />

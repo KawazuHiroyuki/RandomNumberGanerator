@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   DistributionGeneratorID.h
- * \brief  分布生成器ID
+ * \file   RandomNumberDistributionID.h
+ * \brief  乱数分布ID
  * 
  * \author japan
  * \date   December 2021
@@ -11,9 +11,9 @@
 namespace random_number_generator
 {
 /**
- * \brief 分布生成器ID
+ * \brief 乱数分布ID
  */
-enum class DistributionGeneratorID {
+enum class RandomNumberDistributionID {
     NoAdjustment = 0, //!< 無調整
     // C++標準:一様分布
     StdUniform, //!< 一様分布
