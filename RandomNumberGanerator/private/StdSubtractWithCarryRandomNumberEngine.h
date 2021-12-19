@@ -36,7 +36,7 @@ public:
      * \param seed シードエンジン
      */
     StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdSubtractWithCarry), seed)
+        : Base(RandomNumberEngineID::StdSubtractWithCarry, seed)
         , m_engine(Base::getSeed())
     {
     }

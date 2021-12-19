@@ -17,7 +17,6 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン - std::mt19937
- * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 class StdMt199937_32BitRandomNumberEngine : public RandomNumberEngine<EngineResultType<StdMt199937_32BitRandomNumberEngine>>
 {
@@ -31,7 +30,7 @@ public:
      * \param seed シードエンジン
      */
     StdMt199937_32BitRandomNumberEngine(std::shared_ptr<SeedEngine<Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdMt199937_32Bit), seed)
+        : Base(RandomNumberEngineID::StdMt199937_32Bit, seed)
         , m_engine(getSeed())
     {
     }

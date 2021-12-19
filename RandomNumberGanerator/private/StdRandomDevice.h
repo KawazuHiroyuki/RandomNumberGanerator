@@ -17,9 +17,7 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン - std::random_device
- * \tparam EngineResultType_ 生成する符号なし整数の型
  */
-//template <typename EngineResultType_>
 class StdRandomDevice : public RandomNumberEngine<EngineResultType<StdRandomDevice>>
 {
     using Base = RandomNumberEngine<EngineResultType>;
@@ -31,7 +29,7 @@ public:
      * \brief コンストラクタ
      */
     StdRandomDevice(void)
-        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdRandomDevice), nullptr)
+        : Base(RandomNumberEngineID::StdRandomDevice, nullptr)
         , m_engine()
     {
     }

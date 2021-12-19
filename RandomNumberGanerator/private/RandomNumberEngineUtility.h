@@ -4,20 +4,6 @@
 
 #include "../Utility.h"
 
-//#include "StdRandomDevice.h"
-//#include "StdMinStdRand0RandomNumberEngine.h"
-//#include "StdMinStdRandRandomNumberEngine.h"
-//#include "StdMt199937_32BitRandomNumberEngine.h"
-//#include "StdMt199937_64BitRandomNumberEngine.h"
-//#include "StdRanlux24RandomNumberEngine.h"
-//#include "StdRanlux48RandomNumberEngine.h"
-//#include "StdKnuthRandomNumberEngine.h"
-//#include "StdDefaultRandomEngine.h"
-//
-//#include "StdLiearCongruentialRandomNumberEngine.h"
-//#include "StdMersenneTwisterRandomNumberEngine.h"
-//#include "StdSubtractWithCarryRandomNumberEngine.h"
-
 namespace random_number_generator
 {
 class StdRandomDevice;
@@ -46,4 +32,7 @@ using BaseEngine =
 
 template <typename Engine>
 using EngineResultType = typename BaseEngine<Engine>::result_type;
+
+template <typename Engine>
+using Seed = typename BaseEngine<Engine>::result_type;
 } // namespace random_number_generator

@@ -38,7 +38,7 @@ public:
      * \param seed シードエンジン
      */
     StdMersenneTwisterRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdMersenneTwister), seed)
+        : Base(RandomNumberEngineID::StdMersenneTwister, seed)
         , m_engine(Base::getSeed())
     {
     }

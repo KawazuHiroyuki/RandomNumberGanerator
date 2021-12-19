@@ -17,7 +17,6 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン - std::minstd_rand0
- * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 class StdMinStdRand0RandomNumberEngine : public RandomNumberEngine<EngineResultType<StdMinStdRand0RandomNumberEngine>>
 {
@@ -31,7 +30,7 @@ public:
      * \param seed シードエンジン
      */
     StdMinStdRand0RandomNumberEngine(std::shared_ptr<SeedEngine<Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdMinStdRand0), seed)
+        : Base(RandomNumberEngineID::StdMinStdRand0, seed)
         , m_engine(getSeed())
     {
     }

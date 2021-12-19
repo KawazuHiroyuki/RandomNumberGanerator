@@ -21,7 +21,6 @@ namespace random_number_generator
  */
 template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M
-    //template<class> class Param
 >
 class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
 {
@@ -37,7 +36,7 @@ public:
      * \param seed シードエンジン
      */
     StdLiearCongruentialRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<Base::EngineResultType>(RandomNumberEngineID::StdLiearCongruential), seed)
+        : Base(RandomNumberEngineID::StdLiearCongruential, seed)
         , m_engine(Base::getSeed())
     {
     }

@@ -16,7 +16,6 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン - std::ranlux24
- * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 class StdRanlux24RandomNumberEngine : public RandomNumberEngine<EngineResultType<StdRanlux24RandomNumberEngine>>
 {
@@ -30,7 +29,7 @@ public:
      * \param seed シードエンジン
      */
     StdRanlux24RandomNumberEngine(std::shared_ptr<SeedEngine<Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdRanlux24), seed)
+        : Base(RandomNumberEngineID::StdRanlux24, seed)
         , m_engine(getSeed())
     {
     }

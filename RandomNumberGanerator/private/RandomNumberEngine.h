@@ -33,7 +33,7 @@ public:
     /**
      * \brief 乱数エンジンパラメータの型
      */
-    using EngineParameter = RandomNumberEngineParameter<EngineResultType>;
+    //using EngineParameter = RandomNumberEngineParameter;
 
     /**
      * \brief シードの型
@@ -46,7 +46,7 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    RandomNumberEngine(std::shared_ptr<EngineParameter> param, std::shared_ptr<SeedEngine<Seed>> seed)
+    RandomNumberEngine(const RandomNumberEngineParameter& param, std::shared_ptr<SeedEngine<Seed>> seed)
         : m_param(param)
         , m_seed(seed)
     {
@@ -107,7 +107,7 @@ protected:
     /**
      * \brief 乱数エンジンパラメータ
      */
-    std::shared_ptr<EngineParameter> m_param;
+    RandomNumberEngineParameter m_param;
 
     /**
      * \brief シードエンジン

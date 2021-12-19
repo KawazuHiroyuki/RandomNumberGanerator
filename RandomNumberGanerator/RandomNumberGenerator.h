@@ -32,12 +32,27 @@ public:
 public:
     RandomNumberGenerator(void)
     {
+    }
 
+    /**
+     * \brief 乱数を生成
+     * \return 乱数
+     */
+    virtual ResultType operator()(void)
+    {
 
+    }
+
+    /**
+     * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
+     * \param times 指定回数
+     */
+    virtual void discard(std::uint64_t times)
+    {
 
     }
 
 private:
-    std::shared_ptr<RandomNumberEngine<ResultType>> m_engine;
+    std::shared_ptr<AbstractRandomNumberEngine> m_engine;
 };
 } // namespace random_number_generator

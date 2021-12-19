@@ -17,7 +17,6 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン - std::knuth_b
- * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 class StdKnuthRandomNumberEngine : public RandomNumberEngine<EngineResultType<StdKnuthRandomNumberEngine>>
 {
@@ -31,7 +30,7 @@ public:
      * \param seed シードエンジン
      */
     StdKnuthRandomNumberEngine(std::shared_ptr<SeedEngine<Seed>> seed)
-        : Base(makeRandomNumberEngineParameter<EngineResultType>(RandomNumberEngineID::StdKnuth), seed)
+        : Base(RandomNumberEngineID::StdKnuth, seed)
         , m_engine(getSeed())
     {
     }
