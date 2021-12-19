@@ -8,9 +8,10 @@
 
 int main()
 {
-    //random_number_generator::RandomNumberGenerator<unsigned int> random;
-
     using namespace random_number_generator;
+
+    RandomNumberGenerator<unsigned int> random(RandomNumberEngineID::StdRandomDevice);
+
 
     //std::uniform_int_distribution<>;
 
@@ -26,8 +27,27 @@ int main()
     }
 
     using Type = std::uint32_t;
-    auto engine0 = EngineFactory<StdRandomDevice>::create();
-    auto ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
+
+    std::vector<RandomNumberGenerator<unsigned int>> engines = {
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRandomDevice),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand0),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_32Bit),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_64Bit),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux24),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux48),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdKnuth),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdDefaultRandomEngine)
+    };
+
+    std::cout << "--- Random ---" << std::endl;
+    for (auto& engine : engines) {
+        std::cout << engine() << std::endl;
+        engine.discard(0);
+    }
+
+#if 0
+    //auto ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
 
     auto engine1 = EngineFactory<StdMinStdRand0RandomNumberEngine>::create();
     auto ptrEngine1 = std::dynamic_pointer_cast<StdMinStdRand0RandomNumberEngine>(engine1);
@@ -54,7 +74,7 @@ int main()
     std::shared_ptr<StdDefaultRandomEngine> ptrEngine8 = std::dynamic_pointer_cast<StdDefaultRandomEngine>(engine8);
 
     std::cout << "--- Random ---" << std::endl;
-    std::cout << "StdRandomDevice : " << (*ptrEngine0)() << std::endl;
+    //Bstd::cout << "StdRandomDevice : " << (*ptrEngine0)() << std::endl;
     std::cout << "StdMinStdRand0RandomNumberEngine : " << (*ptrEngine1)() << std::endl;
     std::cout << "StdMinStdRandRandomNumberEngine : " << (*ptrEngine2)() << std::endl;
     std::cout << "StdMt199937_32BitRandomNumberEngine : " << (*ptrEngine3)() << std::endl;
@@ -63,6 +83,7 @@ int main()
     std::cout << "StdRanlux48RandomNumberEngine : " << (*ptrEngine6)() << std::endl;
     std::cout << "StdKnuthRandomNumberEngine : " << (*ptrEngine7)() << std::endl;
     std::cout << "StdDefaultRandomEngine : " << (*ptrEngine8)() << std::endl;
+#endif
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー

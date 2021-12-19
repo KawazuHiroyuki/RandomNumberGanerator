@@ -54,9 +54,6 @@
     <ClCompile Include="RandomNumberGenerator.cpp">
       <Filter>ソース ファイル\RandomNumberGanerator</Filter>
     </ClCompile>
-    <ClCompile Include="private\AbstractRandomNumberEngine.cpp">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="private\RandomNumberEngineFactory.h">

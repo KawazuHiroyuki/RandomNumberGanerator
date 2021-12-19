@@ -66,18 +66,18 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    EngineResultType getMin(void) const override
+    static constexpr EngineResultType getMin(void)
     {
-        return m_engine.min();
+        return Engine::min();
     }
 
     /**
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    EngineResultType getMax(void) const override
+    static constexpr EngineResultType getMax(void)
     {
-        return m_engine.max();
+        return Engine::max();
     }
 
 private:
