@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::mersenne_twister_engine
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 template <typename EngineResultType_,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,

@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジン - std::random_device
+ * \tparam Seed_ シードの型
  */
 template <typename Seed_>
 class StdRandomDeviceSeedEngine : public SeedEngine<Seed_>

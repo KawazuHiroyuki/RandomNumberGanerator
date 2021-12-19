@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジンパラメータ
+ * \tparam Seed_ シードの型
  */
 template <typename Seed_>
 struct SeedEngineParameter

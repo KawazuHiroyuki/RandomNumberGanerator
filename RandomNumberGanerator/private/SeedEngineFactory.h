@@ -24,22 +24,23 @@ class SeedEngineFactory
 public:
     /**
      * \brief シードエンジンを生成
+     * \tparam Seed_ シードの型
      * \param param シードエンジンパラメータ
      * \return シートエンジン
      */
-    template <typename Seed>
-    static std::shared_ptr<SeedEngine<Seed>> create(SeedEngineParameter<Seed> param = {})
+    template <typename Seed_>
+    static std::shared_ptr<SeedEngine<Seed_>> create(SeedEngineParameter<Seed_> param = {})
     {
         switch (param.id) {
             case SeedEngineID::StdRandomDevice:
-                return std::make_shared<StdRandomDeviceSeedEngine<Seed>>();
+                return std::make_shared<StdRandomDeviceSeedEngine<Seed_>>();
             case SeedEngineID::CurrentTime:
-                return std::make_shared <CurrentTimeSeedEngine<Seed>>();
+                return std::make_shared <CurrentTimeSeedEngine<Seed_>>();
             case SeedEngineID::Custom:
                 if (!param.engine) {
                     return nullptr;
                 }
-                return std::make_shared<SeedEngine<Seed>>(param);
+                return std::make_shared<SeedEngine<Seed_>>(param);
             default:
                 return nullptr;
         }

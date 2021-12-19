@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::ranlux48
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 class StdRanlux48RandomNumberEngine : public RandomNumberEngine<std::ranlux48::result_type>
 {

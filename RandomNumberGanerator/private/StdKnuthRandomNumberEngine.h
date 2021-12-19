@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::knuth_b
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 class StdKnuthRandomNumberEngine : public RandomNumberEngine<std::knuth_b::result_type>
 {

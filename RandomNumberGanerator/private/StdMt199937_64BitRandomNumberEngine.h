@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::mt19937_64
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 class StdMt199937_64BitRandomNumberEngine : public RandomNumberEngine<std::mt19937_64::result_type>
 {

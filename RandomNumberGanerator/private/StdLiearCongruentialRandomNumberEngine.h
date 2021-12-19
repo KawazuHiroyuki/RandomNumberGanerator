@@ -17,6 +17,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::linear_congruential_engine
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M

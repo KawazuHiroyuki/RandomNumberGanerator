@@ -14,6 +14,7 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジンパラメータ
+ * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 template <typename EngineResultType_>
 struct RandomNumberEngineParameter

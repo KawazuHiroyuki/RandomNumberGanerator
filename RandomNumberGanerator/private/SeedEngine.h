@@ -14,6 +14,7 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジン
+ * \tparam Seed_ シードの型
  */
 template <typename Seed_>
 class SeedEngine

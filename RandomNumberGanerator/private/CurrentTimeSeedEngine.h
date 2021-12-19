@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジン - 現在時刻
+ * \tparam Seed_ シードの型
  */
 template <typename Seed_>
 class CurrentTimeSeedEngine : public SeedEngine<Seed_>

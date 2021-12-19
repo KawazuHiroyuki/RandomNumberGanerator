@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::random_device
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 //template <typename EngineResultType_>
 class StdRandomDevice : public RandomNumberEngine<std::random_device::result_type>

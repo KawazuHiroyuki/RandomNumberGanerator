@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::default_random_engine
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 //template <typename EngineResultType_>
 class StdDefaultRandomEngine : public RandomNumberEngine<std::default_random_engine::result_type>

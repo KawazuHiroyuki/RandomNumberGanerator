@@ -15,6 +15,11 @@
 
 namespace random_number_generator
 {
+/**
+ * \brief 乱数生成器
+ * \tparam ResultType_ ResultType_
+ * \tparam EngineResultType_ 乱数エンジンが生成する符号なし整数の型
+ */
 template <typename ResultType_>
 class RandomNumberGenerator
 {

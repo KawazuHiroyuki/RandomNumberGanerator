@@ -19,6 +19,7 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジン
+ * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 template <typename EngineResultType_>
 class RandomNumberEngine : public AbstractRandomNumberEngine

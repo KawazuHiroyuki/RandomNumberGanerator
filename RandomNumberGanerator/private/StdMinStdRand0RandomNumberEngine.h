@@ -16,6 +16,7 @@ namespace random_number_generator
 {
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::minstd_rand0
+ * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 class StdMinStdRand0RandomNumberEngine : public RandomNumberEngine<std::minstd_rand0::result_type>
 {
