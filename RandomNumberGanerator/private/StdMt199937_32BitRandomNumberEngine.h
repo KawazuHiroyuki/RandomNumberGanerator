@@ -11,6 +11,7 @@
 #include <random>
 
 #include "RandomNumberEngine.h"
+#include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
 {
@@ -18,11 +19,11 @@ namespace random_number_generator
  * \brief —”ƒGƒ“ƒWƒ“ - std::mt19937
  * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
-class StdMt199937_32BitRandomNumberEngine : public RandomNumberEngine<std::mt19937::result_type>
+class StdMt199937_32BitRandomNumberEngine : public RandomNumberEngine<EngineResultType<StdMt199937_32BitRandomNumberEngine>>
 {
     using Base = RandomNumberEngine<EngineResultType>;
 
-    using Engine = std::mt19937;
+    using Engine = BaseEngine<StdMt199937_32BitRandomNumberEngine>;
 
 public:
     /**

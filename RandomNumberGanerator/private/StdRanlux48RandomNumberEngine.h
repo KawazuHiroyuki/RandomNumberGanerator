@@ -11,6 +11,7 @@
 #include <random>
 
 #include "RandomNumberEngine.h"
+#include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
 {
@@ -18,11 +19,11 @@ namespace random_number_generator
  * \brief —”ƒGƒ“ƒWƒ“ - std::ranlux48
  * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
-class StdRanlux48RandomNumberEngine : public RandomNumberEngine<std::ranlux48::result_type>
+class StdRanlux48RandomNumberEngine : public RandomNumberEngine<EngineResultType<StdRanlux48RandomNumberEngine>>
 {
     using Base = RandomNumberEngine<EngineResultType>;
 
-    using Engine = std::ranlux48;
+    using Engine = BaseEngine<StdRanlux48RandomNumberEngine>;
 
 public:
     /**

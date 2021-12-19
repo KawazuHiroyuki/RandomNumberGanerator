@@ -155,6 +155,9 @@
     <ClInclude Include="RandomNumberDistributionParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberDistribution</Filter>
     </ClInclude>
+    <ClInclude Include="private\RandomNumberEngineUtility.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

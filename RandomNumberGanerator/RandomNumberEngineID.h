@@ -33,7 +33,10 @@ enum class RandomNumberEngineID {
     StdDefaultRandomEngine, //!< 非専門用途でデフォルト使用する疑似乱数エンジン (使用するエンジンは実装依存)
 };
 
-constexpr std::size_t RANDOM_NUMBER_ENGINE_ID_SIZE = 3;
+constexpr std::size_t RANDOM_NUMBER_ENGINE_ID_SIZE = 12;
 
+/**
+ * \brief デフォルトの乱数エンジンID
+ */
 constexpr RandomNumberEngineID DEFAULT_RANDOM_NUMBER_ENGINE_ID = RandomNumberEngineID::StdDefaultRandomEngine;
 } // namespace random_number_generator

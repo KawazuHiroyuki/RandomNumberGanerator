@@ -26,5 +26,8 @@ enum class SeedEngineID {
 
 constexpr std::size_t SEED_ENGINE_ID_SIZE = 3;
 
+/**
+ * \brief デフォルトのシードエンジンID
+ */
 constexpr SeedEngineID DEFAULT_SEED_ENGINE_ID = SeedEngineID::StdRandomDevice;
 } // namespace random_number_generator

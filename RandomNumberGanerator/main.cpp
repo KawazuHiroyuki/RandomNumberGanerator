@@ -4,12 +4,15 @@
 #include <iostream>
 #include <vector>
 #include "RandomNumberGenerator.h"
+#include "private/RandomNumberEngineUtility.h"
 
 int main()
 {
     //random_number_generator::RandomNumberGenerator<unsigned int> random;
 
     using namespace random_number_generator;
+
+    //std::uniform_int_distribution<>;
 
     using Seed = unsigned int;
     std::vector<std::shared_ptr<SeedEngine<Seed>>> seeds = {
@@ -24,9 +27,42 @@ int main()
 
     using Type = std::uint32_t;
     auto engine0 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRandomDevice));
-    std::shared_ptr<StdRandomDevice> ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
+    auto ptrEngine0 = std::dynamic_pointer_cast<StdRandomDevice>(engine0);
+
+    auto engine1 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMinStdRand0));
+    auto ptrEngine1 = std::dynamic_pointer_cast<StdMinStdRand0RandomNumberEngine>(engine1);
+
+    auto engine2 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMinStdRand));
+    auto ptrEngine2 = std::dynamic_pointer_cast<StdMinStdRandRandomNumberEngine>(engine2);
+
+    auto engine3 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMt199937_32Bit));
+    auto ptrEngine3 = std::dynamic_pointer_cast<StdMt199937_32BitRandomNumberEngine>(engine3);
+
+    //auto engine4 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdMt199937_64Bit));
+    //auto ptrEngine4 = std::dynamic_pointer_cast<StdMt199937_64BitRandomNumberEngine>(engine4);
+
+    auto engine5 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRanlux24));
+    auto ptrEngine5 = std::dynamic_pointer_cast<StdRanlux24RandomNumberEngine>(engine5);
+
+    //auto engine6 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdRanlux48));
+    //auto ptrEngine6 = std::dynamic_pointer_cast<StdRanlux48RandomNumberEngine>(engine6);
+
+    auto engine7 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdKnuth));
+    auto ptrEngine7 = std::dynamic_pointer_cast<StdKnuthRandomNumberEngine>(engine7);
+
+    auto engine8 = RandomNumberEngineFactory::create(makeRandomNumberEngineParameter<Type>(RandomNumberEngineID::StdDefaultRandomEngine));
+    std::shared_ptr<StdDefaultRandomEngine> ptrEngine8 = std::dynamic_pointer_cast<StdDefaultRandomEngine>(engine8);
+
     std::cout << "--- Random (32) ---" << std::endl;
     std::cout << (*ptrEngine0)() << std::endl;
+    std::cout << (*ptrEngine1)() << std::endl;
+    std::cout << (*ptrEngine2)() << std::endl;
+    std::cout << (*ptrEngine3)() << std::endl;
+    //std::cout << (*ptrEngine4)() << std::endl;
+    std::cout << (*ptrEngine5)() << std::endl;
+    //std::cout << (*ptrEngine6)() << std::endl;
+    std::cout << (*ptrEngine7)() << std::endl;
+    std::cout << (*ptrEngine8)() << std::endl;
 
 #if 0
     std::vector<std::shared_ptr<RandomNumberEngine<Type>>> engines = {

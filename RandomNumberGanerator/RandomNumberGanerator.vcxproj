@@ -150,6 +150,7 @@
     <ClInclude Include="private\RandomNumberDistributionFactory.h" />
     <ClInclude Include="private\RandomNumberEngine.h" />
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
+    <ClInclude Include="private\RandomNumberEngineUtility.h" />
     <ClInclude Include="private\SeedEngine.h" />
     <ClInclude Include="private\SeedEngineFactory.h" />
     <ClInclude Include="private\StdDefaultRandomEngine.h" />

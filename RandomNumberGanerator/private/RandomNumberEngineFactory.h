@@ -39,25 +39,6 @@ namespace random_number_generator
 class RandomNumberEngineFactory
 {
 public:
-    //template <typename Engine>
-    //using BaseEngine =
-    //    typename utility::Switch<
-    //    utility::Case<std::is_same<StdRandomDevice, Engine>::value, std::random_device>,
-    //    utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine, Engine>::value, std::minstd_rand0>,
-    //    utility::Case<std::is_same<StdMinStdRandRandomNumberEngine, Engine>::value, std::minstd_rand>,
-    //    utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine, Engine>::value, std::mt19937>,
-    //    utility::Case<std::is_same<StdMt199937_64BitRandomNumberEngine, Engine>::value, std::mt19937_64>,
-    //    utility::Case<std::is_same<StdRanlux24RandomNumberEngine, Engine>::value, std::ranlux24>,
-    //    utility::Case<std::is_same<StdRanlux48RandomNumberEngine, Engine>::value, std::ranlux48>,
-    //    utility::Case<std::is_same<StdKnuthRandomNumberEngine, Engine>::value, std::knuth_b>,
-    //    utility::Case<std::is_same<StdDefaultRandomEngine, Engine>::value, std::default_random_engine>,
-    //    >::type;
-
-    //template <typename Engine>
-    //using EngineResultType = BaseEngine<Engine>::result_type;
-
-
-public:
     /**
      * \brief 乱数エンジンを生成
      * \param param 乱数エンジンパラメータ
@@ -74,6 +55,7 @@ public:
             case RandomNumberEngineID::StdRandomDevice:
                 object = std::make_shared<StdRandomDevice>();
                 break;
+#if 0
             case RandomNumberEngineID::StdLiearCongruential:
                 object = std::make_shared<StdLiearCongruentialRandomNumberEngine<EngineResultType_,
                     16807, 0, 2147483647>>
@@ -92,6 +74,7 @@ public:
                     24, 10, 24>>
                     (seed);
                 break;
+#endif
             case RandomNumberEngineID::StdMinStdRand0:
                 object = std::make_shared<StdMinStdRand0RandomNumberEngine>(seed);
                 break;
