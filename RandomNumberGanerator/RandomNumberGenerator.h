@@ -47,7 +47,7 @@ public:
     {
         switch (engineParam.id) {
             case RandomNumberEngineID::StdRandomDevice:
-                m_engine = EngineFactory<StdRandomDevice<>, Seed>::create(engineParam);
+                m_engine = EngineFactory<StdRandomDevice, Seed>::create(engineParam);
                 break;
             //case RandomNumberEngineID::StdLiearCongruential:
             //    break;
@@ -92,7 +92,7 @@ public:
     {
         switch (m_engine->getRandomNumberEngineID()) {
             case RandomNumberEngineID::StdRandomDevice:
-                return (*getEngine<StdRandomDevice<>>())();
+                return (*getEngine<StdRandomDevice>())();
             case RandomNumberEngineID::StdMinStdRand0:
                 return (*getEngine<StdMinStdRand0RandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdMinStdRand:

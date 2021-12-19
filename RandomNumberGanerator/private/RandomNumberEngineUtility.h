@@ -6,7 +6,7 @@
 
 namespace random_number_generator
 {
-template <typename Seed>
+//template <typename Seed>
 class StdRandomDevice;
 template <typename Seed>
 class StdMinStdRand0RandomNumberEngine;
@@ -25,10 +25,10 @@ class StdKnuthRandomNumberEngine;
 template <typename Seed>
 class StdDefaultRandomEngine;
 
-template <typename Engine, typename Seed>
+template <typename Engine, typename Seed = void>
 using BaseEngine =
     typename utility::Switch<
-    utility::Case<std::is_same<StdRandomDevice<Seed>, Engine>::value, std::random_device>,
+    utility::Case<std::is_same<StdRandomDevice, Engine>::value, std::random_device>,
     utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine<Seed>, Engine>::value, std::minstd_rand0>,
     utility::Case<std::is_same<StdMinStdRandRandomNumberEngine<Seed>, Engine>::value, std::minstd_rand>,
     utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine<Seed>, Engine>::value, std::mt19937>,
@@ -39,7 +39,7 @@ using BaseEngine =
     utility::Case<std::is_same<StdDefaultRandomEngine<Seed>, Engine>::value, std::default_random_engine>
     >::type;
 
-template <typename Engine, typename Seed>
+template <typename Engine, typename Seed = void>
 using EngineResultType = typename BaseEngine<Engine, Seed>::result_type;
 
 //template <typename Engine>

@@ -32,7 +32,7 @@ namespace random_number_generator
  */
 class StdRandomDeviceFactory
 {
-    using Engine = StdRandomDevice<>;
+    using Engine = StdRandomDevice;
 
 public:
     static std::shared_ptr<AbstractRandomNumberEngine> create(const RandomNumberEngineParameter& engineParam = {})
@@ -68,7 +68,7 @@ public:
 template <typename Engine, typename Seed = void>
 using EngineFactory =
 typename utility::Switch<
-    utility::Case<std::is_same<StdRandomDevice<>, Engine>::value, StdRandomDeviceFactory>,
+    utility::Case<std::is_same<StdRandomDevice, Engine>::value, StdRandomDeviceFactory>,
     utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, Seed>>,
     utility::Case<std::is_same<StdMinStdRandRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMinStdRandRandomNumberEngine<Seed>, Seed>>,
     utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>>,

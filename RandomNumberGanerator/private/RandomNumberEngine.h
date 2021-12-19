@@ -24,7 +24,7 @@ namespace random_number_generator
  */
 template <
     typename EngineResultType_,
-    typename Seed_ = std::uint32_t
+    typename Seed_ = void
 >
 class RandomNumberEngine : public AbstractRandomNumberEngine
 {
