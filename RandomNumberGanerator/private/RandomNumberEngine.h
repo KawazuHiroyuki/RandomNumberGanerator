@@ -20,8 +20,12 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン
  * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam Seed_ シードの型
  */
-template <typename EngineResultType_>
+template <
+    typename EngineResultType_,
+    typename Seed_ = std::uint32_t
+>
 class RandomNumberEngine : public AbstractRandomNumberEngine
 {
 public:
@@ -33,7 +37,7 @@ public:
     /**
      * \brief シードの型
      */
-    using Seed = EngineResultType_;
+    using Seed = Seed_;
 
 public:
     /**

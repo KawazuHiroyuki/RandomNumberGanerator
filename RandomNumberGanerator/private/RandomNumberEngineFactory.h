@@ -32,7 +32,7 @@ namespace random_number_generator
  */
 class StdRandomDeviceFactory
 {
-    using Engine = StdRandomDevice;
+    using Engine = StdRandomDevice<>;
 
 public:
     static std::shared_ptr<AbstractRandomNumberEngine> create(const RandomNumberEngineParameter& engineParam = {})
@@ -45,7 +45,7 @@ public:
 /**
  * \brief 乱数エンジンファクトリ - パラメータ定義済み用
  */
-template <typename Engine_>
+template <typename Engine_, typename Seed_>
 class RandomNumberEngineFactory
 {
     using Engine = Engine_;
@@ -53,26 +53,30 @@ class RandomNumberEngineFactory
 public:
     static std::shared_ptr<AbstractRandomNumberEngine> create(
         const RandomNumberEngineParameter& engineParam = {},
-        const SeedEngineParameter<Seed<Engine>>& seedParam = {})
+        const SeedEngineParameter<Seed_>& seedParam = {})
     {
-        std::shared_ptr<SeedEngine<Seed<Engine>>> seed = SeedEngineFactory::create(seedParam);
+        // TODO Seed_のチェック 
+        // ・符号なし整数型に変換可能？
+        // ・sizeof(EngineResultType(Engine)) >= sizeof(Seed_)？
+
+        std::shared_ptr<SeedEngine<Seed_>> seed = SeedEngineFactory::create(seedParam);
         auto object = std::make_shared<Engine>(seed);
         return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);
     }
 };
 
-template <typename Engine>
+template <typename Engine, typename Seed = void>
 using EngineFactory =
 typename utility::Switch<
-    utility::Case<std::is_same<StdRandomDevice, Engine>::value, StdRandomDeviceFactory>,
-    utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine>>,
-    utility::Case<std::is_same<StdMinStdRandRandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdMinStdRandRandomNumberEngine>>,
-    utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine>>,
-    utility::Case<std::is_same<StdMt199937_64BitRandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdMt199937_64BitRandomNumberEngine>>,
-    utility::Case<std::is_same<StdRanlux24RandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdRanlux24RandomNumberEngine>>,
-    utility::Case<std::is_same<StdRanlux48RandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdRanlux48RandomNumberEngine>>,
-    utility::Case<std::is_same<StdKnuthRandomNumberEngine, Engine>::value, RandomNumberEngineFactory<StdKnuthRandomNumberEngine>>,
-    utility::Case<std::is_same<StdDefaultRandomEngine, Engine>::value, RandomNumberEngineFactory<StdDefaultRandomEngine>>
+    utility::Case<std::is_same<StdRandomDevice<>, Engine>::value, StdRandomDeviceFactory>,
+    utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdMinStdRandRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMinStdRandRandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdMt199937_64BitRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdMt199937_64BitRandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdRanlux24RandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdRanlux24RandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdRanlux48RandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdRanlux48RandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdKnuthRandomNumberEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdKnuthRandomNumberEngine<Seed>, Seed>>,
+    utility::Case<std::is_same<StdDefaultRandomEngine<Seed>, Engine>::value, RandomNumberEngineFactory<StdDefaultRandomEngine<Seed>, Seed>>
 >::type;
 
 #if 0

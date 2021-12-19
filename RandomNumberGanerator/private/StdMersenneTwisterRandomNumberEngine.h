@@ -22,13 +22,16 @@ template <typename EngineResultType_,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,
     EngineResultType_ A, std::size_t U, EngineResultType_ D, std::size_t S,
     EngineResultType_ B, std::size_t T,
-    EngineResultType_ C, std::size_t L, EngineResultType_ F
+    EngineResultType_ C, std::size_t L, EngineResultType_ F,
+    typename Seed_
 >
-class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
+class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<EngineResultType_, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_, Seed_>;
 
     using Engine = std::mersenne_twister_engine<Base::EngineResultType, W, N, M, R, A, U, D, S, B, T, C, L, F>;
+
+    using Seed = Seed_;
 
     static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 

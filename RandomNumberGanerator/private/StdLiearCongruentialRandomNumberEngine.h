@@ -20,13 +20,16 @@ namespace random_number_generator
  * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 template <typename EngineResultType_,
-    EngineResultType_ A, EngineResultType_ C, EngineResultType_ M
+    EngineResultType_ A, EngineResultType_ C, EngineResultType_ M,
+    typename Seed_
 >
-class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
+class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<EngineResultType_, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_, Seed_>;
 
     using Engine = std::linear_congruential_engine<Base::EngineResultType, A, C, M>;
+
+    using Seed = Seed_;
 
     static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 

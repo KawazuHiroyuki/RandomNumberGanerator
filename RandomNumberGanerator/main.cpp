@@ -29,9 +29,9 @@ int main()
     using Type = std::uint32_t;
 
     std::vector<RandomNumberGenerator<unsigned int>> engines = {
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRandomDevice),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand0),
-        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRandomDevice, {SeedEngineID::StdRandomDevice}),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand0, {SeedEngineID::CurrentTime}),
+        RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMinStdRand, {SeedEngineID::Custom, []() { return 10; }}),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_32Bit),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdMt199937_64Bit),
         RandomNumberGenerator<unsigned int>(RandomNumberEngineID::StdRanlux24),

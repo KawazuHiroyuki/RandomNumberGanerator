@@ -20,13 +20,16 @@ namespace random_number_generator
  * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
  */
 template <typename EngineResultType_,
-    std::size_t W, std::size_t S, std::size_t R
+    std::size_t W, std::size_t S, std::size_t R,
+    typename Seed_
 >
-class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<EngineResultType_>
+class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<EngineResultType_, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType_>;
+    using Base = RandomNumberEngine<EngineResultType_, Seed_>;
 
     using Engine = std::subtract_with_carry_engine<Base::EngineResultType, W, S, R>;
+
+    using Seed = Seed_;
 
     static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 

@@ -20,26 +20,34 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数生成器
- * \tparam ResultType_ ResultType_
- * \tparam EngineResultType_ 乱数エンジンが生成する符号なし整数の型
+ * \tparam Result_ 乱数の型
+ * \tparam Seed_ シードの型
  */
-template <typename ResultType_>
+template <
+    typename Result_,
+    typename Seed_ = std::uint32_t
+>
 class RandomNumberGenerator
 {
 public:
     /**
      * \brief 生成する乱数の型
      */
-    using ResultType = ResultType_;
+    using Result = Result_;
+
+    /**
+     * \brief シードの型
+     */
+    using Seed = Seed_;
 
 public:
     //template <typename Seed>
-    RandomNumberGenerator(const RandomNumberEngineParameter& engineParam, const SeedEngineParameter<ResultType_>& seedEngine = {})
+    RandomNumberGenerator(const RandomNumberEngineParameter& engineParam, const SeedEngineParameter<Seed>& seedParam = {})
         : m_engine()
     {
         switch (engineParam.id) {
             case RandomNumberEngineID::StdRandomDevice:
-                m_engine = EngineFactory<StdRandomDevice>::create();
+                m_engine = EngineFactory<StdRandomDevice<>, Seed>::create(engineParam);
                 break;
             //case RandomNumberEngineID::StdLiearCongruential:
             //    break;
@@ -48,28 +56,28 @@ public:
             //case RandomNumberEngineID::StdSubtractWithCarry:
             //    break;
             case RandomNumberEngineID::StdMinStdRand0:
-                m_engine = EngineFactory<StdMinStdRand0RandomNumberEngine>::create();
+                m_engine = EngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdMinStdRand:
-                m_engine = EngineFactory<StdMinStdRandRandomNumberEngine>::create();
+                m_engine = EngineFactory<StdMinStdRandRandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdMt199937_32Bit:
-                m_engine = EngineFactory<StdMt199937_32BitRandomNumberEngine>::create();
+                m_engine = EngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdMt199937_64Bit:
-                m_engine = EngineFactory<StdMt199937_64BitRandomNumberEngine>::create();
+                m_engine = EngineFactory<StdMt199937_64BitRandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdRanlux24:
-                m_engine = EngineFactory<StdRanlux24RandomNumberEngine>::create();
+                m_engine = EngineFactory<StdRanlux24RandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdRanlux48:
-                m_engine = EngineFactory<StdRanlux48RandomNumberEngine>::create();
+                m_engine = EngineFactory<StdRanlux48RandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdKnuth:
-                m_engine = EngineFactory<StdKnuthRandomNumberEngine>::create();
+                m_engine = EngineFactory<StdKnuthRandomNumberEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             case RandomNumberEngineID::StdDefaultRandomEngine:
-                m_engine = EngineFactory<StdDefaultRandomEngine>::create();
+                m_engine = EngineFactory<StdDefaultRandomEngine<Seed>, Seed>::create(engineParam, seedParam);
                 break;
             default:
                 break;
@@ -80,27 +88,27 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    virtual ResultType operator()(void)
+    virtual Result operator()(void)
     {
         switch (m_engine->getRandomNumberEngineID()) {
             case RandomNumberEngineID::StdRandomDevice:
-                return (*getEngine<StdRandomDevice>())();
+                return (*getEngine<StdRandomDevice<>>())();
             case RandomNumberEngineID::StdMinStdRand0:
-                return (*getEngine<StdMinStdRand0RandomNumberEngine>())();
+                return (*getEngine<StdMinStdRand0RandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdMinStdRand:
-                return (*getEngine<StdMinStdRandRandomNumberEngine>())();
+                return (*getEngine<StdMinStdRandRandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdMt199937_32Bit:
-                return (*getEngine<StdMt199937_32BitRandomNumberEngine>())();
+                return (*getEngine<StdMt199937_32BitRandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdMt199937_64Bit:
-                return (*getEngine<StdMt199937_64BitRandomNumberEngine>())();
+                return (*getEngine<StdMt199937_64BitRandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdRanlux24:
-                return (*getEngine<StdRanlux24RandomNumberEngine>())();
+                return (*getEngine<StdRanlux24RandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdRanlux48:
-                return (*getEngine<StdRanlux48RandomNumberEngine>())();
+                return (*getEngine<StdRanlux48RandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdKnuth:
-                return (*getEngine<StdKnuthRandomNumberEngine>())();
+                return (*getEngine<StdKnuthRandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdDefaultRandomEngine:
-                return (*getEngine<StdDefaultRandomEngine>())();
+                return (*getEngine<StdDefaultRandomEngine<Seed>>())();
             default:
                 return {};
         }
@@ -119,18 +127,18 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    ResultType getMin(void) const
+    static constexpr Result getMin(void) noexcept
     {
-        return std::numeric_limits<ResultType>::min();
+        return std::numeric_limits<Result>::min();
     }
 
     /**
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    ResultType getMax(void) const
+    static constexpr Result getMax(void) noexcept
     {
-        return std::numeric_limits<ResultType>::max();
+        return std::numeric_limits<Result>::max();
     }
 
     template <typename Engine>

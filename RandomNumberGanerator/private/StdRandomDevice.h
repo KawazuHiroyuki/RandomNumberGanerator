@@ -18,11 +18,14 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::random_device
  */
-class StdRandomDevice : public RandomNumberEngine<EngineResultType<StdRandomDevice>>
+template <typename Seed_ = std::uint32_t /* Dummy */>
+class StdRandomDevice : public RandomNumberEngine<EngineResultType<StdRandomDevice<Seed_>, Seed_>, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType>;
+    using Base = RandomNumberEngine<EngineResultType<StdRandomDevice<Seed_>, Seed_>, Seed_>;
 
-    using Engine = BaseEngine<StdRandomDevice>;
+    using Engine = BaseEngine<StdRandomDevice, Seed_>;
+
+    using Seed = Seed_;
 
 public:
     /**
@@ -40,7 +43,7 @@ public:
      * \brief 乱数を生成
      * \return 乱数
      */
-    EngineResultType operator()(void) override
+    Base::EngineResultType operator()(void) override
     {
         return m_engine();
     }
@@ -67,7 +70,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    static constexpr EngineResultType getMin(void)
+    static constexpr Base::EngineResultType getMin(void)
     {
         return Engine::min();
     }
@@ -76,7 +79,7 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    static constexpr EngineResultType getMax(void)
+    static constexpr Base::EngineResultType getMax(void)
     {
         return Engine::max();
     }
