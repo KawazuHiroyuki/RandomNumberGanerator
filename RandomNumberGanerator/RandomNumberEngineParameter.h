@@ -15,18 +15,27 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジンパラメータ
  */
-template <typename T1, typename T2>
+template <typename ResultType_, typename EngineResultType_>
 struct RandomNumberEngineParameter
 {
     /**
      * \brief 生成する乱数の型
      */
-    using ResultType = T1;
+    using ResultType = ResultType_;
 
     /**
      * \brief 乱数エンジンが生成する乱数の型
      */
-    using EngineResultType = T2;
+    using EngineResultType = EngineResultType_;
+
+    /**
+     * \brief コンストラクタ
+     * \param id_ 乱数エンジンID
+     */
+    RandomNumberEngineParameter(RandomNumberEngineID id_ = DEFAULT_RANDOM_NUMBER_ENGINE_ID)
+        : id(id_)
+    {
+    }
 
     /**
      * \brief 乱数エンジンID

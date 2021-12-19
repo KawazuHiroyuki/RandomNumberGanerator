@@ -17,18 +17,23 @@ namespace random_number_generator
 /**
  * \brief シード生成器 - std::random_device
  */
-template <typename T>
-class StdRandomDeviceSeedGenerator : public SeedGenerator<T>
+template <typename Seed_>
+class StdRandomDeviceSeedGenerator : public SeedGenerator<Seed_>
 {
-    using SeedGenerator<T>::Seed;
+    using SeedGenerator<Seed_>::Seed;
+
+    using Engine = std::random_device;
 
 public:
+    /**
+     * \brief コンストラクタ
+     */
     StdRandomDeviceSeedGenerator(void)
         : SeedGenerator<Seed>(SeedGeneratorParameter<Seed>{
             SeedGeneratorID::StdRandomDevice,
-            []() { return std::random_device()(); }
+            []() { return Engine()(); }
             })
-    { 
+    {
     }
 };
 } // namespace random_number_generator

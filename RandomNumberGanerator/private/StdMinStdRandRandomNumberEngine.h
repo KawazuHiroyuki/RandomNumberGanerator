@@ -17,18 +17,18 @@ namespace random_number_generator
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::minstd_rand
  */
-template <typename T1, typename T2>
-class StdMinStdRandRandomNumberEngine : public RandomNumberEngine<T1, T2>
+template <typename ResultType_, typename EngineResultType_>
+class StdMinStdRandRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<T1, T2>::ResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
 
-    using RandomNumberEngine<T1, T2>::EngineResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
 
-    using RandomNumberEngine<T1, T2>::Seed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
 
-    using RandomNumberEngine<T1, T2>::getSeed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
 
-    using Engine = std::minstd_rand0;
+    using Engine = std::minstd_rand;
 
     static_assert(std::is_same<Engine::result_type, EngineResultType>::value, "");
 

@@ -17,21 +17,21 @@ namespace random_number_generator
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::mersenne_twister_engine
  */
-template <typename T1, typename T2,
+template <typename ResultType_, typename EngineResultType_,
     std::size_t W, std::size_t N, std::size_t M, std::size_t R,
-    T2 A, std::size_t U, T2 D, std::size_t S,
-    T2 B, std::size_t T,
-    T2 C, std::size_t L, T2 F
+    EngineResultType_ A, std::size_t U, EngineResultType_ D, std::size_t S,
+    EngineResultType_ B, std::size_t T,
+    EngineResultType_ C, std::size_t L, EngineResultType_ F
 >
-class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<T1, T2>
+class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<T1, T2>::ResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
 
-    using RandomNumberEngine<T1, T2>::EngineResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
 
-    using RandomNumberEngine<T1, T2>::Seed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
 
-    using RandomNumberEngine<T1, T2>::getSeed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
 
     using Engine = std::mersenne_twister_engine<EngineResultType, W, N, M, R, A, U, D, S, B, T, C, L, F>;
 

@@ -17,16 +17,20 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - std::default_random_engine
  */
-template <typename T1, typename T2>
-class StdDefaultRandomEngine : public RandomNumberEngine<T1, T2>
+template <typename ResultType_, typename EngineResultType_>
+class StdDefaultRandomEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<T1, T2>::ResultType;
+    using Base = RandomNumberEngine<ResultType_, EngineResultType_>;
 
-    using RandomNumberEngine<T1, T2>::EngineResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
 
-    using RandomNumberEngine<T1, T2>::Seed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
 
-    using RandomNumberEngine<T1, T2>::getSeed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineParameter;
+
+    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
+
+    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
 
     using Engine = std::default_random_engine;
 
@@ -38,8 +42,8 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    StdDefaultRandomEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
-        : RandomNumberEngine<ResultType, EngineResultType>(param, seed)
+    StdDefaultRandomEngine(std::shared_ptr<SeedGenerator<Seed>> seed)
+        : Base(std::make_shared<EngineParameter>(RandomNumberEngineID::StdDefaultRandomEngine), seed)
         , m_engine(getSeed())
     {
     }

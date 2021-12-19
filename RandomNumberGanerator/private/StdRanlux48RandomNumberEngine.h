@@ -17,16 +17,16 @@ namespace random_number_generator
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::ranlux48
  */
-template <typename T1, typename T2>
-class StdRanlux48RandomNumberEngine : public RandomNumberEngine<T1, T2>
+template <typename ResultType_, typename EngineResultType_>
+class StdRanlux48RandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<T1, T2>::ResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
 
-    using RandomNumberEngine<T1, T2>::EngineResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
 
-    using RandomNumberEngine<T1, T2>::Seed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
 
-    using RandomNumberEngine<T1, T2>::getSeed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
 
     using Engine = std::ranlux48;
 

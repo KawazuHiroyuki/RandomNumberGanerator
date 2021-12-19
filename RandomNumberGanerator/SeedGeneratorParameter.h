@@ -17,19 +17,30 @@ namespace random_number_generator
 /**
  * \brief シード生成器パラメータ
  */
-template <typename T>
+template <typename Seed_>
 struct SeedGeneratorParameter
 {
     /**
      * \brief シードの型
      */
-    using Seed = T;
+    using Seed = Seed_;
 
     /**
      * \brief シード生成関数の型
      */
-    template <typename T>
-    using Generator = std::function<T()>;
+    template <typename Seed_>
+    using Generator = std::function<Seed_()>;
+
+    /**
+     * \brief コンストラクタ
+     * \param id_ シード生成器ID
+     * \param generator_ シード生成関数
+     */
+    SeedGeneratorParameter(SeedGeneratorID id_ = DEFAULT_SEED_GENERATOR_ID, Generator<Seed> generator_ = {})
+        : id(id_)
+        , generator(generator_)
+    {
+    }
 
     /**
      * \brief シード生成器ID

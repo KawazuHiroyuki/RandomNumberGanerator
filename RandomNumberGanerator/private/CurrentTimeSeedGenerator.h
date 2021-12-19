@@ -17,12 +17,15 @@ namespace random_number_generator
 /**
  * \brief シード生成器 - 現在時刻
  */
-template <typename T>
-class CurrentTimeSeedGenerator : public SeedGenerator<T>
+template <typename Seed_>
+class CurrentTimeSeedGenerator : public SeedGenerator<Seed_>
 {
-    using SeedGenerator<T>::Seed;
+    using SeedGenerator<Seed_>::Seed;
 
 public:
+    /**
+     * \brief コンストラクタ
+     */
     CurrentTimeSeedGenerator(void)
         : SeedGenerator<Seed>(SeedGeneratorParameter<Seed>{
             SeedGeneratorID::CurrentTime,

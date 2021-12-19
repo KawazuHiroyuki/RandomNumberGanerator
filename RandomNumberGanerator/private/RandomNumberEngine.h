@@ -19,24 +19,29 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン
  */
-template <typename T1, typename T2>
+template <typename ResultType_, typename EngineResultType_>
 class RandomNumberEngine
 {
 public:
     /**
      * \brief 生成する乱数の型
      */
-    using ResultType = T1;
+    using ResultType = ResultType_;
 
     /**
      * \brief 乱数エンジンが生成する乱数の型
      */
-    using EngineResultType = T2;
+    using EngineResultType = EngineResultType_;
+
+    /**
+     * \brief 乱数エンジンパラメータの型
+     */
+    using EngineParameter = RandomNumberEngineParameter<ResultType, EngineResultType>;
 
     /**
      * \brief シードの型
      */
-    using Seed = T2;
+    using Seed = EngineResultType_;
 
 public:
     /**
@@ -44,7 +49,7 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seed シード生成器
      */
-    RandomNumberEngine(std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> param, std::shared_ptr<SeedGenerator<Seed>> seed)
+    RandomNumberEngine(std::shared_ptr<EngineParameter> param, std::shared_ptr<SeedGenerator<Seed>> seed)
         : m_param(param)
         , m_seed(seed)
     {
@@ -103,7 +108,7 @@ protected:
     /**
      * \brief 乱数エンジンパラメータ
      */
-    std::shared_ptr<RandomNumberEngineParameter<ResultType, EngineResultType>> m_param;
+    std::shared_ptr<EngineParameter> m_param;
 
     /**
      * \brief シード生成器

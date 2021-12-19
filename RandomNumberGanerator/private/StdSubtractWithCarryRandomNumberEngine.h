@@ -17,18 +17,18 @@ namespace random_number_generator
 /**
  * \brief —”ƒGƒ“ƒWƒ“ - std::subtract_with_carry_engine
  */
-template <typename T1, typename T2,
+template <typename ResultType_, typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R
 >
-class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<T1, T2>
+class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<ResultType_, EngineResultType_>
 {
-    using RandomNumberEngine<T1, T2>::ResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::ResultType;
 
-    using RandomNumberEngine<T1, T2>::EngineResultType;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::EngineResultType;
 
-    using RandomNumberEngine<T1, T2>::Seed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::Seed;
 
-    using RandomNumberEngine<T1, T2>::getSeed;
+    using RandomNumberEngine<ResultType_, EngineResultType_>::getSeed;
 
     using Engine = std::subtract_with_carry_engine<EngineResultType, W, S, R>;
 
