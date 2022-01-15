@@ -45,9 +45,9 @@ public:
         : m_engine()
     {
         switch (engineParam.id) {
-            case RandomNumberEngineID::StdRandomDevice:
-                m_engine = EngineFactory<StdRandomDevice, Seed>::create(engineParam);
-                break;
+            //case RandomNumberEngineID::StdRandomDevice:
+            //    m_engine = EngineFactory<StdRandomDevice>::create(engineParam);
+            //    break;
             //case RandomNumberEngineID::StdLiearCongruential:
             //    break;
             //case RandomNumberEngineID::StdMersenneTwister:
@@ -90,8 +90,8 @@ public:
     virtual Result operator()(void)
     {
         switch (m_engine->getRandomNumberEngineID()) {
-            case RandomNumberEngineID::StdRandomDevice:
-                return (*getEngine<StdRandomDevice>())();
+            //case RandomNumberEngineID::StdRandomDevice:
+            //    return (*getEngine<StdRandomDevice>())();
             case RandomNumberEngineID::StdMinStdRand0:
                 return (*getEngine<StdMinStdRand0RandomNumberEngine<Seed>>())();
             case RandomNumberEngineID::StdMinStdRand:
@@ -156,8 +156,8 @@ public:
     Result getEngineMin(void) noexcept
     {
         switch (m_engine->getRandomNumberEngineID()) {
-            case RandomNumberEngineID::StdRandomDevice:
-                return getEngine<StdRandomDevice>()->getMin();
+            //case RandomNumberEngineID::StdRandomDevice:
+            //    return getEngine<StdRandomDevice>()->getMin();
             case RandomNumberEngineID::StdMinStdRand0:
                 return getEngine<StdMinStdRand0RandomNumberEngine<Seed>>()->getMin();
             case RandomNumberEngineID::StdMinStdRand:
@@ -186,8 +186,8 @@ public:
     Result getEngineMax(void) noexcept
     {
         switch (m_engine->getRandomNumberEngineID()) {
-            case RandomNumberEngineID::StdRandomDevice:
-                return getEngine<StdRandomDevice>()->getMax();
+            //case RandomNumberEngineID::StdRandomDevice:
+            //    return getEngine<StdRandomDevice>()->getMax();
             case RandomNumberEngineID::StdMinStdRand0:
                 return getEngine<StdMinStdRand0RandomNumberEngine<Seed>>()->getMax();
             case RandomNumberEngineID::StdMinStdRand:
@@ -218,6 +218,6 @@ protected:
     }
 
 protected:
-    std::shared_ptr<AbstractRandomNumberEngine> m_engine;
+    std::shared_ptr<AbstractRandomNumberEngine<Result, Seed>> m_engine;
 };
 } // namespace random_number_generator

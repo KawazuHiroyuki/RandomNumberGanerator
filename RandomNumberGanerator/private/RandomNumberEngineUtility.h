@@ -28,15 +28,15 @@ class StdDefaultRandomEngine;
 template <typename Engine, typename Seed = void>
 using BaseEngine =
     typename utility::Switch<
-    utility::Case<std::is_same<StdRandomDevice, Engine>::value, std::random_device>,
-    utility::Case<std::is_same<StdMinStdRand0RandomNumberEngine<Seed>, Engine>::value, std::minstd_rand0>,
-    utility::Case<std::is_same<StdMinStdRandRandomNumberEngine<Seed>, Engine>::value, std::minstd_rand>,
-    utility::Case<std::is_same<StdMt199937_32BitRandomNumberEngine<Seed>, Engine>::value, std::mt19937>,
-    utility::Case<std::is_same<StdMt199937_64BitRandomNumberEngine<Seed>, Engine>::value, std::mt19937_64>,
-    utility::Case<std::is_same<StdRanlux24RandomNumberEngine<Seed>, Engine>::value, std::ranlux24>,
-    utility::Case<std::is_same<StdRanlux48RandomNumberEngine<Seed>, Engine>::value, std::ranlux48>,
-    utility::Case<std::is_same<StdKnuthRandomNumberEngine<Seed>, Engine>::value, std::knuth_b>,
-    utility::Case<std::is_same<StdDefaultRandomEngine<Seed>, Engine>::value, std::default_random_engine>
+    utility::Case<std::is_same<Engine, StdRandomDevice>::value, std::random_device>,
+    utility::Case<std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value, std::minstd_rand0>,
+    utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, std::minstd_rand>,
+    utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, std::mt19937>,
+    utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, std::mt19937_64>,
+    utility::Case<std::is_same<Engine, StdRanlux24RandomNumberEngine<Seed>>::value, std::ranlux24>,
+    utility::Case<std::is_same<Engine, StdRanlux48RandomNumberEngine<Seed>>::value, std::ranlux48>,
+    utility::Case<std::is_same<Engine, StdKnuthRandomNumberEngine<Seed>>::value, std::knuth_b>,
+    utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, std::default_random_engine>
     >::type;
 
 template <typename Engine, typename Seed = void>

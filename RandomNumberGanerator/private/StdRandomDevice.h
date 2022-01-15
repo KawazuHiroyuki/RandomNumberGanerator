@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdRandomDevice.h
- * \brief  乱数エンジン - std::random_device
+ * \brief  乱数エンジン - 予測不能な乱数生成器
  *
  * \author japan
  * \date   December 2021
@@ -15,30 +15,47 @@
 
 namespace random_number_generator
 {
+
 /**
- * \brief 乱数エンジン - std::random_device
+ * \brief 真性乱数エンジン
  */
-class StdRandomDevice : public RandomNumberEngine<EngineResultType<StdRandomDevice>>
+template <
+    typename Engine_,
+    typename EngineResultType_
+>
+class TrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
 {
-    using Engine = BaseEngine<StdRandomDevice>;
+public:
+    /**
+     * \brief エンジンの型
+     */
+    using Engine = Engine_;
 
 public:
     /**
      * \brief コンストラクタ
      */
-    StdRandomDevice(void)
-        : RandomNumberEngine(RandomNumberEngineID::StdRandomDevice, nullptr)
+    TrueRandomNumberEngine(void)
+        : m_param(RandomNumberEngineID::StdRandomDevice)
         , m_engine()
     {
     }
 
-    ~StdRandomDevice(void) = default;
+    virtual ~TrueRandomNumberEngine(void) = default;
+
+#if 0
+    /**
+     * \brief シードを設定
+     * \param seed シード
+     */
+    virtual void setSeed(void) = delete;
+#endif
 
     /**
      * \brief 乱数を生成
      * \return 乱数
      */
-    EngineResultType operator()(void) override
+    virtual EngineResultType_ operator()(void) override
     {
         return m_engine();
     }
@@ -47,7 +64,7 @@ public:
      * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
      * \param times 指定回数
      */
-    void discard(std::uint64_t skip) override
+    void discard(std::uint64_t skip) //override
     {
         // なし
     }
@@ -56,7 +73,7 @@ public:
      * \brief エントロピー(乱数の乱雑さの度合い)を取得
      * \return エントロピー
      */
-    double getEntropy(void) const noexcept override
+    double getEntropy(void) const noexcept //override
     {
         return m_engine.entropy();
     }
@@ -65,7 +82,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    static constexpr EngineResultType getMin(void)
+    virtual EngineResultType_ getMin(void) const override
     {
         return Engine::min();
     }
@@ -74,15 +91,38 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    static constexpr EngineResultType getMax(void)
+    virtual EngineResultType_ getMax(void) const override
     {
         return Engine::max();
     }
 
-private:
     /**
-     * \brief 予測不能な乱数生成器
+     * \brief 乱数エンジンIDを取得
+     * \return 乱数エンジンID
+     */
+    RandomNumberEngineID getRandomNumberEngineID(void) const override
+    {
+        return m_param.id;
+    }
+
+protected:
+    /**
+     * \brief 乱数エンジンパラメータ
+     */
+    RandomNumberEngineParameter m_param;
+
+    /**
+     * \brief 乱数エンジン
      */
     Engine m_engine;
 };
+
+/**
+ * \brief 乱数エンジン - 予測不能な乱数生成器
+ */
+class StdRandomDevice : public TrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>
+{
+
+};
+
 } // namespace random_number_generator

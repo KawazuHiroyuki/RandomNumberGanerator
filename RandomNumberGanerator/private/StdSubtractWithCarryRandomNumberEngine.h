@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdSubtractWithCarryRandomNumberEngine.h
- * \brief  乱数エンジン - std::subtract_with_carry_engine
+ * \brief  乱数エンジン - キャリー付き減算法
  *
  * \author japan
  * \date   December 2021
@@ -16,83 +16,29 @@
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン - std::subtract_with_carry_engine
+ * \brief 乱数エンジン - キャリー付き減算法
  * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 template <typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R,
     typename Seed_
 >
-class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<EngineResultType_, Seed_>
+class StdSubtractWithCarryRandomNumberEngine : public RandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType_, Seed_>;
+private:
+    using Base = RandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>;
+    using Engine = Base::Engine;
 
-    using Engine = std::subtract_with_carry_engine<Base::EngineResultType, W, S, R>;
-
-    using Seed = Seed_;
-
-    static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
+    //static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
 
 public:
     /**
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(RandomNumberEngineID::StdSubtractWithCarry, seed)
-        , m_engine(Base::getSeed())
+    StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<SeedEngine<Seed_>> seed)
+        : Base(RandomNumberEngineID::StdSubtractWithCarry, Engine(seed->operator()()), seed)
     {
     }
-
-    /**
-     * \brief 乱数を生成
-     * \return 乱数
-     */
-    Base::EngineResultType operator()(void) override
-    {
-        return m_engine();
-    }
-
-    /**
-     * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
-     * \param times 指定回数
-     */
-    void discard(std::uint64_t skip) override
-    {
-        m_engine.discard(skip);
-    }
-
-    /**
-     * \brief エントロピー(乱数の乱雑さの度合い)を取得
-     * \return エントロピー
-     */
-    double getEntropy(void) const noexcept override
-    {
-        return 0.0; // 疑似乱数はエントロピー0
-    }
-
-    /**
-     * \brief 生成する値の最小値を取得
-     * \return 最小値
-     */
-    static constexpr Base::EngineResultType getMin(void)
-    {
-        return Engine::min();
-    }
-
-    /**
-     * \brief 生成する値の最大値を取得
-     * \return 最大値
-     */
-    static constexpr Base::EngineResultType getMax(void)
-    {
-        return Engine::max();
-    }
-
-private:
-    /**
-     * \brief キャリー付き減算法
-     */
-    Engine m_engine;
 };
 } // namespace random_number_generator

@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdLiearCongruentialRandomNumberEngine.h
- * \brief  乱数エンジン - std::linear_congruential_engine
+ * \brief  乱数エンジン - 線形合同法
  *
  * \author japan
  * \date   December 2021
@@ -16,83 +16,29 @@
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン - std::linear_congruential_engine
+ * \brief 乱数エンジン - 線形合同法
  * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M,
     typename Seed_
 >
-class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<EngineResultType_, Seed_>
+class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>
 {
-    using Base = RandomNumberEngine<EngineResultType_, Seed_>;
+private:
+    using Base = RandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>;
+    using Engine = Base::Engine;
 
-    using Engine = std::linear_congruential_engine<Base::EngineResultType, A, C, M>;
-
-    using Seed = Seed_;
-
-    static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");
+    //static_assert(std::is_same<Engine::result_type, EngineResultType_>::value, "");
 
 public:
     /**
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<SeedEngine<Base::Seed>> seed)
-        : Base(RandomNumberEngineID::StdLiearCongruential, seed)
-        , m_engine(Base::getSeed())
+    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<SeedEngine<Seed_>> seed)
+        : Base(RandomNumberEngineID::StdLiearCongruential, Engine(seed->operator()()), seed)
     {
     }
-
-    /**
-     * \brief 乱数を生成
-     * \return 乱数
-     */
-    Base::EngineResultType operator()(void) override
-    {
-        return m_engine();
-    }
-
-    /**
-     * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
-     * \param times 指定回数
-     */
-    void discard(std::uint64_t skip) override
-    {
-        m_engine.discard(skip);
-    }
-
-    /**
-     * \brief エントロピー(乱数の乱雑さの度合い)を取得
-     * \return エントロピー
-     */
-    double getEntropy(void) const noexcept override
-    {
-        return 0.0; // 疑似乱数はエントロピー0
-    }
-
-    /**
-     * \brief 生成する値の最小値を取得
-     * \return 最小値
-     */
-    static constexpr Base::EngineResultType getMin(void)
-    {
-        return Engine::min();
-    }
-
-    /**
-     * \brief 生成する値の最大値を取得
-     * \return 最大値
-     */
-    static constexpr Base::EngineResultType getMax(void)
-    {
-        return Engine::max();
-    }
-
-private:
-    /**
-     * \brief 線形合同法
-     */
-    Engine m_engine;
 };
 } // namespace random_number_generator

@@ -27,6 +27,7 @@ public:
      * \tparam Seed_ シードの型
      * \param param シードエンジンパラメータ
      * \return シートエンジン
+     * \
      */
     template <typename Seed_>
     static std::shared_ptr<SeedEngine<Seed_>> create(const SeedEngineParameter<Seed_>& param = {})

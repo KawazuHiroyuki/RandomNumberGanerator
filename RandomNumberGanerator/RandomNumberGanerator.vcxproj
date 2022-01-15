@@ -142,6 +142,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="private\AbstractRandomNumberDistribution.h" />
     <ClInclude Include="private\AbstractRandomNumberEngine.h" />
     <ClInclude Include="private\CurrentTimeSeedEngine.h" />
     <ClInclude Include="private\RandomNumberDistribution.h" />

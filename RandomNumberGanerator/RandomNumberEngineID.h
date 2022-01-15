@@ -39,4 +39,40 @@ constexpr std::size_t RANDOM_NUMBER_ENGINE_ID_SIZE = 12;
  * \brief デフォルトの乱数エンジンID
  */
 constexpr RandomNumberEngineID DEFAULT_RANDOM_NUMBER_ENGINE_ID = RandomNumberEngineID::StdDefaultRandomEngine;
+
+/**
+ * \brief 真性乱数エンジンか判定
+ * \param id 乱数エンジンID
+ * \return true:真性乱数、false:真性乱数でない
+ */
+constexpr bool isTrueRandomNumberEngine(RandomNumberEngineID id)
+{
+    return (RandomNumberEngineID::StdRandomDevice == id);
+}
+
+/**
+ * \brief 疑似乱数エンジンか判定
+ * \param id 乱数エンジンID
+ * \return true:疑似乱数、false:疑似乱数でない
+ */
+constexpr bool isPseudoRandomNumberEngine(RandomNumberEngineID id)
+{
+    switch (id) {
+        case RandomNumberEngineID::StdLiearCongruential:
+        case RandomNumberEngineID::StdMersenneTwister:
+        case RandomNumberEngineID::StdSubtractWithCarry:
+        case RandomNumberEngineID::StdMinStdRand0:
+        case RandomNumberEngineID::StdMinStdRand:
+        case RandomNumberEngineID::StdMt199937_32Bit:
+        case RandomNumberEngineID::StdMt199937_64Bit:
+        case RandomNumberEngineID::StdRanlux24:
+        case RandomNumberEngineID::StdRanlux48:
+        case RandomNumberEngineID::StdKnuth:
+        case RandomNumberEngineID::StdDefaultRandomEngine:
+            return true;
+        default:
+            return false;
+    }
+}
+
 } // namespace random_number_generator
