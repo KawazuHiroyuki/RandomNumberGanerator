@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "RandomNumberEngine.h"
+#include "PseudoRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
@@ -20,10 +20,10 @@ namespace random_number_generator
  * \tparam Seed_ ƒV[ƒh‚ÌŒ^
  */
 template <typename Seed_ = std::uint32_t>
-class StdMinStdRandRandomNumberEngine : public RandomNumberEngine<BaseEngine<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, Seed_>
+class StdMinStdRandRandomNumberEngine : public PseudoRandomNumberEngine<BaseEngine<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, Seed_>
 {
 private:
-    using Base = RandomNumberEngine<BaseEngine<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, Seed_>;
+    using Base = PseudoRandomNumberEngine<BaseEngine<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>, Seed_>;
     using Engine = BaseEngine<StdMinStdRandRandomNumberEngine<Seed_>, Seed_>;
 
 public:

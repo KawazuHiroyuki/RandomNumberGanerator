@@ -59,9 +59,6 @@
     <ClInclude Include="RandomNumberGenerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator</Filter>
     </ClInclude>
-    <ClInclude Include="private\RandomNumberEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
-    </ClInclude>
     <ClInclude Include="private\StdDefaultRandomEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
     </ClInclude>
@@ -154,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="private\AbstractRandomNumberDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\TrueRandomNumberEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="private\PseudoRandomNumberEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

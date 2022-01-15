@@ -1,5 +1,5 @@
 ﻿/*****************************************************************//**
- * \file   RandomNumberEngine.h
+ * \file   PseudoRandomNumberEngine.h
  * \brief  乱数エンジン
  * 
  * \author japan
@@ -25,8 +25,8 @@ template <
     typename EngineResultType_,
     typename Seed_ = void
 >
-class RandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_, Seed_>
-{ // TODO PseudoRandomNumberEngine
+class PseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_, Seed_>
+{
 public:
     /**
      * \brief エンジンの型
@@ -40,14 +40,14 @@ public:
      * \param engine 乱数エンジン
      * \param seed シード生成器
      */
-    RandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<SeedEngine<Seed_>> seed = nullptr)
+    PseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<SeedEngine<Seed_>> seed = nullptr)
         : m_param(param)
         , m_engine(engine)
         , m_seed(seed)
     {
     }
 
-    virtual ~RandomNumberEngine(void) = default;
+    virtual ~PseudoRandomNumberEngine(void) = default;
 
 #if 0
     /**

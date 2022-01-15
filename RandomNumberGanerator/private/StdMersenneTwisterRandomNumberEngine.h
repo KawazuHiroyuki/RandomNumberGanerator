@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "RandomNumberEngine.h"
+#include "PseudoRandomNumberEngine.h"
 
 namespace random_number_generator
 {
@@ -26,10 +26,10 @@ template <
     EngineResultType_ C, std::size_t L, EngineResultType_ F,
     typename Seed_
 >
-class StdMersenneTwisterRandomNumberEngine : public RandomNumberEngine<std::mersenne_twister_engine<EngineResultType_, W, N, M, R, A, U, D, S, B, T, C, L, F>, EngineResultType_, Seed_>
+class StdMersenneTwisterRandomNumberEngine : public PseudoRandomNumberEngine<std::mersenne_twister_engine<EngineResultType_, W, N, M, R, A, U, D, S, B, T, C, L, F>, EngineResultType_, Seed_>
 {
 private:
-    using Base = RandomNumberEngine<std::mersenne_twister_engine<EngineResultType_, W, N, M, R, A, U, D, S, B, T, C, L, F>, EngineResultType_, Seed_>;
+    using Base = PseudoRandomNumberEngine<std::mersenne_twister_engine<EngineResultType_, W, N, M, R, A, U, D, S, B, T, C, L, F>, EngineResultType_, Seed_>;
     using Engine = Base::Engine;
 
     //static_assert(std::is_same<Engine::result_type, EngineResultType_>::value, "");

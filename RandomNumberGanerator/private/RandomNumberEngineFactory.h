@@ -86,24 +86,62 @@ public:
         std::shared_ptr<SeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
         return std::make_shared<Engine>(seed);
     }
+
+    template <
+        EngineResultType_ A,
+        EngineResultType_ C,
+        EngineResultType_ M
+    >
+    static std::shared_ptr<Engine> create(
+        const RandomNumberEngineParameter& engineParam = {},
+        const SeedEngineParameter<Seed>& seedParam = {})
+    {
+        std::shared_ptr<SeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        return std::make_shared<Engine>(seed);
+        //auto object = std::make_shared<StdLiearCongruentialRandomNumberEngine<EngineResultType_, 16807, 0, 2147483647>>(seed);
+    }
+
+    template <
+        std::size_t W, std::size_t N, std::size_t M, std::size_t R,
+        EngineResultType_ A, std::size_t U, EngineResultType_ D, std::size_t S,
+        EngineResultType_ B, std::size_t T,
+        EngineResultType_ C, std::size_t L, EngineResultType_ F
+    >
+    static std::shared_ptr<Engine> create(
+        const RandomNumberEngineParameter& engineParam = {},
+        const SeedEngineParameter<Seed>& seedParam = {})
+    {
+        std::shared_ptr<SeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        return std::make_shared<Engine>(seed);
+        //auto object = std::make_shared<StdMersenneTwisterRandomNumberEngine<EngineResultType_,
+        //    32, 624, 397, 31,
+        //    0x9908b0df, 11, 0xffffffff, 7,
+        //    0x9d2c5680, 15, 0xefc60000, 18, 1812433253>>
+        //    (seed);
+    }
+
+    template <
+        typename EngineResultType_,
+        std::size_t W,
+        std::size_t S,
+        std::size_t R
+    >
+    static std::shared_ptr<Engine> create(
+        const RandomNumberEngineParameter& engineParam = {},
+        const SeedEngineParameter<Seed>& seedParam = {})
+    {
+        std::shared_ptr<SeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        return std::make_shared<Engine>(seed);
+        //auto object = std::make_shared<StdSubtractWithCarryRandomNumberEngine<EngineResultType_, 24, 10, 24>>(seed);
+        //return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);
+    }
 };
 
 template <typename Engine, typename Seed = void>
 using EngineFactory =
 typename utility::Switch<
     utility::Case<std::is_same<Engine, StdRandomDevice>::value, TrueRandomNumberEngineFactory<StdRandomDevice, EngineResultType<StdRandomDevice>>>,
-
-    utility::Case<
-        std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value,
-        PseudoRandomNumberEngineFactory<
-            StdMinStdRand0RandomNumberEngine<Seed>,
-            EngineResultType<StdMinStdRand0RandomNumberEngine<Seed>, Seed>,
-            Seed
-        >
-    >,
-
-
-
+    utility::Case<std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, EngineResultType<StdMinStdRand0RandomNumberEngine<Seed>, Seed>, Seed>>,
     utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRandRandomNumberEngine<Seed>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed>, Seed>, Seed>>,
     utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, EngineResultType<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>, Seed>>,
     utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_64BitRandomNumberEngine<Seed>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed>, Seed>, Seed>>,
@@ -112,66 +150,4 @@ typename utility::Switch<
     utility::Case<std::is_same<Engine, StdKnuthRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdKnuthRandomNumberEngine<Seed>, EngineResultType<StdKnuthRandomNumberEngine<Seed>, Seed>, Seed>>,
     utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdDefaultRandomEngine<Seed>, EngineResultType<StdDefaultRandomEngine<Seed>, Seed>, Seed>>
 >::type;
-
-#if 0
-template <
-    typename EngineResultType_,
-    EngineResultType_ A,
-    EngineResultType_ C,
-    EngineResultType_ M
->
-class StdLiearCongruentialRandomNumberEngineFactory
-{
-    //using Engine = StdLiearCongruentialRandomNumberEngine;
-
-public:
-    static std::shared_ptr<AbstractRandomNumberEngine> create(
-        const RandomNumberEngineParameter& engine = {},
-        const SeedEngineParameter<EngineResultType<EngineResultType_>>& seed = {})
-    {
-        auto object = std::make_shared<StdLiearCongruentialRandomNumberEngine<EngineResultType_, 16807, 0, 2147483647>>(seed);
-        return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);
-    }
-};
-
-template <typename EngineResultType_,
-    std::size_t W, std::size_t N, std::size_t M, std::size_t R,
-    EngineResultType_ A, std::size_t U, EngineResultType_ D, std::size_t S,
-    EngineResultType_ B, std::size_t T,
-    EngineResultType_ C, std::size_t L, EngineResultType_ F
->
-class StdMersenneTwisterRandomNumberEngineFactory
-{
-public:
-    static std::shared_ptr<AbstractRandomNumberEngine> create(
-        const RandomNumberEngineParameter& engine = {},
-        const SeedEngineParameter<EngineResultType<EngineResultType_>>& seed = {})
-    {
-        auto object = std::make_shared<StdMersenneTwisterRandomNumberEngine<EngineResultType_,
-            32, 624, 397, 31,
-            0x9908b0df, 11, 0xffffffff, 7,
-            0x9d2c5680, 15, 0xefc60000, 18, 1812433253>>
-            (seed);
-        return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);
-    }
-};
-
-template <
-    typename EngineResultType_,
-    std::size_t W,
-    std::size_t S,
-    std::size_t R
->
-class StdSubtractWithCarryRandomNumberEngineFactory
-{
-public:
-    static std::shared_ptr<AbstractRandomNumberEngine> create(
-        const RandomNumberEngineParameter& engine = {},
-        const SeedEngineParameter<EngineResultType<EngineResultType_>>& seed = {})
-    {
-        auto object = std::make_shared<StdSubtractWithCarryRandomNumberEngine<EngineResultType_, 24, 10, 24>>(seed);
-        return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);
-    }
-};
-#endif
 } // namespace random_number_generator

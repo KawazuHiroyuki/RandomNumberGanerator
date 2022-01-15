@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "RandomNumberEngine.h"
+#include "PseudoRandomNumberEngine.h"
 #include "../StdLiearCongruentialRandomNumberEngineParameter.h"
 
 namespace random_number_generator
@@ -23,10 +23,10 @@ template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M,
     typename Seed_
 >
-class StdLiearCongruentialRandomNumberEngine : public RandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>
+class StdLiearCongruentialRandomNumberEngine : public PseudoRandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>
 {
 private:
-    using Base = RandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>;
+    using Base = PseudoRandomNumberEngine<std::linear_congruential_engine<EngineResultType_, A, C, M>, EngineResultType_, Seed_>;
     using Engine = Base::Engine;
 
     //static_assert(std::is_same<Engine::result_type, EngineResultType_>::value, "");
