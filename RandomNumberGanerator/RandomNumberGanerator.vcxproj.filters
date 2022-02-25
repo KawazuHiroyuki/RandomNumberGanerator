@@ -146,7 +146,7 @@
     <ClInclude Include="private\RandomNumberDistributionFactory.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="private\UniformIntDistribution.h">
+    <ClInclude Include="private\StdUniformIntDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberDistributionID.h">
@@ -177,6 +177,12 @@
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Base</Filter>
     </ClInclude>
     <ClInclude Include="private\NoAdaptDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdUniformRealDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdBernoulliDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
   </ItemGroup>

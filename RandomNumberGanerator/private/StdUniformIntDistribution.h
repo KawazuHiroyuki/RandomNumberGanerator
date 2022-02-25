@@ -1,5 +1,5 @@
 ﻿/*****************************************************************//**
- * \file   UniformIntDistribution.h
+ * \file   StdUniformIntDistribution.h
  * \brief  乱数分布
  * 
  * \author japan
@@ -21,11 +21,11 @@ namespace random_number_generator
 template <
     typename DistributionResultType_ = int
 >
-class UniformIntDistribution : public PrimaryRandomNumberDistribution<BaseDistribution<UniformIntDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>
+class StdUniformIntDistribution : public PrimaryRandomNumberDistribution<BaseDistribution<StdUniformIntDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>
 {
 private:
-    using Base = PrimaryRandomNumberDistribution<BaseDistribution<UniformIntDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>;
-    using Distribution = BaseDistribution<UniformIntDistribution<DistributionResultType_>, DistributionResultType_>;
+    using Base = PrimaryRandomNumberDistribution<BaseDistribution<StdUniformIntDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>;
+    using Distribution = BaseDistribution<StdUniformIntDistribution<DistributionResultType_>, DistributionResultType_>;
 
 public:
     /**
@@ -33,7 +33,7 @@ public:
      * \param low 下限値
      * \param high 上限値
      */
-    UniformIntDistribution(DistributionResultType_ low, DistributionResultType_ high)
+    StdUniformIntDistribution(DistributionResultType_ low, DistributionResultType_ high)
         : Base(RandomNumberDistributionID::StdIntUniform, Distribution(low, high))
     {
     }

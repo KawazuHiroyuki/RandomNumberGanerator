@@ -1,17 +1,19 @@
 
 
 #pragma once
+// C++
 #include <random>
+// My
 #include "../Utility.h"
 
 namespace random_number_generator
 {
 template <typename ResultType>
-class UniformIntDistribution;
+class StdUniformIntDistribution;
 template <typename ResultType>
-class UniformRealDistribution;
-//template <typename Seed>
-//class StdMinStdRandRandomNumberEngine;
+class StdUniformRealDistribution;
+template <typename ResultType>
+class StdBernoulliDistribution;
 //template <typename Seed>
 //class StdMt199937_32BitRandomNumberEngine;
 //template <typename Seed>
@@ -28,9 +30,9 @@ class UniformRealDistribution;
 template <typename Distribution, typename ResultType>
 using BaseDistribution =
     typename utility::Switch<
-    utility::Case<std::is_same<Distribution, UniformIntDistribution<ResultType>>::value, std::uniform_int_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, UniformRealDistribution<ResultType>>::value, std::uniform_real_distribution<ResultType>>
-    //utility::Case<std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value, std::minstd_rand0>,
+    utility::Case<std::is_same<Distribution, StdUniformIntDistribution<ResultType>>::value, std::uniform_int_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdUniformRealDistribution<ResultType>>::value, std::uniform_real_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdBernoulliDistribution<ResultType>>::value, std::bernoulli_distribution>
     //utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, std::minstd_rand>,
     //utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, std::mt19937>,
     //utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, std::mt19937_64>,

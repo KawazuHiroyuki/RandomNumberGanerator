@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   RandomNumberDistribution.h
+ * \file   StdUniformRealDistribution.h
  * \brief  óêêîï™ïz
  *
  * \author japan
@@ -21,11 +21,11 @@ namespace random_number_generator
 template <
     typename DistributionResultType_ = double
 >
-class UniformRealDistribution : public PrimaryRandomNumberDistribution<BaseDistribution<UniformRealDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>
+class StdUniformRealDistribution : public PrimaryRandomNumberDistribution<BaseDistribution<StdUniformRealDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>
 {
 private:
-    using Base = PrimaryRandomNumberDistribution<BaseDistribution<UniformRealDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>;
-    using Distribution = BaseDistribution<UniformRealDistribution<DistributionResultType_>, DistributionResultType_>;
+    using Base = PrimaryRandomNumberDistribution<BaseDistribution<StdUniformRealDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>;
+    using Distribution = BaseDistribution<StdUniformRealDistribution<DistributionResultType_>, DistributionResultType_>;
 
 public:
     /**
@@ -33,7 +33,7 @@ public:
      * \param low â∫å¿íl
      * \param high è„å¿íl
      */
-    UniformRealDistribution(DistributionResultType_ low, DistributionResultType_ high)
+    StdUniformRealDistribution(DistributionResultType_ low, DistributionResultType_ high)
         : Base(RandomNumberDistributionID::StdRealUniform, Distribution(low, high))
     {
     }
