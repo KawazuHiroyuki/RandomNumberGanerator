@@ -16,7 +16,8 @@ namespace random_number_generator
 enum class RandomNumberDistributionID {
     NoAdapt = 0, //!< 無適応
     // C++標準:一様分布
-    StdUniform, //!< 一様分布
+    StdIntUniform, //!< 一様整数分布
+    StdRealUniform, //!< 一様実数分布
     // C++標準:ベルヌーイ分布
     StdBernoulli, //!< ベルヌーイ分布
     StdBinomial, //!< 二項分布
@@ -40,4 +41,11 @@ enum class RandomNumberDistributionID {
     StdPiecewiseConstant, //!< 区間ごとの重み付けを低数値とした分布
     StdPiecewiseLinear, //!< 区間ごとの重みづけを線形に接続した分布
 };
+
+constexpr std::size_t RANDOM_NUMBER_DISTRIBUTION_ID_SIZE = static_cast<std::size_t>(RandomNumberDistributionID::StdPiecewiseLinear) + 1;
+
+/**
+ * \brief デフォルトの乱数分布ID
+ */
+constexpr RandomNumberDistributionID DEFAULT_RANDOM_NUMBER_DISTRIBUTION_ID = RandomNumberDistributionID::NoAdapt;
 } // namespace random_number_generator

@@ -24,7 +24,7 @@ enum class SeedEngineID {
     Custom, //!< カスタム
 };
 
-constexpr std::size_t SEED_ENGINE_ID_SIZE = 3;
+constexpr std::size_t SEED_ENGINE_ID_SIZE = static_cast<std::size_t>(SeedEngineID::Custom);
 
 /**
  * \brief デフォルトのシードエンジンID

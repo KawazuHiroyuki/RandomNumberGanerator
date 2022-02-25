@@ -7,10 +7,13 @@
  *********************************************************************/
 
 #pragma once
+
 // C++
 #include <memory>
 // MyProject
+#include "../RandomNumberEngineParameter.h"
 #include "AbstractRandomNumberEngine.h"
+#include "SeedEngine.h"
 
 namespace random_number_generator
 {

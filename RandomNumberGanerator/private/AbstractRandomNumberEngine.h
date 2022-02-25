@@ -11,9 +11,8 @@
 // C++
 #include <cstdint>
 // MyProject
-#include "../RandomNumberEngineParameter.h"
 #include "../RandomNumberEngineID.h"
-#include "SeedEngine.h"
+
 
 namespace random_number_generator
 {

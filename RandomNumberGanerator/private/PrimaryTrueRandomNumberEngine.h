@@ -2,6 +2,7 @@
 // C++
 #include <memory>
 // MyProject
+#include "../RandomNumberEngineParameter.h"
 #include "AbstractRandomNumberEngine.h"
 
 namespace random_number_generator
@@ -54,7 +55,7 @@ public:
      * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
      * \param times 指定回数
      */
-    void discard(std::uint64_t skip) //override
+    void discard(std::uint64_t skip) override
     {
         // なし
     }
@@ -63,7 +64,7 @@ public:
      * \brief エントロピー(乱数の乱雑さの度合い)を取得
      * \return エントロピー
      */
-    double getEntropy(void) const noexcept //override
+    double getEntropy(void) const noexcept override
     {
         return m_engine.entropy();
     }

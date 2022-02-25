@@ -49,11 +49,14 @@
     <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine\Utility">
       <UniqueIdentifier>{b9a7feb1-fac7-4791-b4fd-a4f9065d850d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Abstract">
-      <UniqueIdentifier>{8f8c1c9b-939e-4ae0-9393-37593da7a85c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine\Base">
       <UniqueIdentifier>{43e390ad-2dd8-4599-9bc4-b99a3bc52f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Base">
+      <UniqueIdentifier>{8f8c1c9b-939e-4ae0-9393-37593da7a85c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Utility">
+      <UniqueIdentifier>{5b69c02b-8aa0-4dd7-adaf-f2624018d49b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +146,7 @@
     <ClInclude Include="private\RandomNumberDistributionFactory.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="private\RandomNumberDistribution.h">
+    <ClInclude Include="private\UniformIntDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberDistributionID.h">
@@ -165,7 +168,16 @@
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine\Utility</Filter>
     </ClInclude>
     <ClInclude Include="private\AbstractRandomNumberDistribution.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Abstract</Filter>
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="private\RandomNumberDistributionUtility.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="private\PrimaryRandomNumberDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="private\NoAdaptDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
