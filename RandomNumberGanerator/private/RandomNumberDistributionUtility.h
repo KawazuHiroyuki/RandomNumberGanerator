@@ -26,6 +26,8 @@ template <typename ResultType>
 class StdExponentialDistribution;
 template <typename ResultType>
 class StdExponentialDistribution;
+template <typename ResultType>
+class StdWeibullDistribution;
 
 template <typename Distribution, typename ResultType>
 using BaseDistribution =
@@ -38,8 +40,8 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdNegativeBinomialDistribution<ResultType>>::value, std::negative_binomial_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdPoissonDistribution<ResultType>>::value, std::poisson_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdExponentialDistribution<ResultType>>::value, std::exponential_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, StdExponentialDistribution<ResultType>>::value, std::gamma_distribution<ResultType>>
-    //utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, std::default_random_engine>
+    utility::Case<std::is_same<Distribution, StdExponentialDistribution<ResultType>>::value, std::gamma_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdWeibullDistribution<ResultType>>::value, std::weibull_distribution<ResultType>>
     >::type;
 
 
