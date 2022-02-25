@@ -40,6 +40,8 @@ template <typename ResultType>
 class StdCauchyDistribution;
 template <typename ResultType>
 class StdStudentTDistribution;
+template <typename ResultType>
+class StdDiscreteDistribution;
 
 template <typename Distribution, typename ResultType>
 using BaseDistribution =
@@ -59,7 +61,8 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdLognormalDistribution<ResultType>>::value, std::lognormal_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdChiSquaredDistribution<ResultType>>::value, std::chi_squared_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdCauchyDistribution<ResultType>>::value, std::cauchy_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, StdStudentTDistribution<ResultType>>::value, std::student_t_distribution<ResultType>>
+    utility::Case<std::is_same<Distribution, StdStudentTDistribution<ResultType>>::value, std::student_t_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdDiscreteDistribution<ResultType>>::value, std::discrete_distribution<ResultType>>
     >::type;
 
 
