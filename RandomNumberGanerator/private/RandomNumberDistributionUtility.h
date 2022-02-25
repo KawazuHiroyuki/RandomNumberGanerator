@@ -30,6 +30,8 @@ template <typename ResultType>
 class StdWeibullDistribution;
 template <typename ResultType>
 class StdExtremeValueDistribution;
+template <typename ResultType>
+class StdNormalDistribution;
 
 template <typename Distribution, typename ResultType>
 using BaseDistribution =
@@ -44,7 +46,8 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdExponentialDistribution<ResultType>>::value, std::exponential_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdExponentialDistribution<ResultType>>::value, std::gamma_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdWeibullDistribution<ResultType>>::value, std::weibull_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, StdExtremeValueDistribution<ResultType>>::value, std::extreme_value_distribution<ResultType>>
+    utility::Case<std::is_same<Distribution, StdExtremeValueDistribution<ResultType>>::value, std::extreme_value_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdNormalDistribution<ResultType>>::value, std::normal_distribution<ResultType>>
     >::type;
 
 
