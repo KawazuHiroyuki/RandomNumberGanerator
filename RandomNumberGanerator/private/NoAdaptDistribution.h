@@ -8,7 +8,7 @@
 
 #pragma once
 
- // MyProject
+// MyProject
 #include "../RandomNumberDistributionParameter.h"
  #include "AbstractRandomNumberDistribution.h"
 

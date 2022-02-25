@@ -20,8 +20,8 @@ template <typename ResultType>
 class StdGeometricDistribution;
 template <typename ResultType>
 class StdNegativeBinomialDistribution;
-//template <typename Seed>
-//class StdRanlux48RandomNumberEngine;
+template <typename ResultType>
+class StdPoissonDistribution;
 //template <typename Seed>
 //class StdKnuthRandomNumberEngine;
 //template <typename Seed>
@@ -35,8 +35,8 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdBernoulliDistribution<ResultType>>::value, std::bernoulli_distribution>,
     utility::Case<std::is_same<Distribution, StdBinomialDistribution<ResultType>>::value, std::binomial_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdGeometricDistribution<ResultType>>::value, std::geometric_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, StdNegativeBinomialDistribution<ResultType>>::value, std::negative_binomial_distribution<ResultType>>
-    //utility::Case<std::is_same<Engine, StdRanlux24RandomNumberEngine<Seed>>::value, std::ranlux24>,
+    utility::Case<std::is_same<Distribution, StdNegativeBinomialDistribution<ResultType>>::value, std::negative_binomial_distribution<ResultType>>,
+    utility::Case<std::is_same<Distribution, StdPoissonDistribution<ResultType>>::value, std::poisson_distribution<ResultType>>
     //utility::Case<std::is_same<Engine, StdRanlux48RandomNumberEngine<Seed>>::value, std::ranlux48>,
     //utility::Case<std::is_same<Engine, StdKnuthRandomNumberEngine<Seed>>::value, std::knuth_b>,
     //utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, std::default_random_engine>
