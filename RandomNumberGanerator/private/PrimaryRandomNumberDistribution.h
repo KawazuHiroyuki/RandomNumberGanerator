@@ -42,7 +42,7 @@ public:
      * \return —”
      */
     template <typename RandomNumberEngine>
-    virtual DistributionResultType_ operator(RandomNumberEngine& engine) override
+    virtual DistributionResultType_ operator()(RandomNumberEngine& engine) override
     {
         DistributionResultType_ result = m_distribution(engine);
         return result;

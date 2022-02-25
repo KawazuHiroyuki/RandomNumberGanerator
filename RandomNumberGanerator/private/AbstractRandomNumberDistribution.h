@@ -35,7 +35,7 @@ public:
      * \return —”
      */
     template <typename RandomNumberEngine>
-    virtual DistributionResultType operator(RandomNumberEngine& engine) = 0;
+    virtual DistributionResultType operator()(RandomNumberEngine& engine) = 0;
 
     /**
      * \brief ó‘Ô‚ğƒŠƒZƒbƒg

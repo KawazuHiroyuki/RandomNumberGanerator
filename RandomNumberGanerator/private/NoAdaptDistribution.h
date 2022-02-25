@@ -15,7 +15,7 @@
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::uniform_int_distribution
+ * \brief 乱数分布 - 無適応
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <
@@ -27,6 +27,9 @@ private:
     using Base = AbstractRandomNumberDistribution<DistributionResultType_>;
 
 public:
+    /**
+     * \brief コンストラクタ
+     */
     NoAdaptDistribution(void)
         : Base()
         , m_param(RandomNumberDistributionID::NoAdapt)
@@ -39,18 +42,27 @@ public:
      * \return 乱数
      */
     template <typename RandomNumberEngine>
-    virtual DistributionResultType operator(RandomNumberEngine& engine) = 0;
+    virtual DistributionResultType_ operator()(RandomNumberEngine& engine) override
+    {
+        DistributionResultType_ result = engine(); // TODO castする？
+        return result;
+    }
 
     /**
      * \brief 状態をリセット
      */
-    virtual void reset(void) = 0;
+    virtual void reset(void) override
+    {
+    }
 
     /**
      * \brief 乱数分布IDを取得
      * \return 乱数分布ID
      */
-    virtual RandomNumberDistributionID getRandomNumberDistributionID(void) const = 0;
+    virtual RandomNumberDistributionID getRandomNumberDistributionID(void) const override
+    {
+        return m_param.id;
+    }
 
 protected:
     /**

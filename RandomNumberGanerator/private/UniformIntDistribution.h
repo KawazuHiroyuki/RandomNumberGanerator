@@ -1,5 +1,5 @@
 ﻿/*****************************************************************//**
- * \file   RandomNumberDistribution.h
+ * \file   UniformIntDistribution.h
  * \brief  乱数分布
  * 
  * \author japan
@@ -28,6 +28,11 @@ private:
     using Distribution = BaseDistribution<UniformIntDistribution<DistributionResultType_>, DistributionResultType_>;
 
 public:
+    /**
+     * \brief コンストラクタ
+     * \param low 下限値
+     * \param high 上限値
+     */
     UniformIntDistribution(DistributionResultType_ low, DistributionResultType_ high)
         : Base(RandomNumberDistributionID::StdIntUniform, Distribution(low, high))
     {
