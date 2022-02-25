@@ -37,7 +37,7 @@ public:
      * \param fw 重み付けを計算する関数
      */
     template <typename UnaryOperation>
-    StdPiecewiseConstantDistribution(std::initializer_list<double> wl, UnaryOperation fw)
+    StdPiecewiseConstantDistribution(std::initializer_list<DistributionResultType_> wl, UnaryOperation fw)
         : Base(RandomNumberDistributionID::StdPiecewiseConstant, Distribution(wl))
     {
     }
@@ -51,7 +51,7 @@ public:
      * \param fw 各区間に対する重み値を求めるための関数
      */
     template <typename UnaryOperation>
-    StdPiecewiseConstantDistribution(std::size_t nw, double xmin, double xmax, UnaryOperation fw)
+    StdPiecewiseConstantDistribution(std::size_t nw, DistributionResultType_ xmin, DistributionResultType_ xmax, UnaryOperation fw)
         : Base(RandomNumberDistributionID::StdPiecewiseConstant, Distribution(nw, xmin, xmax, fw))
     {
     }

@@ -37,7 +37,7 @@ public:
      * \param fw 重み付けを計算する関数
      */
     template <typename UnaryOperation>
-    StdPiecewiseLinearDistribution(std::initializer_list<double> bl, UnaryOperation fw)
+    StdPiecewiseLinearDistribution(std::initializer_list<DistributionResultType_> bl, UnaryOperation fw)
         : Base(RandomNumberDistributionID::StdPiecewiseLinear, Distribution(bl))
     {
     }
@@ -51,7 +51,7 @@ public:
      * \param fw 区間列それぞれのインデックスに対する重み値を求めるための関数
      */
     template <typename UnaryOperation>
-    StdPiecewiseLinearDistribution(std::size_t nw, double xmin, double xmax, UnaryOperation fw)
+    StdPiecewiseLinearDistribution(std::size_t nw, DistributionResultType_ xmin, DistributionResultType_ xmax, UnaryOperation fw)
         : Base(RandomNumberDistributionID::StdPiecewiseLinear, Distribution(nw, xmin, xmax, fw))
     {
     }
