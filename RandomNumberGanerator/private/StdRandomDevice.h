@@ -10,7 +10,7 @@
  // C++
 #include <random>
 // 
-#include "TrueRandomNumberEngine.h"
+#include "AbstractTrueRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
@@ -18,7 +18,7 @@ namespace random_number_generator
 /**
  * \brief 乱数エンジン - 予測不能な乱数生成器
  */
-class StdRandomDevice : public TrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>
+class StdRandomDevice : public AbstractTrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>
 {
 
 };

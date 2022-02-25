@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "PseudoRandomNumberEngine.h"
+#include "AbstractPseudoRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
@@ -23,10 +23,10 @@ template <typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R,
     typename Seed_
 >
-class StdSubtractWithCarryRandomNumberEngine : public PseudoRandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>
+class StdSubtractWithCarryRandomNumberEngine : public AbstractPseudoRandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>
 {
 private:
-    using Base = PseudoRandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>;
+    using Base = AbstractPseudoRandomNumberEngine<std::subtract_with_carry_engine<EngineResultType_, W, S, R>, EngineResultType_, Seed_>;
     using Engine = Base::Engine;
 
     //static_assert(std::is_same<Engine::result_type, Base::EngineResultType>::value, "");

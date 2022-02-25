@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "PseudoRandomNumberEngine.h"
+#include "AbstractPseudoRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
@@ -20,7 +20,7 @@ namespace random_number_generator
  * \tparam Seed_ ÉVÅ[ÉhÇÃå^
  */
 template <typename Seed_ = std::uint32_t>
-class StdMt199937_64BitRandomNumberEngine : public PseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>
+class StdMt199937_64BitRandomNumberEngine : public AbstractPseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>
 {
 public:
     /**
@@ -28,7 +28,7 @@ public:
      */
 
 private:
-    using Base = PseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>;
+    using Base = AbstractPseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>;
     using Engine = BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>;
 
 public:

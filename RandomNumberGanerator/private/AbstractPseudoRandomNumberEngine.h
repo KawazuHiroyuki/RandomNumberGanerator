@@ -15,7 +15,7 @@
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン
+ * \brief 抽象疑似乱数エンジン
  * \tparam Engine_ エンジンの型
  * \tparam EngineResultType_ 生成する符号なし整数の型
  * \tparam Seed_ シードの型
@@ -25,7 +25,7 @@ template <
     typename EngineResultType_,
     typename Seed_ = void
 >
-class PseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_, Seed_>
+class AbstractPseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_, Seed_>
 {
 public:
     /**
@@ -40,14 +40,14 @@ public:
      * \param engine 乱数エンジン
      * \param seed シード生成器
      */
-    PseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<SeedEngine<Seed_>> seed = nullptr)
+    AbstractPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<SeedEngine<Seed_>> seed = nullptr)
         : m_param(param)
         , m_engine(engine)
         , m_seed(seed)
     {
     }
 
-    virtual ~PseudoRandomNumberEngine(void) = default;
+    virtual ~AbstractPseudoRandomNumberEngine(void) = default;
 
 #if 0
     /**

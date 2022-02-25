@@ -14,7 +14,7 @@ namespace random_number_generator
  * \brief 乱数分布ID
  */
 enum class RandomNumberDistributionID {
-    NoAdjustment = 0, //!< 無調整
+    NoAdapt = 0, //!< 無適応
     // C++標準:一様分布
     StdUniform, //!< 一様分布
     // C++標準:ベルヌーイ分布

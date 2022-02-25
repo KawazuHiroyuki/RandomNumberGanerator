@@ -145,7 +145,7 @@
     <ClInclude Include="private\AbstractRandomNumberDistribution.h" />
     <ClInclude Include="private\AbstractRandomNumberEngine.h" />
     <ClInclude Include="private\CurrentTimeSeedEngine.h" />
-    <ClInclude Include="private\PseudoRandomNumberEngine.h" />
+    <ClInclude Include="private\AbstractPseudoRandomNumberEngine.h" />
     <ClInclude Include="private\RandomNumberDistribution.h" />
     <ClInclude Include="private\RandomNumberDistributionFactory.h" />
     <ClInclude Include="private\RandomNumberEngineFactory.h" />
@@ -165,7 +165,7 @@
     <ClInclude Include="private\StdRanlux24RandomNumberEngine.h" />
     <ClInclude Include="private\StdRanlux48RandomNumberEngine.h" />
     <ClInclude Include="private\StdSubtractWithCarryRandomNumberEngine.h" />
-    <ClInclude Include="private\TrueRandomNumberEngine.h" />
+    <ClInclude Include="private\AbstractTrueRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberDistributionID.h" />
     <ClInclude Include="RandomNumberDistributionParameter.h" />
     <ClInclude Include="RandomNumberEngineID.h" />
