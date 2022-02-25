@@ -19,7 +19,7 @@ namespace random_number_generator
  * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
  */
 template <
-    typename DistributionResultType_ = int
+    typename DistributionResultType_
 >
 class StdBernoulliDistribution : public PrimaryRandomNumberDistribution<BaseDistribution<StdBernoulliDistribution<DistributionResultType_>, DistributionResultType_>, DistributionResultType_>
 {

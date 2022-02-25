@@ -14,8 +14,8 @@ template <typename ResultType>
 class StdUniformRealDistribution;
 template <typename ResultType>
 class StdBernoulliDistribution;
-//template <typename Seed>
-//class StdMt199937_32BitRandomNumberEngine;
+template <typename ResultType>
+class StdBinomialDistribution;
 //template <typename Seed>
 //class StdMt199937_64BitRandomNumberEngine;
 //template <typename Seed>
@@ -32,8 +32,8 @@ using BaseDistribution =
     typename utility::Switch<
     utility::Case<std::is_same<Distribution, StdUniformIntDistribution<ResultType>>::value, std::uniform_int_distribution<ResultType>>,
     utility::Case<std::is_same<Distribution, StdUniformRealDistribution<ResultType>>::value, std::uniform_real_distribution<ResultType>>,
-    utility::Case<std::is_same<Distribution, StdBernoulliDistribution<ResultType>>::value, std::bernoulli_distribution>
-    //utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, std::minstd_rand>,
+    utility::Case<std::is_same<Distribution, StdBernoulliDistribution<ResultType>>::value, std::bernoulli_distribution>,
+    utility::Case<std::is_same<Distribution, StdBinomialDistribution<ResultType>>::value, std::binomial_distribution<ResultType>>
     //utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, std::mt19937>,
     //utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, std::mt19937_64>,
     //utility::Case<std::is_same<Engine, StdRanlux24RandomNumberEngine<Seed>>::value, std::ranlux24>,
