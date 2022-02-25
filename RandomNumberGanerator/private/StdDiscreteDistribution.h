@@ -45,7 +45,7 @@ public:
      * \param nw 確率列の要素数
      * \param xmin 最小確率
      * \param xmax 最大確率
-     * \param fw 確率値を求める単項関数
+     * \param fw 確率値を求める関数
      */
     template <typename UnaryOperation>
     StdDiscreteDistribution(std::size_t nw, double xmin, double xmax, UnaryOperation fw)
