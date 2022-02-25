@@ -33,7 +33,7 @@ public:
      * \param p Šm—¦
      */
     StdGeometricDistribution(double p)
-        : Base(RandomNumberDistributionID::StdBinomial, Distribution(p))
+        : Base(RandomNumberDistributionID::StdGeometric, Distribution(p))
     {
     }
 };

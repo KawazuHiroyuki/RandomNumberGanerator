@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <cstddef>
+
 namespace random_number_generator
 {
 /**
