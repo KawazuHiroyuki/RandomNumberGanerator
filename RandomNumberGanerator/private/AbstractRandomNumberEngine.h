@@ -24,7 +24,7 @@ namespace random_number_generator
  */
 template <
     typename EngineResultType_,
-    typename Seed_ = void
+    typename Seed_ = void // TODO Seed_‚ÍAbstractPseudoRandomNumberEngine‚ÉˆÚ“®
 >
 class AbstractRandomNumberEngine
 {

@@ -7,13 +7,13 @@
 namespace random_number_generator
 {
 /**
- * \brief 抽象真性乱数エンジン
+ * \brief 真性乱数エンジン
  */
 template <
     typename Engine_,
     typename EngineResultType_
 >
-class AbstractTrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
+class PrimaryTrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
 {
 public:
     /**
@@ -25,13 +25,13 @@ public:
     /**
      * \brief コンストラクタ
      */
-    AbstractTrueRandomNumberEngine(void)
+    PrimaryTrueRandomNumberEngine(void)
         : m_param(RandomNumberEngineID::StdRandomDevice)
         , m_engine()
     {
     }
 
-    virtual ~AbstractTrueRandomNumberEngine(void) = default;
+    virtual ~PrimaryTrueRandomNumberEngine(void) = default;
 
 #if 0
     /**

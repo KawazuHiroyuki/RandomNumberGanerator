@@ -10,7 +10,7 @@
 
 #include <random>
 
-#include "AbstractPseudoRandomNumberEngine.h"
+#include "PrimaryPseudoRandomNumberEngine.h"
 
 namespace random_number_generator
 {
@@ -19,10 +19,10 @@ namespace random_number_generator
  * \tparam Seed_ ÉVÅ[ÉhÇÃå^
  */
 template <typename Seed_ = std::uint32_t>
-class StdRanlux24RandomNumberEngine : public AbstractPseudoRandomNumberEngine<BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, Seed_>
+class StdRanlux24RandomNumberEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, Seed_>
 {
 private:
-    using Base = AbstractPseudoRandomNumberEngine<BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, Seed_>;
+    using Base = PrimaryPseudoRandomNumberEngine<BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, Seed_>;
     using Engine = BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>;
 
 public:
