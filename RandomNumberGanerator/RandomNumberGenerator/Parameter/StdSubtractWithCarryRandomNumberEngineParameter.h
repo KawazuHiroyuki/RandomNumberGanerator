@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdSubtractWithCarryRandomNumberEngineParameter.h
- * \brief  ƒLƒƒƒŠ[•t‚«Œ¸Z–@ —”ƒGƒ“ƒWƒ“ƒpƒ‰ƒ[ƒ^
+ * \brief  ã‚­ãƒ£ãƒªãƒ¼ä»˜ãæ¸›ç®—æ³• ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
  *
  * \author japan
  * \date   December 2021
@@ -16,12 +16,12 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒLƒƒƒŠ[•t‚«Œ¸Z–@
+ * \brief ã‚­ãƒ£ãƒªãƒ¼ä»˜ãæ¸›ç®—æ³•
  * \note std::subtract_with_carry_engine
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
- * \tparam WordSize_ ƒ[ƒhƒTƒCƒY
- * \tparam ShortLag_ ’Z‚¢ƒ‰ƒO
- * \tparam LongLag_ ’·‚¢ƒ‰ƒO
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
+ * \tparam WordSize_ ãƒ¯ãƒ¼ãƒ‰ã‚µã‚¤ã‚º
+ * \tparam ShortLag_ çŸ­ã„ãƒ©ã‚°
+ * \tparam LongLag_ é•·ã„ãƒ©ã‚°
  */
 template <
     typename EngineResultType_,
@@ -32,30 +32,30 @@ template <
 struct StdSubtractWithCarryRandomNumberEngineParameter
 {
     /**
-     * \brief —”ƒGƒ“ƒWƒ“‚ª¶¬‚·‚é—”‚ÌŒ^
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãŒç”Ÿæˆã™ã‚‹ä¹±æ•°ã®å‹
      */
     using EngineResultType = EngineResultType_;
 
     /**
-     * \brief ƒ[ƒhƒTƒCƒY (w)
-     * \note 0 < w <=std::numeric_limits<EngineResultType_>::digits ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+     * \brief ãƒ¯ãƒ¼ãƒ‰ã‚µã‚¤ã‚º (w)
+     * \note 0 < w <=std::numeric_limits<EngineResultType_>::digits ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
      */
     static constexpr std::size_t WordSize = WordSize_;
 
     /**
-     * \brief ’Z‚¢ƒ‰ƒO (s)
-     * \note 0 < s < r ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+     * \brief çŸ­ã„ãƒ©ã‚° (s)
+     * \note 0 < s < r ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
      */
     static constexpr std::size_t ShortLag = ShortLag_;
 
     /**
-     * \brief ’·‚¢ƒ‰ƒO (r)
-     * \note 0 < s < r ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+     * \brief é•·ã„ãƒ©ã‚° (r)
+     * \note 0 < s < r ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
      */
     static constexpr std::size_t LongLag = LongLag_;
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ID
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ID
      */
     static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdSubtractWithCarry;
 };

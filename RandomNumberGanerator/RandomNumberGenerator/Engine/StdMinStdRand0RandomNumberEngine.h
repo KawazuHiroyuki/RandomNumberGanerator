@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdMinStdRand0RandomNumberEngine.h
- * \brief  Å¬•W€MINSTD —”¶¬Ší
+ * \brief  æœ€å°æ¨™æº–MINSTD ä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief Å¬•W€MINSTD —”¶¬Ší
+ * \brief æœ€å°æ¨™æº–MINSTD ä¹±æ•°ç”Ÿæˆå™¨
  * \note std::minstd_rand0
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_ = std::uint32_t>
 class StdMinStdRand0RandomNumberEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdMinStdRand0RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMinStdRand0RandomNumberEngine<Seed_>, Seed_>, Seed_>
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param seed ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param seed ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     StdMinStdRand0RandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdMinStdRand0, Engine(seed->operator()()), seed)

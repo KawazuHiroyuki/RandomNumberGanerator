@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdBernoulliDistribution.h
- * \brief  ƒxƒ‹ƒk[ƒC•ª•z
+ * \brief  ãƒ™ãƒ«ãƒŒãƒ¼ã‚¤åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒxƒ‹ƒk[ƒC•ª•z
+ * \brief ãƒ™ãƒ«ãƒŒãƒ¼ã‚¤åˆ†å¸ƒ
  * \note std::bernoulli_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param p Šm—¦
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param p ç¢ºç‡
      */
     StdBernoulliDistribution(double p)
         : Base(RandomNumberDistributionID::StdBernoulli, Distribution(p))

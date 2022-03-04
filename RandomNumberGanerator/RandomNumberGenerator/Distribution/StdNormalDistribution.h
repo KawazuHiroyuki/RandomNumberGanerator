@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdNormalDistribution.h
- * \brief  •W€³‹K(ƒKƒEƒX)•ª•z
+ * \brief  æ¨™æº–æ­£è¦(ã‚¬ã‚¦ã‚¹)åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief •W€³‹K(ƒKƒEƒX)•ª•z
+ * \brief æ¨™æº–æ­£è¦(ã‚¬ã‚¦ã‚¹)åˆ†å¸ƒ
  * \note std::normal_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param mean ³‹K•ª•z‚Ì•½‹Ï’l
-     * \param stddev ³‹K•ª•z‚Ì•W€•Î·
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param mean æ­£è¦åˆ†å¸ƒã®å¹³å‡å€¤
+     * \param stddev æ­£è¦åˆ†å¸ƒã®æ¨™æº–åå·®
      */
     StdNormalDistribution(DistributionResultType_ mean, DistributionResultType_ stddev)
         : Base(RandomNumberDistributionID::StdNormal, Distribution(mean, stddev))

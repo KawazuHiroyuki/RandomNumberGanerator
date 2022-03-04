@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdLognormalDistribution.h
- * \brief  ‘Î”³‹K•ª•z
+ * \brief  å¯¾æ•°æ­£è¦åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ‘Î”³‹K•ª•z
+ * \brief å¯¾æ•°æ­£è¦åˆ†å¸ƒ
  * \note std::lognormal_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param mean ‘Î”³‹K•ª•z‚Ì•½‹Ï’l
-     * \param stddev ‘Î”³‹K•ª•z‚Ì•W€•Î·
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param mean å¯¾æ•°æ­£è¦åˆ†å¸ƒã®å¹³å‡å€¤
+     * \param stddev å¯¾æ•°æ­£è¦åˆ†å¸ƒã®æ¨™æº–åå·®
      */
     StdLognormalDistribution(DistributionResultType_ mean, DistributionResultType_ stddev)
         : Base(RandomNumberDistributionID::StdLognomarl, Distribution(mean, stddev))

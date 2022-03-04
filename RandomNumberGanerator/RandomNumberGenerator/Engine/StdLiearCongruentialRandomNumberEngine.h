@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdLiearCongruentialRandomNumberEngine.h
- * \brief  üŒ`‡“¯–@ —”¶¬Ší
+ * \brief  ç·šå½¢åˆåŒæ³• ä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief üŒ`‡“¯–@ —”¶¬Ší
+ * \brief ç·šå½¢åˆåŒæ³• ä¹±æ•°ç”Ÿæˆå™¨
  * \note std::linear_congruential_engine
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
  */
 template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M,
@@ -35,8 +35,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param seed ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param seed ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     StdLiearCongruentialRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdLiearCongruential, Engine(seed->operator()()), seed)

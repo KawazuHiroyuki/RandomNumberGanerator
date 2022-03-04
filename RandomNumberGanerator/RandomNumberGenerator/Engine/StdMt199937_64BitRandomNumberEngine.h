@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdMt199937_64BitRandomNumberEngine.h
- * \brief  ƒƒ‹ƒZƒ“ƒkƒcƒCƒXƒ^[‚Ì64ƒrƒbƒg”Å —”¶¬Ší
+ * \brief  ãƒ¡ãƒ«ã‚»ãƒ³ãƒŒãƒ„ã‚¤ã‚¹ã‚¿ãƒ¼ã®64ãƒ“ãƒƒãƒˆç‰ˆ ä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒƒ‹ƒZƒ“ƒkƒcƒCƒXƒ^[‚Ì64ƒrƒbƒg”Å —”¶¬Ší
+ * \brief ãƒ¡ãƒ«ã‚»ãƒ³ãƒŒãƒ„ã‚¤ã‚¹ã‚¿ãƒ¼ã®64ãƒ“ãƒƒãƒˆç‰ˆ ä¹±æ•°ç”Ÿæˆå™¨
  * \note std::mt19937_64
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_ = std::uint32_t>
 class StdMt199937_64BitRandomNumberEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param seed ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param seed ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     StdMt199937_64BitRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdMt199937_64Bit, Engine(seed->operator()()), seed)

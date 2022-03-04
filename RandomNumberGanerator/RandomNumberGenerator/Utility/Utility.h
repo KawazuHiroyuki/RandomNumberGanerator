@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   Utility.h
- * \brief  ”Ä—pƒ†[ƒeƒBƒŠƒeƒB
+ * \brief  æ±ç”¨ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
  * 
  * \author japan
  * \date   March 2022
@@ -26,19 +26,19 @@ struct Switch
     using type =
         typename std::conditional<
         Head::TBOOL,
-        typename Head::TSecond,   // true‚Ì
-        typename Switch<Tail...>::type //false‚Ì
+        typename Head::TSecond,   // trueã®æ™‚
+        typename Switch<Tail...>::type //falseã®æ™‚
         >::type;
 };
 
-//Ä‹NI’[—p“Áê‰»
+//å†èµ·çµ‚ç«¯ç”¨ç‰¹æ®ŠåŒ–
 template<class Head>
 struct Switch<Head>
 {
     using type =
         typename std::conditional<
         Head::TBOOL,
-        typename Head::TSecond, // true‚Ì
+        typename Head::TSecond, // trueã®æ™‚
         void
         >::type;
 };

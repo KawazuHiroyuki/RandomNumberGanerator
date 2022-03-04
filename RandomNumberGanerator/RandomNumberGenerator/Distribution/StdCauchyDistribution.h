@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdCauchyDistribution.h
- * \brief  ƒR[ƒV[•ª•z
+ * \brief  ã‚³ãƒ¼ã‚·ãƒ¼åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒR[ƒV[•ª•z
+ * \brief ã‚³ãƒ¼ã‚·ãƒ¼åˆ†å¸ƒ
  * \note std::cauchy_distribution
- * \tparam DistributionResultType_ —”¶¬Œ‹‰Ê‚ÌŒ^(À”)
+ * \tparam DistributionResultType_ ä¹±æ•°ç”Ÿæˆçµæœã®å‹(å®Ÿæ•°)
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param a ƒR[ƒV[•ª•z‚ÌˆÊ’u•ê”
-     * \param b ƒR[ƒV[•ª•z‚ÌÚ“x•ê”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param a ã‚³ãƒ¼ã‚·ãƒ¼åˆ†å¸ƒã®ä½ç½®æ¯æ•°
+     * \param b ã‚³ãƒ¼ã‚·ãƒ¼åˆ†å¸ƒã®å°ºåº¦æ¯æ•°
      */
     StdCauchyDistribution(DistributionResultType_ a, DistributionResultType_ b)
         : Base(RandomNumberDistributionID::StdCauchy, Distribution(a, b))

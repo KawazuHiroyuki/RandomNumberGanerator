@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   AbstractRandomNumberEngine.h
- * \brief  ’ŠÛ—”ƒGƒ“ƒWƒ“
+ * \brief  æŠ½è±¡ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
  *
  * \author japan
  * \date   December 2021
@@ -16,77 +16,77 @@
 namespace random_number_generator
 {
 /**
- * \brief ’ŠÛ—”ƒGƒ“ƒWƒ“
- * \tparam EngineResultType_ —”ƒGƒ“ƒWƒ“ ¶¬Œ‹‰Ê‚ÌŒ^
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \brief æŠ½è±¡ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
+ * \tparam EngineResultType_ ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ ç”Ÿæˆçµæœã®å‹
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <
     typename EngineResultType_,
-    typename Seed_ = void // TODO Seed_‚ÍAbstractPseudoRandomNumberEngine‚ÉˆÚ“®
+    typename Seed_ = void // TODO Seed_ã¯AbstractPseudoRandomNumberEngineã«ç§»å‹•
 >
 class AbstractRandomNumberEngine
 {
 public:
     /**
-     * \brief —”ƒGƒ“ƒWƒ“‚ª¶¬‚·‚é—”‚ÌŒ^
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãŒç”Ÿæˆã™ã‚‹ä¹±æ•°ã®å‹
      */
     using EngineResultType = EngineResultType_;
 
     /**
-     * \brief ƒV[ƒh‚ÌŒ^
+     * \brief ã‚·ãƒ¼ãƒ‰ã®å‹
      */
     using Seed = Seed_;
 
 public:
 #if 0
     /**
-     * \brief ƒV[ƒh‚ğİ’è
-     * \param seed ƒV[ƒh
+     * \brief ã‚·ãƒ¼ãƒ‰ã‚’è¨­å®š
+     * \param seed ã‚·ãƒ¼ãƒ‰
      */
     virtual void setSeed(Seed seed) = 0;
 #endif
 
     /**
-     * \brief —”‚ğ¶¬
-     * \return —”
+     * \brief ä¹±æ•°ã‚’ç”Ÿæˆ
+     * \return ä¹±æ•°
      */
     virtual EngineResultType operator()(void) = 0;
 
     /**
-     * \brief w’è‚µ‚½‰ñ”‚¾‚¯‹^——”‚ğ¶¬‚µA“à•”ó‘Ô‚ği‚ß‚é
-     * \param skip w’è‰ñ”
+     * \brief æŒ‡å®šã—ãŸå›æ•°ã ã‘ç–‘ä¼¼ä¹±æ•°ã‚’ç”Ÿæˆã—ã€å†…éƒ¨çŠ¶æ…‹ã‚’é€²ã‚ã‚‹
+     * \param skip æŒ‡å®šå›æ•°
      */
     virtual void discard(std::uint64_t skip) = 0;
 
     /**
-     * \brief ƒGƒ“ƒgƒƒs[(—”‚Ì—G‚³‚Ì“x‡‚¢)‚ğæ“¾
-     * \return ƒGƒ“ƒgƒƒs[
+     * \brief ã‚¨ãƒ³ãƒˆãƒ­ãƒ”ãƒ¼(ä¹±æ•°ã®ä¹±é›‘ã•ã®åº¦åˆã„)ã‚’å–å¾—
+     * \return ã‚¨ãƒ³ãƒˆãƒ­ãƒ”ãƒ¼
      */
     virtual double getEntropy(void) const noexcept = 0;
 
     /**
-     * \brief ¶¬‚·‚é’l‚ÌÅ¬’l‚ğæ“¾
-     * \return Å¬’l
+     * \brief ç”Ÿæˆã™ã‚‹å€¤ã®æœ€å°å€¤ã‚’å–å¾—
+     * \return æœ€å°å€¤
      */
     virtual EngineResultType getMin(void) const = 0;
 
     /**
-     * \brief ¶¬‚·‚é’l‚ÌÅ‘å’l‚ğæ“¾
-     * \return Å‘å’l
+     * \brief ç”Ÿæˆã™ã‚‹å€¤ã®æœ€å¤§å€¤ã‚’å–å¾—
+     * \return æœ€å¤§å€¤
      */
     virtual EngineResultType getMax(void) const = 0;
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ID‚ğæ“¾
-     * \return —”ƒGƒ“ƒWƒ“ID
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³IDã‚’å–å¾—
+     * \return ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ID
      */
     virtual RandomNumberEngineID getRandomNumberEngineID(void) const = 0;
 
 protected:
 #if 0
     /**
-     * \brief ƒV[ƒh‚ğæ“¾
-     * \return ƒV[ƒh
+     * \brief ã‚·ãƒ¼ãƒ‰ã‚’å–å¾—
+     * \return ã‚·ãƒ¼ãƒ‰
      */
     virtual Seed getSeed(void) const = 0;
 #endif

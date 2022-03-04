@@ -88,7 +88,7 @@ public:
         // ・符号なし整数型に変換可能？
         // ・sizeof(EngineResultType(Engine)) >= sizeof(Seed_)？
 
-        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory<Seed>::create(seedParam);
         return std::make_shared<Engine>(seed);
     }
 
@@ -101,7 +101,7 @@ public:
         const RandomNumberEngineParameter& engineParam = {},
         const SeedEngineParameter<Seed>& seedParam = {})
     {
-        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory<Seed>::create(seedParam);
         return std::make_shared<Engine>(seed);
         //auto object = std::make_shared<StdLiearCongruentialRandomNumberEngine<EngineResultType_, 16807, 0, 2147483647>>(seed);
     }
@@ -116,7 +116,7 @@ public:
         const RandomNumberEngineParameter& engineParam = {},
         const SeedEngineParameter<Seed>& seedParam = {})
     {
-        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory<Seed>::create(seedParam);
         return std::make_shared<Engine>(seed);
         //auto object = std::make_shared<StdMersenneTwisterRandomNumberEngine<EngineResultType_,
         //    32, 624, 397, 31,
@@ -135,7 +135,7 @@ public:
         const RandomNumberEngineParameter& engineParam = {},
         const SeedEngineParameter<Seed>& seedParam = {})
     {
-        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory::create(seedParam);
+        std::shared_ptr<AbstractSeedEngine<Seed>> seed = SeedEngineFactory<Seed>::create(seedParam);
         return std::make_shared<Engine>(seed);
         //auto object = std::make_shared<StdSubtractWithCarryRandomNumberEngine<EngineResultType_, 24, 10, 24>>(seed);
         //return std::dynamic_pointer_cast<AbstractRandomNumberEngine>(object);

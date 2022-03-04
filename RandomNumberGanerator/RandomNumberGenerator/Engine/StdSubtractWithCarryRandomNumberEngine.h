@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdSubtractWithCarryRandomNumberEngine.h
- * \brief  ƒLƒƒƒŠ[•t‚«Œ¸Z–@ —”¶¬Ší
+ * \brief  ã‚­ãƒ£ãƒªãƒ¼ä»˜ãæ¸›ç®—æ³• ä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒLƒƒƒŠ[•t‚«Œ¸Z–@ —”¶¬Ší
+ * \brief ã‚­ãƒ£ãƒªãƒ¼ä»˜ãæ¸›ç®—æ³• ä¹±æ•°ç”Ÿæˆå™¨
  * \note std::subtract_with_carry_engine
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
  */
 template <typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R,
@@ -35,8 +35,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param seed ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param seed ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdSubtractWithCarry, Engine(seed->operator()()), seed)

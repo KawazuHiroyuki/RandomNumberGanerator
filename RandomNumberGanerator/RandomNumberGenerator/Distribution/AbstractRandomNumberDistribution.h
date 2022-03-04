@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   AbstractRandomNumberDistribution.h
- * \brief  ’ŠÛ—”•ª•z
+ * \brief  æŠ½è±¡ä¹±æ•°åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -14,8 +14,8 @@
 namespace random_number_generator
 {
 /**
- * \brief ’ŠÛ—”•ª•z
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \brief æŠ½è±¡ä¹±æ•°åˆ†å¸ƒ
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_
@@ -24,27 +24,27 @@ class AbstractRandomNumberDistribution
 {
 public:
     /**
-     * \brief —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+     * \brief ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
      */
     using DistributionResultType = DistributionResultType_;
 
 public:
     /**
-     * \brief —”‚ğ¶¬
-     * \param engine —”ƒGƒ“ƒWƒ“
-     * \return —”
+     * \brief ä¹±æ•°ã‚’ç”Ÿæˆ
+     * \param engine ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
+     * \return ä¹±æ•°
      */
     template <typename RandomNumberEngine>
     virtual DistributionResultType operator()(RandomNumberEngine& engine) = 0;
 
     /**
-     * \brief ó‘Ô‚ğƒŠƒZƒbƒg
+     * \brief çŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
      */
     virtual void reset(void) = 0;
 
     /**
-     * \brief —”•ª•zID‚ğæ“¾
-     * \return —”•ª•zID
+     * \brief ä¹±æ•°åˆ†å¸ƒIDã‚’å–å¾—
+     * \return ä¹±æ•°åˆ†å¸ƒID
      */
     virtual RandomNumberDistributionID getRandomNumberDistributionID(void) const = 0;
 };

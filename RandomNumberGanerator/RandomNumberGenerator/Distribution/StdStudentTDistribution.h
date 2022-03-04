@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdStudentTDistribution.h
- * \brief  	ƒXƒ`ƒ…[ƒfƒ“ƒg‚Ìt•ª•z
+ * \brief  	ã‚¹ãƒãƒ¥ãƒ¼ãƒ‡ãƒ³ãƒˆã®tåˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief 	ƒXƒ`ƒ…[ƒfƒ“ƒg‚Ìt•ª•z
+ * \brief 	ã‚¹ãƒãƒ¥ãƒ¼ãƒ‡ãƒ³ãƒˆã®tåˆ†å¸ƒ
  * \note std::student_t_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param n ƒXƒ`ƒ…[ƒfƒ“ƒg‚Ìt•ª•z‚Ì©—R“x
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param n ã‚¹ãƒãƒ¥ãƒ¼ãƒ‡ãƒ³ãƒˆã®tåˆ†å¸ƒã®è‡ªç”±åº¦
      */
     StdStudentTDistribution(DistributionResultType_ n)
         : Base(RandomNumberDistributionID::StdStudentT, Distribution(n))

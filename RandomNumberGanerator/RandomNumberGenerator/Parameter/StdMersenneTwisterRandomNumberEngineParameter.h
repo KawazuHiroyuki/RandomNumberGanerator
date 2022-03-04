@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdMersenneTwisterRandomNumberEngineParameter.h
- * \brief  ƒƒ‹ƒZƒ“ƒkƒcƒCƒXƒ^[–@ —”ƒGƒ“ƒWƒ“ƒpƒ‰ƒ[ƒ^
+ * \brief  ãƒ¡ãƒ«ã‚»ãƒ³ãƒŒãƒ„ã‚¤ã‚¹ã‚¿ãƒ¼æ³• ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
  *
  * \author japan
  * \date   December 2021
@@ -16,22 +16,22 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒƒ‹ƒZƒ“ƒkƒcƒCƒXƒ^[–@
+ * \brief ãƒ¡ãƒ«ã‚»ãƒ³ãƒŒãƒ„ã‚¤ã‚¹ã‚¿ãƒ¼æ³•
  * \note std::mersenne_twister_engine
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
- * \tparam WordSize_ ƒ[ƒhƒTƒCƒY
- * \tparam StateSize_ ó‘Ô‚ÌƒTƒCƒY
- * \tparam ShiftSize_ ƒVƒtƒgƒTƒCƒY
- * \tparam MaskBits_ ƒ}ƒXƒN‚ÌƒrƒbƒgƒTƒCƒY
- * \tparam XorMask_ XOR‚Ìƒ}ƒXƒN
- * \tparam TemperingU_ ’²—¥ƒVƒtƒg‚Ì1stƒpƒ‰ƒ[ƒ^
- * \tparam TemperingD_ ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì2ndƒpƒ‰ƒ[ƒ^
- * \tparam TemperingS_ ’²—¥ƒVƒtƒg‚Ì3rdƒpƒ‰ƒ[ƒ^
- * \tparam TemperingB_ ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì4thƒpƒ‰ƒ[ƒ^
- * \tparam TemperingT_ ’²—¥ƒVƒtƒg‚Ì5thƒpƒ‰ƒ[ƒ^
- * \tparam TemperingC_ ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì6thƒpƒ‰ƒ[ƒ^
- * \tparam TemperingL_ ’²—¥ƒVƒtƒg‚Ì7thƒpƒ‰ƒ[ƒ^
- * \tparam InitializationMultiplier_ ‰Šú‰»‚Ìæ”
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
+ * \tparam WordSize_ ãƒ¯ãƒ¼ãƒ‰ã‚µã‚¤ã‚º
+ * \tparam StateSize_ çŠ¶æ…‹ã®ã‚µã‚¤ã‚º
+ * \tparam ShiftSize_ ã‚·ãƒ•ãƒˆã‚µã‚¤ã‚º
+ * \tparam MaskBits_ ãƒã‚¹ã‚¯ã®ãƒ“ãƒƒãƒˆã‚µã‚¤ã‚º
+ * \tparam XorMask_ XORã®ãƒã‚¹ã‚¯
+ * \tparam TemperingU_ èª¿å¾‹ã‚·ãƒ•ãƒˆã®1stãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingD_ èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®2ndãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingS_ èª¿å¾‹ã‚·ãƒ•ãƒˆã®3rdãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingB_ èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®4thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingT_ èª¿å¾‹ã‚·ãƒ•ãƒˆã®5thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingC_ èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®6thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam TemperingL_ èª¿å¾‹ã‚·ãƒ•ãƒˆã®7thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * \tparam InitializationMultiplier_ åˆæœŸåŒ–ã®ä¹—æ•°
  */
 template <
     typename EngineResultType_,
@@ -52,90 +52,90 @@ template <
 struct StdMersenneTwisterRandomNumberEngineParameter
 {
     /**
-     * \brief —”ƒGƒ“ƒWƒ“‚ª¶¬‚·‚é—”‚ÌŒ^
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãŒç”Ÿæˆã™ã‚‹ä¹±æ•°ã®å‹
      */
     using EngineResultType = EngineResultType_;
 
     /**
-     * \brief ƒ[ƒhƒTƒCƒY (w)
-     * \note ó‘ÔƒV[ƒPƒ“ƒX“à‚Å‚ÌŠeƒ[ƒh‚Ìƒrƒbƒg”Bnumeric_limits<UIntType>::digitsˆÈ‰º‚É‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief ãƒ¯ãƒ¼ãƒ‰ã‚µã‚¤ã‚º (w)
+     * \note çŠ¶æ…‹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹å†…ã§ã®å„ãƒ¯ãƒ¼ãƒ‰ã®ãƒ“ãƒƒãƒˆæ•°ã€‚numeric_limits<UIntType>::digitsä»¥ä¸‹ã«ã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t WordSize = WordSize_;
 
     /**
-     * \brief ó‘Ô‚ÌƒTƒCƒY (n)
-     * \note ó‘ÔƒV[ƒPƒ“ƒX‚Ì—v‘f”B¶¬‚³‚ê‚é’l‚ªÄ”­‚·‚é’ö“x‚ğ’²®‚·‚é‚½‚ß‚Ì’lB
+     * \brief çŠ¶æ…‹ã®ã‚µã‚¤ã‚º (n)
+     * \note çŠ¶æ…‹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®è¦ç´ æ•°ã€‚ç”Ÿæˆã•ã‚Œã‚‹å€¤ãŒå†ç™ºã™ã‚‹ç¨‹åº¦ã‚’èª¿æ•´ã™ã‚‹ãŸã‚ã®å€¤ã€‚
      */
     static constexpr std::size_t StateSize = StateSize_;
 
     /**
-     * \brief ƒVƒtƒgƒTƒCƒY (m)
-     * \note Še‚Ğ‚Ë‚è(twist)‚ÉƒV[ƒPƒ“ƒX‚©‚ç‘I‘ğ‚·‚é‘¼‚Ì’l‚ªAm—v‘f—£‚ê‚é‚æ‚¤‚É‚·‚éBn‚æ‚è¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief ã‚·ãƒ•ãƒˆã‚µã‚¤ã‚º (m)
+     * \note å„ã²ã­ã‚Š(twist)æ™‚ã«ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‹ã‚‰é¸æŠã™ã‚‹ä»–ã®å€¤ãŒã€mè¦ç´ é›¢ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚nã‚ˆã‚Šå°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t ShiftSize = ShiftSize_;
 
     /**
-     * \brief ƒ}ƒXƒN‚ÌƒrƒbƒgƒTƒCƒY (r)
-     * \note Še‚Ğ‚Ë‚è‚É‘Î‚·‚é•ª—£ƒ|ƒCƒ“ƒg‚Ìƒ}ƒXƒNƒTƒCƒYBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief ãƒã‚¹ã‚¯ã®ãƒ“ãƒƒãƒˆã‚µã‚¤ã‚º (r)
+     * \note å„ã²ã­ã‚Šã«å¯¾ã™ã‚‹åˆ†é›¢ãƒã‚¤ãƒ³ãƒˆã®ãƒã‚¹ã‚¯ã‚µã‚¤ã‚ºã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t MaskBits = MaskBits_;
 
     /**
-     * \brief XOR‚Ìƒ}ƒXƒN (a / p)
-     * \note Še‚Ğ‚Ë‚è‚É‘Î‚·‚é•ª—£ƒ|ƒCƒ“ƒg‚Ìƒ}ƒXƒNƒTƒCƒYBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief XORã®ãƒã‚¹ã‚¯ (a / p)
+     * \note å„ã²ã­ã‚Šã«å¯¾ã™ã‚‹åˆ†é›¢ãƒã‚¤ãƒ³ãƒˆã®ãƒã‚¹ã‚¯ã‚µã‚¤ã‚ºã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr EngineResultType XorMask = XorMask_;
 
     /**
-     * \brief ’²—¥ƒVƒtƒg‚Ì1stƒpƒ‰ƒ[ƒ^ (u)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚ÌƒVƒtƒg’lBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ã‚·ãƒ•ãƒˆã®1stãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (u)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ã‚·ãƒ•ãƒˆå€¤ã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t TemperingU = TemperingU_;
 
     /**
-     * \brief ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì2ndƒpƒ‰ƒ[ƒ^ (d)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚Ìƒrƒbƒgƒ}ƒXƒN’lB1u << wˆÈ‰º‚É‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®2ndãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (d)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯å€¤ã€‚1u << wä»¥ä¸‹ã«ã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr EngineResultType TemperingD = TemperingD_;
 
     /**
-     * \brief ’²—¥ƒVƒtƒg‚Ì3rdƒpƒ‰ƒ[ƒ^ (s)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚ÌƒVƒtƒg’lBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ã‚·ãƒ•ãƒˆã®3rdãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (s)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ã‚·ãƒ•ãƒˆå€¤ã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t TemperingS = TemperingS_;
 
     /**
-     * \brief ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì4thƒpƒ‰ƒ[ƒ^ (b)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚Ìƒrƒbƒgƒ}ƒXƒN’lB1u << wˆÈ‰º‚É‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®4thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (b)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯å€¤ã€‚1u << wä»¥ä¸‹ã«ã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr EngineResultType TemperingB = TemperingB_;
 
     /**
-     * \brief ’²—¥ƒVƒtƒg‚Ì5thƒpƒ‰ƒ[ƒ^ (t)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚ÌƒVƒtƒg’lBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ã‚·ãƒ•ãƒˆã®5thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (t)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ã‚·ãƒ•ãƒˆå€¤ã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t TemperingT = TemperingT_;
 
     /**
-     * \brief ’²—¥ƒrƒbƒgƒ}ƒXƒN‚Ì6thƒpƒ‰ƒ[ƒ^ (c)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚Ìƒrƒbƒgƒ}ƒXƒN’lB1u << wˆÈ‰º‚É‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯ã®6thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (c)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ãƒ“ãƒƒãƒˆãƒã‚¹ã‚¯å€¤ã€‚1u << wä»¥ä¸‹ã«ã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr EngineResultType TemperingC = TemperingC_;
 
     /**
-     * \brief ’²—¥ƒVƒtƒg‚Ì7thƒpƒ‰ƒ[ƒ^ (l)
-     * \note ¶¬ƒAƒ‹ƒSƒŠƒYƒ€‚É‚æ‚Á‚Äg—p‚³‚ê‚éA‚²‚¿‚á¬‚ºˆ—‚ÌƒVƒtƒg’lBw‚æ‚è‚à¬‚³‚­‚·‚é‚Ì‚ª‚æ‚¢B
+     * \brief èª¿å¾‹ã‚·ãƒ•ãƒˆã®7thãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ (l)
+     * \note ç”Ÿæˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ã‚ˆã£ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€ã”ã¡ã‚ƒæ··ãœå‡¦ç†ã®ã‚·ãƒ•ãƒˆå€¤ã€‚wã‚ˆã‚Šã‚‚å°ã•ãã™ã‚‹ã®ãŒã‚ˆã„ã€‚
      */
     static constexpr std::size_t TemperingL = TemperingL_;
 
     /**
-     * \brief ‰Šú‰»‚Ìæ” (f)
-     * \note ‚Ğ‚Æ‚Â‚Ì’l‚ğƒV[ƒh‚Æ‚·‚éÛ‚ÌAó‘ÔƒV[ƒPƒ“ƒX‚ÌƒV[ƒh‚Æ‚µ‚Äg—p‚·‚é‰Šú‰»æ”B
+     * \brief åˆæœŸåŒ–ã®ä¹—æ•° (f)
+     * \note ã²ã¨ã¤ã®å€¤ã‚’ã‚·ãƒ¼ãƒ‰ã¨ã™ã‚‹éš›ã®ã€çŠ¶æ…‹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã‚·ãƒ¼ãƒ‰ã¨ã—ã¦ä½¿ç”¨ã™ã‚‹åˆæœŸåŒ–ä¹—æ•°ã€‚
      */
     static constexpr EngineResultType InitializationMultiplier = InitializationMultiplier_;
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ID
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ID
      */
     static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdMersenneTwister;
 };

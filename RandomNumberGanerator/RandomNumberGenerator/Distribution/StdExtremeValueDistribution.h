@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdExtremeValueDistribution.h
- * \brief  ‹É’l•ª•z
+ * \brief  æ¥µå€¤åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ‹É’l•ª•z
+ * \brief æ¥µå€¤åˆ†å¸ƒ
  * \note std::extreme_value_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param a ‹É’l•ª•z‚ÌˆÊ’uƒpƒ‰ƒ[ƒ^
-     * \param b ‹É’l•ª•z‚ÌÚ“xƒpƒ‰ƒ[ƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param a æ¥µå€¤åˆ†å¸ƒã®ä½ç½®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * \param b æ¥µå€¤åˆ†å¸ƒã®å°ºåº¦ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     StdExtremeValueDistribution(DistributionResultType_ a, DistributionResultType_ b)
         : Base(RandomNumberDistributionID::StdExtreme, Distribution(a, b))

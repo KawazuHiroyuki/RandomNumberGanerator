@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdDiscreteDistribution.h
- * \brief  —£U•ª•z
+ * \brief  é›¢æ•£åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief —£U•ª•z
+ * \brief é›¢æ•£åˆ†å¸ƒ
  * \note std::discrete_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = int
@@ -32,8 +32,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param wl Šm—¦—ñƒŠƒXƒg
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param wl ç¢ºç‡åˆ—ãƒªã‚¹ãƒˆ
      */
     StdDiscreteDistribution(std::initializer_list<double> wl)
         : Base(RandomNumberDistributionID::StdDiscrete, Distribution(wl))
@@ -41,12 +41,12 @@ public:
     }
 
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \tparam UnaryOperation ’P€ŠÖ”ƒIƒuƒWƒFƒNƒg
-     * \param nw Šm—¦—ñ‚Ì—v‘f”
-     * \param xmin Å¬Šm—¦
-     * \param xmax Å‘åŠm—¦
-     * \param fw Šm—¦’l‚ğ‹‚ß‚éŠÖ”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \tparam UnaryOperation å˜é …é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * \param nw ç¢ºç‡åˆ—ã®è¦ç´ æ•°
+     * \param xmin æœ€å°ç¢ºç‡
+     * \param xmax æœ€å¤§ç¢ºç‡
+     * \param fw ç¢ºç‡å€¤ã‚’æ±‚ã‚ã‚‹é–¢æ•°
      */
     template <typename UnaryOperation>
     StdDiscreteDistribution(std::size_t nw, double xmin, double xmax, UnaryOperation fw)

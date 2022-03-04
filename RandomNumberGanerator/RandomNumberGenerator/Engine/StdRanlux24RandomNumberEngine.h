@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdRanlux24RandomNumberEngine.h
- * \brief  RANLUX–@‚ÌƒŒƒxƒ‹3 —”¶¬Ší
+ * \brief  RANLUXæ³•ã®ãƒ¬ãƒ™ãƒ«3 ä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -16,9 +16,9 @@
 namespace random_number_generator
 {
 /**
- * \brief RANLUX–@‚ÌƒŒƒxƒ‹3 —”¶¬Ší
+ * \brief RANLUXæ³•ã®ãƒ¬ãƒ™ãƒ«3 ä¹±æ•°ç”Ÿæˆå™¨
  * \note std::ranlux24
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_ = std::uint32_t>
 class StdRanlux24RandomNumberEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdRanlux24RandomNumberEngine<Seed_>, Seed_>, Seed_>
@@ -29,8 +29,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param seed ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param seed ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     StdRanlux24RandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdRanlux24, Engine(seed->operator()()), seed)

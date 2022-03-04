@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdUniformRealDistribution.h
- * \brief  ”ÍˆÍ“à‚Éˆê—l‚É•ª•z‚µ‚½À”’l
+ * \brief  ç¯„å›²å†…ã«ä¸€æ§˜ã«åˆ†å¸ƒã—ãŸå®Ÿæ•°å€¤
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ”ÍˆÍ“à‚Éˆê—l‚É•ª•z‚µ‚½À”’l
+ * \brief ç¯„å›²å†…ã«ä¸€æ§˜ã«åˆ†å¸ƒã—ãŸå®Ÿæ•°å€¤
  * \note std::uniform_real_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param low ‰ºŒÀ’l
-     * \param high ãŒÀ’l
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param low ä¸‹é™å€¤
+     * \param high ä¸Šé™å€¤
      */
     StdUniformRealDistribution(DistributionResultType_ low, DistributionResultType_ high)
         : Base(RandomNumberDistributionID::StdRealUniform, Distribution(low, high))

@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdChiSquaredDistribution.h
- * \brief  ƒJƒC“ñæ•ª•z
+ * \brief  ã‚«ã‚¤äºŒä¹—åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒJƒC“ñæ•ª•z
+ * \brief ã‚«ã‚¤äºŒä¹—åˆ†å¸ƒ
  * \note std::chi_squared_distribution
- * \tparam DistributionResultType_ —”¶¬Œ‹‰Ê‚ÌŒ^(À”)
+ * \tparam DistributionResultType_ ä¹±æ•°ç”Ÿæˆçµæœã®å‹(å®Ÿæ•°)
  */
 template <
     typename DistributionResultType_ = double
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param n ƒJƒC“ñæ•ª•z‚Ì©—R“x
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param n ã‚«ã‚¤äºŒä¹—åˆ†å¸ƒã®è‡ªç”±åº¦
      */
     StdChiSquaredDistribution(DistributionResultType_ n)
         : Base(RandomNumberDistributionID::StdChiSquared, Distribution(n))

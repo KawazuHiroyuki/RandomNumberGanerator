@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   PrimaryRandomNumberDistribution.h
- * \brief  ƒvƒ‰ƒCƒ}ƒŠ—”•ª•z
+ * \brief  ãƒ—ãƒ©ã‚¤ãƒãƒªä¹±æ•°åˆ†å¸ƒ
  * 
  * \author japan
  * \date   March 2022
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒvƒ‰ƒCƒ}ƒŠ—”•ª•z
- * \tparam Distribution_ —”•ª•z
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \brief ãƒ—ãƒ©ã‚¤ãƒãƒªä¹±æ•°åˆ†å¸ƒ
+ * \tparam Distribution_ ä¹±æ•°åˆ†å¸ƒ
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename Distribution_,
@@ -27,15 +27,15 @@ class PrimaryRandomNumberDistribution : public AbstractRandomNumberDistribution<
 {
 public:
     /**
-     * \brief —”•ª•z‚ÌŒ^
+     * \brief ä¹±æ•°åˆ†å¸ƒã®å‹
      */
     using Distribution = Distribution_;
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param param —”•ª•zƒpƒ‰ƒ[ƒ^
-     * \param distribution —”•ª•z
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param param ä¹±æ•°åˆ†å¸ƒãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * \param distribution ä¹±æ•°åˆ†å¸ƒ
      */
     PrimaryRandomNumberDistribution(const RandomNumberDistributionParameter& param, Distribution&& engine)
         : m_param(param)
@@ -46,9 +46,9 @@ public:
     virtual ~PrimaryRandomNumberDistribution(void) = default;
 
     /**
-     * \brief —”‚ğ¶¬
-     * \param engine —”ƒGƒ“ƒWƒ“
-     * \return —”
+     * \brief ä¹±æ•°ã‚’ç”Ÿæˆ
+     * \param engine ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
+     * \return ä¹±æ•°
      */
     template <typename RandomNumberEngine>
     virtual DistributionResultType_ operator()(RandomNumberEngine& engine) override
@@ -58,7 +58,7 @@ public:
     }
 
     /**
-     * \brief ó‘Ô‚ğƒŠƒZƒbƒg
+     * \brief çŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
      */
     virtual void reset(void) override
     {
@@ -66,8 +66,8 @@ public:
     }
 
     /**
-     * \brief —”•ª•zID‚ğæ“¾
-     * \return —”•ª•zID
+     * \brief ä¹±æ•°åˆ†å¸ƒIDã‚’å–å¾—
+     * \return ä¹±æ•°åˆ†å¸ƒID
      */
     virtual RandomNumberDistributionID getRandomNumberDistributionID(void) const override
     {
@@ -76,12 +76,12 @@ public:
 
 protected:
     /**
-     * \brief —”•ª•zƒpƒ‰ƒ[ƒ^
+     * \brief ä¹±æ•°åˆ†å¸ƒãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     RandomNumberDistributionParameter m_param;
 
     /**
-     * \brief —”•ª•z
+     * \brief ä¹±æ•°åˆ†å¸ƒ
      */
     Distribution m_distribution;
 };

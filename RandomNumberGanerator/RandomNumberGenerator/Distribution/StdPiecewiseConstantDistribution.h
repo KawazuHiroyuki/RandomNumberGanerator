@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdPiecewiseConstantDistribution.h
- * \brief  w’è‚³‚ê‚½‹æŠÔ‚Éˆê’è‚É•ª•z
+ * \brief  æŒ‡å®šã•ã‚ŒãŸåŒºé–“ã«ä¸€å®šã«åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief w’è‚³‚ê‚½‹æŠÔ‚Éˆê’è‚É•ª•z
+ * \brief æŒ‡å®šã•ã‚ŒãŸåŒºé–“ã«ä¸€å®šã«åˆ†å¸ƒ
  * \note std::piecewise_constant_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -32,10 +32,10 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \tparam UnaryOperation ’P€ŠÖ”ƒIƒuƒWƒFƒNƒg
-     * \param wl ‹æŠÔ”—ñ
-     * \param fw d‚İ•t‚¯‚ğŒvZ‚·‚éŠÖ”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \tparam UnaryOperation å˜é …é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * \param wl åŒºé–“æ•°åˆ—
+     * \param fw é‡ã¿ä»˜ã‘ã‚’è¨ˆç®—ã™ã‚‹é–¢æ•°
      */
     template <typename UnaryOperation>
     StdPiecewiseConstantDistribution(std::initializer_list<DistributionResultType_> wl, UnaryOperation fw)
@@ -44,12 +44,12 @@ public:
     }
 
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \tparam UnaryOperation ’P€ŠÖ”ƒIƒuƒWƒFƒNƒg
-     * \param nw ‹æŠÔ—ñ‚Ì—v‘f”
-     * \param xmin ‹æŠÔ‚ÌÅ¬’l
-     * \param xmax ‹æŠÔ‚ÌÅ‘å’l
-     * \param fw Še‹æŠÔ‚É‘Î‚·‚éd‚İ’l‚ğ‹‚ß‚é‚½‚ß‚ÌŠÖ”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \tparam UnaryOperation å˜é …é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * \param nw åŒºé–“åˆ—ã®è¦ç´ æ•°
+     * \param xmin åŒºé–“ã®æœ€å°å€¤
+     * \param xmax åŒºé–“ã®æœ€å¤§å€¤
+     * \param fw å„åŒºé–“ã«å¯¾ã™ã‚‹é‡ã¿å€¤ã‚’æ±‚ã‚ã‚‹ãŸã‚ã®é–¢æ•°
      */
     template <typename UnaryOperation>
     StdPiecewiseConstantDistribution(std::size_t nw, DistributionResultType_ xmin, DistributionResultType_ xmax, UnaryOperation fw)

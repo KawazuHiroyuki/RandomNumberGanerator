@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdGammaDistribution.h
- * \brief  ƒKƒ“ƒ}•ª•z
+ * \brief  ã‚¬ãƒ³ãƒåˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒKƒ“ƒ}•ª•z
+ * \brief ã‚¬ãƒ³ãƒåˆ†å¸ƒ
  * \note std::gamma_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param alpha ƒKƒ“ƒ}•ª•z‚ÌŒ`ó•ê”
-     * \param beta ƒKƒ“ƒ}•ª•z‚ÌÚ“x•ê”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param alpha ã‚¬ãƒ³ãƒåˆ†å¸ƒã®å½¢çŠ¶æ¯æ•°
+     * \param beta ã‚¬ãƒ³ãƒåˆ†å¸ƒã®å°ºåº¦æ¯æ•°
      */
     StdGammaDistribution(DistributionResultType_ alpha, DistributionResultType_ beta)
         : Base(RandomNumberDistributionID::StdGamma, Distribution(alpha, beta))

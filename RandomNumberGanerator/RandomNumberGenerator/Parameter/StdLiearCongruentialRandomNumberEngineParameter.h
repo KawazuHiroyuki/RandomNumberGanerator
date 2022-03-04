@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdLiearCongruentialRandomNumberEngineParameter.h
- * \brief  üŒ`‡“¯–@ —”ƒGƒ“ƒWƒ“ƒpƒ‰ƒ[ƒ^
+ * \brief  ç·šå½¢åˆåŒæ³• ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
  *
  * \author japan
  * \date   December 2021
@@ -14,12 +14,12 @@
 namespace random_number_generator
 {
 /**
- * \brief üŒ`‡“¯–@—”ƒGƒ“ƒWƒ“ƒpƒ‰ƒ[ƒ^
+ * \brief ç·šå½¢åˆåŒæ³•ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
  * \note std::linear_congruential_engine
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
- * \tparam Multiplier_ æ”
- * \tparam Increment_ ‘•ª
- * \tparam Modulus_ –@
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
+ * \tparam Multiplier_ ä¹—æ•°
+ * \tparam Increment_ å¢—åˆ†
+ * \tparam Modulus_ æ³•
  */
 template <
     typename EngineResultType_,
@@ -30,30 +30,30 @@ template <
 struct StdLiearCongruentialRandomNumberEngineParameter
 {
     /**
-     * \brief ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
+     * \brief ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
      */
     using EngineResultType = EngineResultType_;
 
     /**
-     * \brief æ”(a)
-     * \note  m ‚ª”ñ 0 ‚Ìê‡ a < m ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+     * \brief ä¹—æ•°(a)
+     * \note  m ãŒé 0 ã®å ´åˆ a < m ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
      */
     static constexpr EngineResultType Multiplier = Multiplier_;
 
     /**
-     * \brief ‘•ª(c)
-     * \note m ‚ª”ñ 0 ‚Ìê‡ c < m ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+     * \brief å¢—åˆ†(c)
+     * \note m ãŒé 0 ã®å ´åˆ c < m ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
      */
     static constexpr EngineResultType Increment = Increment_;
 
     /**
-     * \brief –@(m)
-     * \note 0 ‚Ìê‡ std::numeric_limits<EngineResultType_>::max()
+     * \brief æ³•(m)
+     * \note 0 ã®å ´åˆ std::numeric_limits<EngineResultType_>::max()
      */
     static constexpr EngineResultType Modulus = Modulus_;
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ID
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ID
      */
     static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdLiearCongruential;
 };

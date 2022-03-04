@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdBinomialDistribution.h
- * \brief  “ñ€•ª•z
+ * \brief  äºŒé …åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief “ñ€•ª•z
+ * \brief äºŒé …åˆ†å¸ƒ
  * \note std::binomial_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = int
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param t s‰ñ”
-     * \param p Šm—¦
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param t è©¦è¡Œå›æ•°
+     * \param p ç¢ºç‡
      */
     StdBinomialDistribution(DistributionResultType_ t, double p)
         : Base(RandomNumberDistributionID::StdBinomial, Distribution(t, p))

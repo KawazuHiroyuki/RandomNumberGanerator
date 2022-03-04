@@ -13,9 +13,9 @@ int main()
 
     using Seed = unsigned int;
     std::vector<std::shared_ptr<AbstractSeedEngine<Seed>>> seeds = {
-        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::StdRandomDevice }),
-        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::CurrentTime }),
-        SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::Custom, []() { return 10;  } })
+        SeedEngineFactory<Seed>::create(SeedEngineParameter<Seed>{ SeedEngineID::StdRandomDevice }),
+        SeedEngineFactory<Seed>::create(SeedEngineParameter<Seed>{ SeedEngineID::CurrentTime }),
+        SeedEngineFactory<Seed>::create(SeedEngineParameter<Seed>{ SeedEngineID::Custom, []() { return 10;  } })
     };
     std::cout << "--- Seed ---" << std::endl;
     for (auto seed : seeds) {

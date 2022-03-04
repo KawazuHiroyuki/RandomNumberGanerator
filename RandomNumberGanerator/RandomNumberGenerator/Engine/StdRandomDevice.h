@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdRandomDevice.h
- * \brief  —\‘ª•s”\‚È—”¶¬Ší
+ * \brief  äºˆæ¸¬ä¸èƒ½ãªä¹±æ•°ç”Ÿæˆå™¨
  *
  * \author japan
  * \date   December 2021
@@ -17,7 +17,7 @@
 namespace random_number_generator
 {
 /**
- * \brief —\‘ª•s”\‚È—”¶¬Ší
+ * \brief äºˆæ¸¬ä¸èƒ½ãªä¹±æ•°ç”Ÿæˆå™¨
  * \note std::random_device
  */
 class StdRandomDevice : public PrimaryTrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>

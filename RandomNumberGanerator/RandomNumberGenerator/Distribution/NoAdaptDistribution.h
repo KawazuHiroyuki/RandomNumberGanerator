@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   NoAdaptDistribution.h
- * \brief  •ª•z–³“K‰
+ * \brief  åˆ†å¸ƒç„¡é©å¿œ
  *
  * \author japan
  * \date   December 2021
@@ -17,8 +17,8 @@
 namespace random_number_generator
 {
 /**
- * \brief •ª•z–³“K‰
- * \tparam DistributionResultType_ —”¶¬Œ‹‰Ê‚ÌŒ^(ZpŒ^)
+ * \brief åˆ†å¸ƒç„¡é©å¿œ
+ * \tparam DistributionResultType_ ä¹±æ•°ç”Ÿæˆçµæœã®å‹(ç®—è¡“å‹)
  */
 template <
     typename DistributionResultType_
@@ -32,7 +32,7 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     NoAdaptDistribution(void)
         : Base()
@@ -41,9 +41,9 @@ public:
     }
 
     /**
-     * \brief —”‚ğ¶¬
-     * \param engine —”ƒGƒ“ƒWƒ“
-     * \return —”
+     * \brief ä¹±æ•°ã‚’ç”Ÿæˆ
+     * \param engine ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
+     * \return ä¹±æ•°
      */
     template <typename RandomNumberEngine>
     virtual DistributionResultType_ operator()(RandomNumberEngine& engine) override
@@ -53,15 +53,15 @@ public:
     }
 
     /**
-     * \brief ó‘Ô‚ğƒŠƒZƒbƒg
+     * \brief çŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
      */
     virtual void reset(void) override
     {
     }
 
     /**
-     * \brief —”•ª•zID‚ğæ“¾
-     * \return —”•ª•zID
+     * \brief ä¹±æ•°åˆ†å¸ƒIDã‚’å–å¾—
+     * \return ä¹±æ•°åˆ†å¸ƒID
      */
     virtual RandomNumberDistributionID getRandomNumberDistributionID(void) const override
     {
@@ -70,7 +70,7 @@ public:
 
 protected:
     /**
-     * \brief —”•ª•zƒpƒ‰ƒ[ƒ^
+     * \brief ä¹±æ•°åˆ†å¸ƒãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     RandomNumberDistributionParameter m_param;
 };

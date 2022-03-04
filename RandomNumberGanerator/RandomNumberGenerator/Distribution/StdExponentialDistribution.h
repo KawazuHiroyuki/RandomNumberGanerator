@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdExponentialDistribution.h
- * \brief  w”•ª•z
+ * \brief  æŒ‡æ•°åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief w”•ª•z
+ * \brief æŒ‡æ•°åˆ†å¸ƒ
  * \note std::exponential_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,8 +30,8 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param lambda w”•ª•z‚Ìƒpƒ‰ƒ[ƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param lambda æŒ‡æ•°åˆ†å¸ƒã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     StdExponentialDistribution(double lambda)
         : Base(RandomNumberDistributionID::StdExponetial, Distribution(lambda))

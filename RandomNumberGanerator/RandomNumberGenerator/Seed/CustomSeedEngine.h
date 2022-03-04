@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   CustomSeedEngine.h
- * \brief  ƒJƒXƒ^ƒ€ ƒV[ƒhƒGƒ“ƒWƒ“
+ * \brief  ã‚«ã‚¹ã‚¿ãƒ  ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
  * 
  * \author japan
  * \date   March 2022
@@ -14,16 +14,16 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒJƒXƒ^ƒ€ ƒV[ƒhƒGƒ“ƒWƒ“
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \brief ã‚«ã‚¹ã‚¿ãƒ  ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_>
 class CustomSeedEngine : public PrimarySeedEngine<Seed_>
 {
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param engine ƒV[ƒh¶¬ŠÖ”
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param engine ã‚·ãƒ¼ãƒ‰ç”Ÿæˆé–¢æ•°
      */
     CustomSeedEngine(SeedEngineParameter::Engine<Seed_> engine)
         : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::Custom, engine})

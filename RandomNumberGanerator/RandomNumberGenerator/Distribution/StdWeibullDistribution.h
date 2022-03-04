@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdWeibullDistribution.h
- * \brief  ƒƒCƒuƒ‹•ª•z
+ * \brief  ãƒ¯ã‚¤ãƒ–ãƒ«åˆ†å¸ƒ
  *
  * \author japan
  * \date   December 2021
@@ -15,9 +15,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒƒCƒuƒ‹•ª•z
+ * \brief ãƒ¯ã‚¤ãƒ–ãƒ«åˆ†å¸ƒ
  * \note std::weibull_distribution
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ ä¹±æ•°åˆ†å¸ƒ ç”Ÿæˆçµæœã®å‹
  */
 template <
     typename DistributionResultType_ = double
@@ -30,9 +30,9 @@ private:
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * \param a ƒƒCƒvƒ‹•ª•z‚ÌŒ`óƒpƒ‰ƒ[ƒ^
-     * \param b ƒƒCƒvƒ‹•ª•z‚ÌÚ“xƒpƒ‰ƒ[ƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * \param a ãƒ¯ã‚¤ãƒ—ãƒ«åˆ†å¸ƒã®å½¢çŠ¶ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * \param b ãƒ¯ã‚¤ãƒ—ãƒ«åˆ†å¸ƒã®å°ºåº¦ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     StdWeibullDistribution(DistributionResultType_ a, DistributionResultType_ b)
         : Base(RandomNumberDistributionID::StdWeibull, Distribution(a, b))

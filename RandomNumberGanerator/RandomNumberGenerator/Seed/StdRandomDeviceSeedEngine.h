@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   StdRandomDeviceSeedGenerator.h
- * \brief  —\‘ª•s”\‚È—”¶¬ ƒV[ƒhƒGƒ“ƒWƒ“
+ * \brief  äºˆæ¸¬ä¸èƒ½ãªä¹±æ•°ç”Ÿæˆ ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
  * 
  * \author japan
  * \date   December 2021
@@ -16,16 +16,16 @@
 namespace random_number_generator
 {
 /**
- * \brief —\‘ª•s”\‚È—”¶¬ ƒV[ƒhƒGƒ“ƒWƒ“
+ * \brief äºˆæ¸¬ä¸èƒ½ãªä¹±æ•°ç”Ÿæˆ ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
  * \note std::random_device
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_>
 class StdRandomDeviceSeedEngine : public PrimarySeedEngine<Seed_>
 {
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     StdRandomDeviceSeedEngine(void)
         : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::StdRandomDevice, createEngine()})
@@ -34,8 +34,8 @@ public:
 
 private:
     /**
-     * \brief ƒV[ƒhƒGƒ“ƒWƒ“¶¬
-     * \return ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³ç”Ÿæˆ
+     * \return ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     SeedEngineParameter<Seed_>::Engine<Seed_> createEngine(void) const
     {

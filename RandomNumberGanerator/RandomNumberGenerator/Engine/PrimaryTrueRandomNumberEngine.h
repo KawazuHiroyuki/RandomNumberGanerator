@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   PrimaryTrueRandomNumberEngine.h
- * \brief  ƒvƒ‰ƒCƒ}ƒŠ^«—”ƒGƒ“ƒWƒ“
+ * \brief  ãƒ—ãƒ©ã‚¤ãƒãƒªçœŸæ€§ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
  * 
  * \author japan
  * \date   March 2022
@@ -17,9 +17,9 @@
 namespace random_number_generator
 {
 /**
- * \brief ƒvƒ‰ƒCƒ}ƒŠ^«—”ƒGƒ“ƒWƒ“
- * \tparam Engine_ ƒGƒ“ƒWƒ“‚ÌŒ^
- * \tparam EngineResultType_ ¶¬‚·‚é•„†‚È‚µ®”‚ÌŒ^
+ * \brief ãƒ—ãƒ©ã‚¤ãƒãƒªçœŸæ€§ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
+ * \tparam Engine_ ã‚¨ãƒ³ã‚¸ãƒ³ã®å‹
+ * \tparam EngineResultType_ ç”Ÿæˆã™ã‚‹ç¬¦å·ãªã—æ•´æ•°ã®å‹
  */
 template <
     typename Engine_,
@@ -29,13 +29,13 @@ class PrimaryTrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineRe
 {
 public:
     /**
-     * \brief ƒGƒ“ƒWƒ“‚ÌŒ^
+     * \brief ã‚¨ãƒ³ã‚¸ãƒ³ã®å‹
      */
     using Engine = Engine_;
 
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     PrimaryTrueRandomNumberEngine(void)
         : m_param(RandomNumberEngineID::StdRandomDevice)
@@ -47,15 +47,15 @@ public:
 
 #if 0
     /**
-     * \brief ƒV[ƒh‚ğİ’è
-     * \param seed ƒV[ƒh
+     * \brief ã‚·ãƒ¼ãƒ‰ã‚’è¨­å®š
+     * \param seed ã‚·ãƒ¼ãƒ‰
      */
     virtual void setSeed(void) = delete;
 #endif
 
     /**
-     * \brief —”‚ğ¶¬
-     * \return —”
+     * \brief ä¹±æ•°ã‚’ç”Ÿæˆ
+     * \return ä¹±æ•°
      */
     virtual EngineResultType_ operator()(void) override
     {
@@ -63,17 +63,17 @@ public:
     }
 
     /**
-     * \brief w’è‚µ‚½‰ñ”‚¾‚¯‹^——”‚ğ¶¬‚µA“à•”ó‘Ô‚ği‚ß‚é
-     * \param times w’è‰ñ”
+     * \brief æŒ‡å®šã—ãŸå›æ•°ã ã‘ç–‘ä¼¼ä¹±æ•°ã‚’ç”Ÿæˆã—ã€å†…éƒ¨çŠ¶æ…‹ã‚’é€²ã‚ã‚‹
+     * \param times æŒ‡å®šå›æ•°
      */
     void discard(std::uint64_t skip) override
     {
-        // ‚È‚µ
+        // ãªã—
     }
 
     /**
-     * \brief ƒGƒ“ƒgƒƒs[(—”‚Ì—G‚³‚Ì“x‡‚¢)‚ğæ“¾
-     * \return ƒGƒ“ƒgƒƒs[
+     * \brief ã‚¨ãƒ³ãƒˆãƒ­ãƒ”ãƒ¼(ä¹±æ•°ã®ä¹±é›‘ã•ã®åº¦åˆã„)ã‚’å–å¾—
+     * \return ã‚¨ãƒ³ãƒˆãƒ­ãƒ”ãƒ¼
      */
     double getEntropy(void) const noexcept override
     {
@@ -81,8 +81,8 @@ public:
     }
 
     /**
-     * \brief ¶¬‚·‚é’l‚ÌÅ¬’l‚ğæ“¾
-     * \return Å¬’l
+     * \brief ç”Ÿæˆã™ã‚‹å€¤ã®æœ€å°å€¤ã‚’å–å¾—
+     * \return æœ€å°å€¤
      */
     virtual EngineResultType_ getMin(void) const override
     {
@@ -90,8 +90,8 @@ public:
     }
 
     /**
-     * \brief ¶¬‚·‚é’l‚ÌÅ‘å’l‚ğæ“¾
-     * \return Å‘å’l
+     * \brief ç”Ÿæˆã™ã‚‹å€¤ã®æœ€å¤§å€¤ã‚’å–å¾—
+     * \return æœ€å¤§å€¤
      */
     virtual EngineResultType_ getMax(void) const override
     {
@@ -99,8 +99,8 @@ public:
     }
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ID‚ğæ“¾
-     * \return —”ƒGƒ“ƒWƒ“ID
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³IDã‚’å–å¾—
+     * \return ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ID
      */
     RandomNumberEngineID getRandomNumberEngineID(void) const override
     {
@@ -109,12 +109,12 @@ public:
 
 protected:
     /**
-     * \brief —”ƒGƒ“ƒWƒ“ƒpƒ‰ƒ[ƒ^
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     RandomNumberEngineParameter m_param;
 
     /**
-     * \brief —”ƒGƒ“ƒWƒ“
+     * \brief ä¹±æ•°ã‚¨ãƒ³ã‚¸ãƒ³
      */
     Engine m_engine;
 };

@@ -1,6 +1,6 @@
-/*****************************************************************//**
+ï»¿/*****************************************************************//**
  * \file   CurrentTimeSeedEngine.h
- * \brief  Œ»İ ƒV[ƒhƒGƒ“ƒWƒ“
+ * \brief  ç¾åœ¨æ™‚åˆ» ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
  * 
  * \author japan
  * \date   December 2021
@@ -16,15 +16,15 @@
 namespace random_number_generator
 {
 /**
- * \brief Œ»İ ƒV[ƒhƒGƒ“ƒWƒ“
- * \tparam Seed_ ƒV[ƒh‚ÌŒ^
+ * \brief ç¾åœ¨æ™‚åˆ» ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
+ * \tparam Seed_ ã‚·ãƒ¼ãƒ‰ã®å‹
  */
 template <typename Seed_>
 class CurrentTimeSeedEngine : public PrimarySeedEngine<Seed_>
 {
 public:
     /**
-     * \brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * \brief ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     CurrentTimeSeedEngine(void)
         : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::CurrentTime, createEngine()})
@@ -33,8 +33,8 @@ public:
 
 private:
     /**
-     * \brief ƒV[ƒhƒGƒ“ƒWƒ“¶¬
-     * \return ƒV[ƒhƒGƒ“ƒWƒ“
+     * \brief ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³ç”Ÿæˆ
+     * \return ã‚·ãƒ¼ãƒ‰ã‚¨ãƒ³ã‚¸ãƒ³
      */
     SeedEngineParameter<Seed_>::Engine<Seed_> createEngine(void) const
     {
