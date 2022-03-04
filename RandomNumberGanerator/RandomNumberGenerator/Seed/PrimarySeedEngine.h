@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   PrimarySeedEngine.h
- * \brief  シードエンジン
+ * \brief  プライマリシードエンジン
  * 
  * \author japan
  * \date   December 2021
@@ -15,7 +15,7 @@
 namespace random_number_generator
 {
 /**
- * \brief シードエンジン
+ * \brief プライマリシードエンジン
  * \tparam Seed_ シードの型
  */
 template <typename Seed_>

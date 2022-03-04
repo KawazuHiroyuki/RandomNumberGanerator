@@ -22,7 +22,7 @@ class AbstractSeedEngine
 {
 public:
     /**
-     * \brief 乱数エンジンに渡すシードの型
+     * \brief シードの型
      */
     using Seed = Seed_;
 

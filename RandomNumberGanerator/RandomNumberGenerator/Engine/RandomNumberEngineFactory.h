@@ -29,6 +29,8 @@ namespace random_number_generator
 {
 /**
  * \brief 乱数エンジンファクトリ - 真性乱数
+ * \tparam Engine_ エンジンの型
+ * \tparam EngineResultType_ 生成結果の型
  */
 template <
     typename Engine_,
@@ -53,14 +55,18 @@ public:
 
 /**
  * \brief 乱数エンジンファクトリ - 疑似乱数
+ * \tparam Engine_ エンジンの型
+ * \tparam EngineResultType_ 生成結果の型
+ * \tparam Seed_ シードの型
  */
 template <
     typename Engine_,
     typename EngineResultType_,
-    typename Seed_ = void
+    typename Seed_
 >
 class PseudoRandomNumberEngineFactory
 {
+private:
     using Engine = Engine_;
 
     /**
