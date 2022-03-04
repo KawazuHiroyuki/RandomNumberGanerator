@@ -107,25 +107,25 @@
     <ClInclude Include="Private\StdKnuthRandomNumberEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberEngineID.h">
+    <ClInclude Include="ID\RandomNumberEngineID.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberEngineParameter.h">
+    <ClInclude Include="Parameter\RandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="StdLiearCongruentialRandomNumberEngineParameter.h">
+    <ClInclude Include="Parameter\StdLiearCongruentialRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="StdMersenneTwisterRandomNumberEngineParameter.h">
+    <ClInclude Include="Parameter\StdMersenneTwisterRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="StdSubtractWithCarryRandomNumberEngineParameter.h">
+    <ClInclude Include="Parameter\StdSubtractWithCarryRandomNumberEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SeedEngineID.h">
+    <ClInclude Include="ID\SeedEngineID.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SeedEngineParameter.h">
+    <ClInclude Include="Parameter\SeedEngineParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\SeedEngine</Filter>
     </ClInclude>
     <ClInclude Include="Private\CurrentTimeSeedEngine.h">
@@ -140,7 +140,7 @@
     <ClInclude Include="Private\SeedEngineFactory.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="Utility.h">
+    <ClInclude Include="Utility\Utility.h">
       <Filter>ソース ファイル\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Private\RandomNumberDistributionFactory.h">
@@ -149,10 +149,10 @@
     <ClInclude Include="Private\StdUniformIntDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberDistributionID.h">
+    <ClInclude Include="ID\RandomNumberDistributionID.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberDistribution</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberDistributionParameter.h">
+    <ClInclude Include="Parameter\RandomNumberDistributionParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\Parameter\RandomNumberDistribution</Filter>
     </ClInclude>
     <ClInclude Include="Private\AbstractRandomNumberEngine.h">

@@ -187,17 +187,17 @@
     <ClInclude Include="Private\PrimaryTrueRandomNumberEngine.h" />
     <ClInclude Include="Private\StdUniformRealDistribution.h" />
     <ClInclude Include="Private\StdWeibullDistribution.h" />
-    <ClInclude Include="RandomNumberDistributionID.h" />
-    <ClInclude Include="RandomNumberDistributionParameter.h" />
-    <ClInclude Include="RandomNumberEngineID.h" />
-    <ClInclude Include="RandomNumberEngineParameter.h" />
+    <ClInclude Include="ID\RandomNumberDistributionID.h" />
+    <ClInclude Include="Parameter\RandomNumberDistributionParameter.h" />
+    <ClInclude Include="ID\RandomNumberEngineID.h" />
+    <ClInclude Include="Parameter\RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
-    <ClInclude Include="SeedEngineID.h" />
-    <ClInclude Include="SeedEngineParameter.h" />
-    <ClInclude Include="StdLiearCongruentialRandomNumberEngineParameter.h" />
-    <ClInclude Include="StdMersenneTwisterRandomNumberEngineParameter.h" />
-    <ClInclude Include="StdSubtractWithCarryRandomNumberEngineParameter.h" />
-    <ClInclude Include="Utility.h" />
+    <ClInclude Include="ID\SeedEngineID.h" />
+    <ClInclude Include="Parameter\SeedEngineParameter.h" />
+    <ClInclude Include="Parameter\StdLiearCongruentialRandomNumberEngineParameter.h" />
+    <ClInclude Include="Parameter\StdMersenneTwisterRandomNumberEngineParameter.h" />
+    <ClInclude Include="Parameter\StdSubtractWithCarryRandomNumberEngineParameter.h" />
+    <ClInclude Include="Utility\Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
