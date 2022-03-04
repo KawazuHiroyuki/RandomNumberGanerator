@@ -12,7 +12,7 @@
 #include <initializer_list>
 // My
 #include "PrimaryRandomNumberDistribution.h"
-#include "RandomNumberDistributionUtility.h"
+#include "RandomNumberBaseDistribution.h"
 
 namespace random_number_generator
 {

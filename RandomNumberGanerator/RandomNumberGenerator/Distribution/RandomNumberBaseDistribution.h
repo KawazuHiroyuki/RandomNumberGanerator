@@ -1,5 +1,5 @@
 ﻿/*****************************************************************//**
- * \file   RandomNumberDistributionUtility.h
+ * \file   RandomNumberBaseDistribution.h
  * \brief  乱数分布ユーティリティ
  * 
  * \author japan

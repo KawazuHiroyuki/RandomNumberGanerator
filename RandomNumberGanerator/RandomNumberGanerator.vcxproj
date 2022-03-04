@@ -162,7 +162,7 @@
     <ClInclude Include="RandomNumberGenerator\Distribution\StdPoissonDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\PrimaryPseudoRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\PrimaryRandomNumberDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionUtility.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberBaseDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdBernoulliDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdBinomialDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdGeometricDistribution.h" />
