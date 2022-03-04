@@ -11,16 +11,16 @@
 // C++
 #include <memory>
 // My
-#include "RandomNumberEngineParameter.h"
 #include "Seed/AbstractSeedEngine.h"
 #include "AbstractRandomNumberEngine.h"
+#include "RandomNumberEngineParameter.h"
 
 namespace random_number_generator
 {
 /**
  * \brief 疑似乱数エンジン
  * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  * \tparam Seed_ シードの型
  */
 template <

@@ -11,15 +11,15 @@
 // C++
 #include <memory>
 // My
-#include "RandomNumberEngineParameter.h"
 #include "AbstractRandomNumberEngine.h"
+#include "RandomNumberEngineParameter.h"
 
 namespace random_number_generator
 {
 /**
  * \brief プライマリ真性乱数エンジン
  * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  */
 template <
     typename Engine_,

@@ -11,7 +11,6 @@
 // My
 #include "Utility/Utility.h"
 #include "Seed/SeedEngineFactory.h"
-
 #include "StdRandomDevice.h"
 #include "StdMinStdRand0RandomNumberEngine.h"
 #include "StdMinStdRandRandomNumberEngine.h"
@@ -28,9 +27,9 @@
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジンファクトリ - 真性乱数
+ * \brief 真性乱数エンジンファクトリ
  * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ 生成結果の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  */
 template <
     typename Engine_,
@@ -38,10 +37,14 @@ template <
 >
 class TrueRandomNumberEngineFactory
 {
+private:
+    /**
+     * \brief エンジンの型
+     */
     using Engine = Engine_;
 
     /**
-     * \brief 乱数エンジンが生成する乱数の型
+     * \brief エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 
@@ -54,9 +57,9 @@ public:
 };
 
 /**
- * \brief 乱数エンジンファクトリ - 疑似乱数
+ * \brief 疑似乱数エンジンファクトリ
  * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ 生成結果の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  * \tparam Seed_ シードの型
  */
 template <
@@ -67,10 +70,13 @@ template <
 class PseudoRandomNumberEngineFactory
 {
 private:
+    /**
+     * \brief エンジンの型
+     */
     using Engine = Engine_;
 
     /**
-     * \brief 乱数エンジンが生成する乱数の型
+     * \brief エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 

@@ -113,7 +113,7 @@
     <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionParameter.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberDistribution\Parameter</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineUtility.h">
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberBaseEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberEngine\Utility</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionUtility.h">

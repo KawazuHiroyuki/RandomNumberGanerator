@@ -16,7 +16,7 @@ namespace random_number_generator
 /**
  * \brief 線形合同法乱数エンジンパラメータ
  * \note std::linear_congruential_engine
- * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam EngineResultType_ エンジン生成結果の型(符号なし整数)
  * \tparam Multiplier_ 乗数
  * \tparam Increment_ 増分
  * \tparam Modulus_ 法
@@ -30,7 +30,7 @@ template <
 struct StdLiearCongruentialRandomNumberEngineParameter
 {
     /**
-     * \brief 生成する符号なし整数の型
+     * \brief エンジン生成結果の型(符号なし整数)
      */
     using EngineResultType = EngineResultType_;
 

@@ -19,7 +19,7 @@ namespace random_number_generator
 /**
  * \brief 線形合同法 乱数生成器
  * \note std::linear_congruential_engine
- * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  */
 template <typename EngineResultType_,
     EngineResultType_ A, EngineResultType_ C, EngineResultType_ M,

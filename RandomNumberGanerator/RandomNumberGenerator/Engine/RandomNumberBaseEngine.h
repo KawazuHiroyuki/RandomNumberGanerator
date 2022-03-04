@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   RandomNumberEngineUtility.h
- * \brief  乱数エンジンユーティリティ
+ * \file   RandomNumberBaseEngine.h
+ * \brief  ベース乱数エンジン
  * 
  * \author japan
  * \date   March 2022
@@ -31,6 +31,11 @@ class StdKnuthRandomNumberEngine;
 template <typename Seed>
 class StdDefaultRandomEngine;
 
+/**
+ * \brief ベース乱数エンジン
+ * \tparam Engine 乱数エンジンクラスの型
+ * \tparam Seed シードの型
+ */
 template <typename Engine, typename Seed = void>
 using BaseEngine =
     typename utility::Switch<
@@ -45,6 +50,9 @@ using BaseEngine =
     utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, std::default_random_engine>
     >::type;
 
+/**
+ * \brief ベース乱数エンジン生成結果の型
+ */
 template <typename Engine, typename Seed = void>
 using EngineResultType = typename BaseEngine<Engine, Seed>::result_type;
 } // namespace random_number_generator

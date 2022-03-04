@@ -18,7 +18,7 @@ namespace random_number_generator
 {
 /**
  * \brief 分布無適応
- * \tparam DistributionResultType_ 乱数生成結果の型(算術型)
+ * \tparam DistributionResultType_ エンジン生成結果の型(算術型)
  */
 template <
     typename DistributionResultType_

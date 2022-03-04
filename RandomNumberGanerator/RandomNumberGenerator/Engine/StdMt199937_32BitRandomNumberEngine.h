@@ -11,7 +11,7 @@
 // C++
 #include <random>
 // My
-#include "RandomNumberEngineUtility.h"
+#include "RandomNumberBaseEngine.h"
 #include "PrimaryPseudoRandomNumberEngine.h"
 
 namespace random_number_generator

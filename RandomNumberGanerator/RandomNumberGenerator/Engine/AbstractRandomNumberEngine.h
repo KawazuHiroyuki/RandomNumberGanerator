@@ -17,7 +17,7 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象乱数エンジン
- * \tparam EngineResultType_ 乱数エンジン 生成結果の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  * \tparam Seed_ シードの型
  */
 template <
@@ -28,7 +28,7 @@ class AbstractRandomNumberEngine
 {
 public:
     /**
-     * \brief 乱数エンジンが生成する乱数の型
+     * \brief エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 

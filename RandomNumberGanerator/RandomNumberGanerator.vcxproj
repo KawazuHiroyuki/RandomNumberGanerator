@@ -171,7 +171,7 @@
     <ClInclude Include="RandomNumberGenerator\Distribution\StdUniformIntDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineFactory.h" />
-    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineUtility.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberBaseEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\CustomSeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\PrimarySeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\SeedEngineFactory.h" />

@@ -11,7 +11,7 @@
 // C++
 #include <random>
 // My
-#include "RandomNumberEngineUtility.h"
+#include "RandomNumberBaseEngine.h"
 #include "PrimaryPseudoRandomNumberEngine.h"
 
 namespace random_number_generator
@@ -19,7 +19,7 @@ namespace random_number_generator
 /**
  * \brief キャリー付き減算法 乱数生成器
  * \note std::subtract_with_carry_engine
- * \tparam EngineResultType_ 生成する符号なし整数の型
+ * \tparam EngineResultType_ エンジン生成結果の型
  */
 template <typename EngineResultType_,
     std::size_t W, std::size_t S, std::size_t R,

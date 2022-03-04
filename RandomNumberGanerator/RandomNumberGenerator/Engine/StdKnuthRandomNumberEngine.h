@@ -12,7 +12,7 @@
 #include <random>
 // My
 #include "PrimaryPseudoRandomNumberEngine.h"
-#include "RandomNumberEngineUtility.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
