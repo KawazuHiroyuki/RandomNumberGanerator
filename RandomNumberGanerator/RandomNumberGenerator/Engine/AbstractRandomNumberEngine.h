@@ -18,12 +18,8 @@ namespace random_number_generator
 /**
  * \brief 抽象乱数エンジン
  * \tparam EngineResultType_ エンジン生成結果の型
- * \tparam Seed_ シードの型
  */
-template <
-    typename EngineResultType_,
-    typename Seed_ = void // TODO Seed_はAbstractPseudoRandomNumberEngineに移動
->
+template <typename EngineResultType_>
 class AbstractRandomNumberEngine
 {
 public:
@@ -32,20 +28,7 @@ public:
      */
     using EngineResultType = EngineResultType_;
 
-    /**
-     * \brief シードの型
-     */
-    using Seed = Seed_;
-
 public:
-#if 0
-    /**
-     * \brief シードを設定
-     * \param seed シード
-     */
-    virtual void setSeed(Seed seed) = 0;
-#endif
-
     /**
      * \brief 乱数を生成
      * \return 乱数
@@ -81,14 +64,5 @@ public:
      * \return 乱数エンジンID
      */
     virtual RandomNumberEngineID getRandomNumberEngineID(void) const = 0;
-
-protected:
-#if 0
-    /**
-     * \brief シードを取得
-     * \return シード
-     */
-    virtual Seed getSeed(void) const = 0;
-#endif
 };
 } // namespace random_number_generator

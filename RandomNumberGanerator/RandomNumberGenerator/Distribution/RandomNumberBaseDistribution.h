@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   RandomNumberBaseDistribution.h
- * \brief  乱数分布ユーティリティ
+ * \brief  ベース乱数分布
  * 
  * \author japan
  * \date   March 2022
@@ -54,6 +54,11 @@ class StdPiecewiseConstantDistribution;
 template <typename ResultType>
 class StdPiecewiseLinearDistribution;
 
+/**
+ * \brief ベース乱数分布
+ * \tparam Distribution 乱数分布の型
+ * \tparam ResultType シードの型
+ */
 template <typename Distribution, typename ResultType>
 using BaseDistribution =
     typename utility::Switch<
@@ -78,6 +83,9 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdPiecewiseLinearDistribution<ResultType>>::value, std::piecewise_linear_distribution<ResultType>>
     >::type;
 
+/**
+ * \brief ベース乱数分布生成結果の型
+ */
 template <typename Distribution, typename ResultType>
 using DistributionResultType = typename BaseDistribution<Distribution, ResultType>::result_type;
 } // namespace random_number_generator

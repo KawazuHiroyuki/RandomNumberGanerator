@@ -251,6 +251,9 @@
     <ClInclude Include="RandomNumberGenerator\Seed\AbstractSeedEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\SeedEngine\Seed\Base</Filter>
     </ClInclude>
+    <ClInclude Include="RandomNumberGenerator\Engine\AbstractPseudoRandomNumberEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberEngine\Engine\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

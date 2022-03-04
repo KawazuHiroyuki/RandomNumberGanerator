@@ -26,9 +26,9 @@ namespace random_number_generator
 template <
     typename Engine_,
     typename EngineResultType_,
-    typename Seed_ = void
+    typename Seed_
 >
-class PrimaryPseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_, Seed_>
+class PrimaryPseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
 {
 public:
     /**

@@ -15,7 +15,7 @@
 #include "Engine/RandomNumberEngineParameter.h"
 #include "Seed/SeedEngineParameter.h"
 
-
+#if 0
 namespace random_number_generator
 {
 /**
@@ -221,3 +221,4 @@ protected:
     std::shared_ptr<AbstractRandomNumberEngine<Result, Seed>> m_engine;
 };
 } // namespace random_number_generator
+#endif
