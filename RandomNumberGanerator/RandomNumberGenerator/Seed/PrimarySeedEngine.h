@@ -9,7 +9,7 @@
 #pragma once
 
 // My
-#include "Parameter/SeedEngineParameter.h"
+#include "SeedEngineParameter.h"
 #include "AbstractSeedEngine.h"
 
 namespace random_number_generator

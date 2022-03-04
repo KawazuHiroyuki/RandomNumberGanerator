@@ -11,7 +11,7 @@
 // C++
 #include <random>
 // My
-#include "Parameter/StdLiearCongruentialRandomNumberEngineParameter.h"
+#include "StdLiearCongruentialRandomNumberEngineParameter.h"
 #include "PrimaryPseudoRandomNumberEngine.h"
 
 namespace random_number_generator

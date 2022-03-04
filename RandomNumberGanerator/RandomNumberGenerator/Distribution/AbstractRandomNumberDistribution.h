@@ -9,7 +9,7 @@
 #pragma once
 
 // My
-#include "ID/RandomNumberDistributionID.h"
+#include "RandomNumberDistributionID.h"
 
 namespace random_number_generator
 {

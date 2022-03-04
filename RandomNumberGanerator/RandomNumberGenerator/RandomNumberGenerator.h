@@ -12,8 +12,8 @@
 #include <numeric>
 // My
 #include "Engine/RandomNumberEngineFactory.h"
-#include "Parameter/RandomNumberEngineParameter.h"
-#include "Parameter/SeedEngineParameter.h"
+#include "Engine/RandomNumberEngineParameter.h"
+#include "Seed/SeedEngineParameter.h"
 
 
 namespace random_number_generator

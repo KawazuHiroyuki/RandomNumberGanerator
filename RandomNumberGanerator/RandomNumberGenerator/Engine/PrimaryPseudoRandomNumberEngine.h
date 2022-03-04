@@ -11,7 +11,7 @@
 // C++
 #include <memory>
 // My
-#include "Parameter/RandomNumberEngineParameter.h"
+#include "RandomNumberEngineParameter.h"
 #include "Seed/AbstractSeedEngine.h"
 #include "AbstractRandomNumberEngine.h"
 

@@ -11,7 +11,7 @@
 // C++
 #include <type_traits>
 // MyProject
-#include "Parameter/RandomNumberDistributionParameter.h"
+#include "RandomNumberDistributionParameter.h"
 #include "AbstractRandomNumberDistribution.h"
 
 namespace random_number_generator

@@ -191,16 +191,16 @@
     <ClInclude Include="RandomNumberGenerator\Engine\PrimaryTrueRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdUniformRealDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdWeibullDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\ID\RandomNumberDistributionID.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\RandomNumberDistributionParameter.h" />
-    <ClInclude Include="RandomNumberGenerator\ID\RandomNumberEngineID.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\RandomNumberEngineParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionID.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineID.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator\RandomNumberGenerator.h" />
-    <ClInclude Include="RandomNumberGenerator\ID\SeedEngineID.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\SeedEngineParameter.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\StdLiearCongruentialRandomNumberEngineParameter.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\StdMersenneTwisterRandomNumberEngineParameter.h" />
-    <ClInclude Include="RandomNumberGenerator\Parameter\StdSubtractWithCarryRandomNumberEngineParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\SeedEngineID.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\SeedEngineParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdLiearCongruentialRandomNumberEngineParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMersenneTwisterRandomNumberEngineParameter.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdSubtractWithCarryRandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator\Utility\Utility.h" />
   </ItemGroup>
   <ItemGroup>
