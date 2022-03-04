@@ -8,6 +8,7 @@
 
 #pragma once
 
+// C++
 #include <cstddef>
 
 namespace random_number_generator
@@ -33,6 +34,9 @@ enum class RandomNumberEngineID {
     StdDefaultRandomEngine, //!< 非専門用途でデフォルト使用する疑似乱数エンジン (使用するエンジンは実装依存)
 };
 
+/**
+ * \brief 乱数エンジンID数
+ */
 constexpr std::size_t RANDOM_NUMBER_ENGINE_ID_SIZE = static_cast<std::size_t>(RandomNumberEngineID::StdDefaultRandomEngine) + 1;
 
 /**
@@ -74,5 +78,4 @@ constexpr bool isPseudoRandomNumberEngine(RandomNumberEngineID id)
             return false;
     }
 }
-
 } // namespace random_number_generator

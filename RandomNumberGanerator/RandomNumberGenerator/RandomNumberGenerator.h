@@ -8,10 +8,10 @@
 
 #pragma once
 
+// C++
 #include <numeric>
-
-#include "private/RandomNumberEngineFactory.h"
-
+// My
+#include "Engine/RandomNumberEngineFactory.h"
 #include "Parameter/RandomNumberEngineParameter.h"
 #include "Parameter/SeedEngineParameter.h"
 

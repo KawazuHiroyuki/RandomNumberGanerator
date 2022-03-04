@@ -1,12 +1,18 @@
-
+/*****************************************************************//**
+ * \file   RandomNumberEngineUtility.h
+ * \brief  乱数エンジンユーティリティ
+ * 
+ * \author japan
+ * \date   March 2022
+ *********************************************************************/
 
 #pragma once
 
+// My
 #include "Utility/Utility.h"
 
 namespace random_number_generator
 {
-//template <typename Seed>
 class StdRandomDevice;
 template <typename Seed>
 class StdMinStdRand0RandomNumberEngine;
@@ -41,7 +47,4 @@ using BaseEngine =
 
 template <typename Engine, typename Seed = void>
 using EngineResultType = typename BaseEngine<Engine, Seed>::result_type;
-
-//template <typename Engine>
-//using Seed = typename BaseEngine<Engine>::result_type;
 } // namespace random_number_generator

@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdMt199937_64BitRandomNumberEngine.h
- * \brief  乱数エンジン - メルセンヌツイスターの64ビット版
+ * \brief  メルセンヌツイスターの64ビット版 乱数生成器
  *
  * \author japan
  * \date   December 2021
@@ -8,25 +8,22 @@
 
 #pragma once
 
+// C++
 #include <random>
-
+// My
 #include "PrimaryPseudoRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン - メルセンヌツイスターの64ビット版
+ * \brief メルセンヌツイスターの64ビット版 乱数生成器
+ * \note std::mt19937_64
  * \tparam Seed_ シードの型
  */
 template <typename Seed_ = std::uint32_t>
 class StdMt199937_64BitRandomNumberEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>
 {
-public:
-    /**
-     * \brief エンジンの型
-     */
-
 private:
     using Base = PrimaryPseudoRandomNumberEngine<BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>, Seed_>;
     using Engine = BaseEngine<StdMt199937_64BitRandomNumberEngine<Seed_>, Seed_>;

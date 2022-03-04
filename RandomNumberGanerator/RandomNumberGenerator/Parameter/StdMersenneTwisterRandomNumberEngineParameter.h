@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdMersenneTwisterRandomNumberEngineParameter.h
- * \brief  乱数エンジンパラメータ - std::mersenne_twister_engine
+ * \brief  メルセンヌツイスター法 乱数エンジンパラメータ
  *
  * \author japan
  * \date   December 2021
@@ -8,14 +8,16 @@
 
 #pragma once
 
+// C++
 #include <cstddef>
-
-#include "RandomNumberEngineID.h"
+// My
+#include "ID/RandomNumberEngineID.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジンパラメータ - std::mersenne_twister_engine
+ * \brief メルセンヌツイスター法
+ * \note std::mersenne_twister_engine
  * \tparam EngineResultType_ 生成する符号なし整数の型
  * \tparam WordSize_ ワードサイズ
  * \tparam StateSize_ 状態のサイズ

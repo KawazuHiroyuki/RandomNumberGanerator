@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdLiearCongruentialRandomNumberEngineParameter.h
- * \brief  乱数エンジンパラメータ - std::linear_congruential_engine
+ * \brief  線形合同法 乱数エンジンパラメータ
  *
  * \author japan
  * \date   December 2021
@@ -8,12 +8,14 @@
 
 #pragma once
 
+// My
 #include "ID/RandomNumberEngineID.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジンパラメータ - std::linear_congruential_engine
+ * \brief 線形合同法乱数エンジンパラメータ
+ * \note std::linear_congruential_engine
  * \tparam EngineResultType_ 生成する符号なし整数の型
  * \tparam Multiplier_ 乗数
  * \tparam Increment_ 増分

@@ -8,6 +8,7 @@
 
 #pragma once
 
+// C++
 #include <cstddef>
 
 namespace random_number_generator
@@ -24,6 +25,9 @@ enum class SeedEngineID {
     Custom, //!< カスタム
 };
 
+/**
+ * \brief シードエンジンID数
+ */
 constexpr std::size_t SEED_ENGINE_ID_SIZE = static_cast<std::size_t>(SeedEngineID::Custom);
 
 /**

@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdMt199937_32BitRandomNumberEngine.h
- * \brief  乱数エンジン - メルセンヌツイスターの32ビット版
+ * \brief  メルセンヌツイスターの32ビット版 乱数生成器
  *
  * \author japan
  * \date   December 2021
@@ -8,15 +8,17 @@
 
 #pragma once
 
+// C++
 #include <random>
-
-#include "PrimaryPseudoRandomNumberEngine.h"
+// My
 #include "RandomNumberEngineUtility.h"
+#include "PrimaryPseudoRandomNumberEngine.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン - メルセンヌツイスターの32ビット版
+ * \brief メルセンヌツイスターの32ビット版 乱数生成器
+ * \note std::mt19937
  * \tparam Seed_ シードの型
  */
 template <typename Seed_ = std::uint32_t>

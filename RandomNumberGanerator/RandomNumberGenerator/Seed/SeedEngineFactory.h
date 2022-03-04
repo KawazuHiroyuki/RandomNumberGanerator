@@ -8,10 +8,11 @@
 
 #pragma once
 
+// C++
 #include <memory>
-
-#include "CurrentTimeSeedEngine.h"
+// My
 #include "SeedEngine.h"
+#include "CurrentTimeSeedEngine.h"
 #include "StdRandomDeviceSeedEngine.h"
 
 namespace random_number_generator

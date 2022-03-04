@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdSubtractWithCarryRandomNumberEngineParameter.h
- * \brief  乱数エンジンパラメータ - std::subtract_with_carry_engine	
+ * \brief  キャリー付き減算法 乱数エンジンパラメータ
  *
  * \author japan
  * \date   December 2021
@@ -8,14 +8,16 @@
 
 #pragma once
 
+// C++
 #include <cstddef>
-
-#include "RandomNumberEngineID.h"
+// My
+#include "ID/RandomNumberEngineID.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジンパラメータ - std::subtract_with_carry_engine
+ * \brief キャリー付き減算法
+ * \note std::subtract_with_carry_engine
  * \tparam EngineResultType_ 生成する符号なし整数の型
  * \tparam WordSize_ ワードサイズ
  * \tparam ShortLag_ 短いラグ

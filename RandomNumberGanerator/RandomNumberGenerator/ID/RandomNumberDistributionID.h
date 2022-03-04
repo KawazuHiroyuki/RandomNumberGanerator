@@ -8,6 +8,7 @@
 
 #pragma once
 
+// C++
 #include <cstddef>
 
 namespace random_number_generator
@@ -44,6 +45,9 @@ enum class RandomNumberDistributionID {
     StdPiecewiseLinear, //!< 区間ごとの重みづけを線形に接続した分布
 };
 
+/**
+ * \brief 乱数分布ID数
+ */
 constexpr std::size_t RANDOM_NUMBER_DISTRIBUTION_ID_SIZE = static_cast<std::size_t>(RandomNumberDistributionID::StdPiecewiseLinear) + 1;
 
 /**

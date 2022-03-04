@@ -1,14 +1,25 @@
+/*****************************************************************//**
+ * \file   PrimaryTrueRandomNumberEngine.h
+ * \brief  プライマリ真性乱数エンジン
+ * 
+ * \author japan
+ * \date   March 2022
+ *********************************************************************/
+
 #pragma once
+
 // C++
 #include <memory>
-// MyProject
+// My
 #include "Parameter/RandomNumberEngineParameter.h"
 #include "AbstractRandomNumberEngine.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 真性乱数エンジン
+ * \brief プライマリ真性乱数エンジン
+ * \tparam Engine_ エンジンの型
+ * \tparam EngineResultType_ 生成する符号なし整数の型
  */
 template <
     typename Engine_,

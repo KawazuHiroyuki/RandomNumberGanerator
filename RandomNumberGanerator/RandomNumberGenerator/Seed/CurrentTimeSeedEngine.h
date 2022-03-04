@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   CurrentTimeSeedEngine.h
- * \brief  シードエンジン - 現在時刻
+ * \brief  現在時刻 シードエンジン
  * 
  * \author japan
  * \date   December 2021
@@ -8,8 +8,9 @@
 
 #pragma once
 
+// C++
 #include <ctime>
-
+// My
 #include "SeedEngine.h"
 
 namespace random_number_generator

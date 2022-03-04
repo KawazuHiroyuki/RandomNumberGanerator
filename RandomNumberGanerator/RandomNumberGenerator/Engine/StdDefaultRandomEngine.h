@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdDefaultRandomEngine.h
- * \brief  乱数エンジン - 非専門用途でデフォルト使用する擬似乱数生成器
+ * \brief  非専門用途でデフォルト使用する擬似乱数生成器
  * 
  * \author japan
  * \date   December 2021
@@ -8,15 +8,17 @@
 
 #pragma once
 
+// C++
 #include <random>
-
+// My
 #include "PrimaryPseudoRandomNumberEngine.h"
 #include "RandomNumberEngineUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数エンジン - 非専門用途でデフォルト使用する擬似乱数生成器
+ * \brief 非専門用途でデフォルト使用する擬似乱数生成器
+ * \note std::default_random_engine
  * \tparam Seed_ シードの型
  */
 template <typename Seed_ = std::uint32_t>

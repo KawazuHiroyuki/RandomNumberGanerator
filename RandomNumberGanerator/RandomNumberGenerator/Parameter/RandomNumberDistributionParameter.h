@@ -8,7 +8,8 @@
 
 #pragma once
 
-#include "RandomNumberDistributionID.h"
+// My
+#include "ID/RandomNumberDistributionID.h"
 
 namespace random_number_generator
 {
@@ -32,4 +33,3 @@ struct RandomNumberDistributionParameter
     RandomNumberDistributionID id = DEFAULT_RANDOM_NUMBER_DISTRIBUTION_ID;
 };
 } // namespace random_number_generator
-

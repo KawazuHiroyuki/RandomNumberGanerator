@@ -8,8 +8,9 @@
 
 #pragma once
 
+// My
 #include "Utility/Utility.h"
-#include "SeedEngineFactory.h"
+#include "Seed/SeedEngineFactory.h"
 
 #include "StdRandomDevice.h"
 #include "StdMinStdRand0RandomNumberEngine.h"
@@ -20,7 +21,6 @@
 #include "StdRanlux48RandomNumberEngine.h"
 #include "StdKnuthRandomNumberEngine.h"
 #include "StdDefaultRandomEngine.h"
-
 #include "StdLiearCongruentialRandomNumberEngine.h"
 #include "StdMersenneTwisterRandomNumberEngine.h"
 #include "StdSubtractWithCarryRandomNumberEngine.h"
@@ -72,7 +72,6 @@ class PseudoRandomNumberEngineFactory
      * \brief シードの型
      */
     using Seed = Seed_;
-
 
 public:
     static std::shared_ptr<Engine> create(
