@@ -33,7 +33,7 @@ public:
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdRanlux48RandomNumberEngine(std::shared_ptr<SeedEngine<Seed_>> seed)
+    StdRanlux48RandomNumberEngine(std::shared_ptr<PrimarySeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdRanlux48, Engine(seed->operator()()), seed)
     {
     }

@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   SeedEngine.h
- * \brief  シードエンジン
+ * \file   AbstractSeedEngine.h
+ * \brief  抽象シードエンジン
  * 
  * \author japan
  * \date   December 2021
@@ -14,11 +14,11 @@
 namespace random_number_generator
 {
 /**
- * \brief シードエンジン
+ * \brief 抽象シードエンジン
  * \tparam Seed_ シードの型
  */
 template <typename Seed_>
-class SeedEngine
+class AbstractSeedEngine
 {
 public:
     /**
@@ -28,36 +28,15 @@ public:
 
 public:
     /**
-     * \brief コンストラクタ
-     * \param param シードエンジンパラメータ
-     */
-    SeedEngine(SeedEngineParameter<Seed> param = {})
-        : m_param(param)
-    {
-    }
-
-    /**
      * \brief シードを生成
      * \return シード
      */
-    Seed operator()(void)
-    {
-        return m_param.engine();
-    }
+    virtual Seed operator()(void) = 0;
 
     /**
      * \brief シードエンジンパラメータを取得
      * \return シードエンジンパラメータ
      */
-    SeedEngineParameter<Seed> getParam(void) const
-    {
-        return m_param;
-    }
-
-private:
-    /**
-     * \brief シードエンジンパラメータ
-     */
-    SeedEngineParameter<Seed> m_param;
+    virtual SeedEngineParameter<Seed> getParam(void) const = 0;
 };
 } // namespace random_number_generator

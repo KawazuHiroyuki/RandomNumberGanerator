@@ -12,7 +12,7 @@
 #include <memory>
 // My
 #include "Parameter/RandomNumberEngineParameter.h"
-#include "Seed/SeedEngine.h"
+#include "Seed/PrimarySeedEngine.h"
 #include "AbstractRandomNumberEngine.h"
 
 namespace random_number_generator
@@ -43,7 +43,7 @@ public:
      * \param engine 乱数エンジン
      * \param seed シード生成器
      */
-    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<SeedEngine<Seed_>> seed = nullptr)
+    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<PrimarySeedEngine<Seed_>> seed = nullptr)
         : m_param(param)
         , m_engine(engine)
         , m_seed(seed)
@@ -141,6 +141,6 @@ protected:
     /**
      * \brief シードエンジン
      */
-    std::shared_ptr<SeedEngine<Seed_>> m_seed;
+    std::shared_ptr<PrimarySeedEngine<Seed_>> m_seed;
 };
 } // namespace random_number_generator

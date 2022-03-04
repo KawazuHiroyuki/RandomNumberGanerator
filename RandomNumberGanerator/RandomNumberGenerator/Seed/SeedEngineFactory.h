@@ -11,7 +11,7 @@
 // C++
 #include <memory>
 // My
-#include "SeedEngine.h"
+#include "PrimarySeedEngine.h"
 #include "CurrentTimeSeedEngine.h"
 #include "StdRandomDeviceSeedEngine.h"
 
@@ -31,7 +31,7 @@ public:
      * \
      */
     template <typename Seed_>
-    static std::shared_ptr<SeedEngine<Seed_>> create(const SeedEngineParameter<Seed_>& param = {})
+    static std::shared_ptr<PrimarySeedEngine<Seed_>> create(const SeedEngineParameter<Seed_>& param = {})
     {
         switch (param.id) {
             case SeedEngineID::StdRandomDevice:
@@ -42,7 +42,7 @@ public:
                 if (!param.engine) {
                     return nullptr;
                 }
-                return std::make_shared<SeedEngine<Seed_>>(param);
+                return std::make_shared<PrimarySeedEngine<Seed_>>(param);
             default:
                 return nullptr;
         }

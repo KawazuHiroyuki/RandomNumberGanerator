@@ -41,7 +41,7 @@ public:
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdMersenneTwisterRandomNumberEngine(std::shared_ptr<SeedEngine<Seed_>> seed)
+    StdMersenneTwisterRandomNumberEngine(std::shared_ptr<PrimarySeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdMersenneTwister, Engine(seed->operator()()), seed)
     {
     }

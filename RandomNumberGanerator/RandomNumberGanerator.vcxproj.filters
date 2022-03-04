@@ -131,7 +131,7 @@
     <ClInclude Include="RandomNumberGenerator\Seed\CurrentTimeSeedEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\SeedEngine</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Seed\SeedEngine.h">
+    <ClInclude Include="RandomNumberGenerator\Seed\PrimarySeedEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\SeedEngine</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator\Seed\StdRandomDeviceSeedEngine.h">
@@ -232,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator\Distribution\StdPiecewiseLinearDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumberGenerator\Seed\AbstractSeedEngine.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@
 // C++
 #include <random>
 // My
-#include "SeedEngine.h"
+#include "PrimarySeedEngine.h"
 
 namespace random_number_generator
 {
@@ -21,9 +21,9 @@ namespace random_number_generator
  * \tparam Seed_ シードの型
  */
 template <typename Seed_>
-class StdRandomDeviceSeedEngine : public SeedEngine<Seed_>
+class StdRandomDeviceSeedEngine : public PrimarySeedEngine<Seed_>
 {
-    using SeedEngine<Seed_>::Seed;
+    using PrimarySeedEngine<Seed_>::Seed;
 
     /**
      * \brief エンジンの型
@@ -35,7 +35,7 @@ public:
      * \brief コンストラクタ
      */
     StdRandomDeviceSeedEngine(void)
-        : SeedEngine<Seed>(SeedEngineParameter<Seed>{
+        : PrimarySeedEngine<Seed>(SeedEngineParameter<Seed>{
             SeedEngineID::StdRandomDevice,
             []() { return Engine()(); }
             })

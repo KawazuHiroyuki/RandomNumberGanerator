@@ -33,7 +33,7 @@ public:
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdKnuthRandomNumberEngine(std::shared_ptr<SeedEngine<Seed_>> seed)
+    StdKnuthRandomNumberEngine(std::shared_ptr<PrimarySeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdKnuth, Engine(seed->operator()()), seed)
     {
     }

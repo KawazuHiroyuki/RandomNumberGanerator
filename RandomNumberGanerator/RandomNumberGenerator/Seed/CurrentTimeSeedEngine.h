@@ -11,25 +11,25 @@
 // C++
 #include <ctime>
 // My
-#include "SeedEngine.h"
+#include "PrimarySeedEngine.h"
 
 namespace random_number_generator
 {
 /**
- * \brief シードエンジン - 現在時刻
+ * \brief 現在時刻 シードエンジン
  * \tparam Seed_ シードの型
  */
 template <typename Seed_>
-class CurrentTimeSeedEngine : public SeedEngine<Seed_>
+class CurrentTimeSeedEngine : public PrimarySeedEngine<Seed_>
 {
-    using SeedEngine<Seed_>::Seed;
+    using PrimarySeedEngine<Seed_>::Seed;
 
 public:
     /**
      * \brief コンストラクタ
      */
     CurrentTimeSeedEngine(void)
-        : SeedEngine<Seed>(SeedEngineParameter<Seed>{
+        : PrimarySeedEngine<Seed>(SeedEngineParameter<Seed>{
             SeedEngineID::CurrentTime,
             []() { return static_cast<Seed>(std::time(nullptr)); }
             })
