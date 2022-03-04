@@ -27,11 +27,18 @@ public:
      * \brief コンストラクタ
      */
     CurrentTimeSeedEngine(void)
-        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{
-            SeedEngineID::CurrentTime,
-            []() { return static_cast<Seed_>(std::time(nullptr)); }
-            })
+        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::CurrentTime, createEngine()})
     {
+    }
+
+private:
+    /**
+     * \brief シードエンジン生成
+     * \return シードエンジン
+     */
+    SeedEngineParameter<Seed_>::Engine<Seed_> createEngine(void) const
+    {
+        return []() { return static_cast<Seed_>(std::time(nullptr)); };
     }
 };
 } // namespace random_number_generator
