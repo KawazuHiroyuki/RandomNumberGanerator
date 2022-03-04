@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   StdUniformIntDistribution.h
- * \brief  乱数分布
+ * \brief  範囲内に一様に分布した整数値
  * 
  * \author japan
  * \date   December 2021
@@ -8,14 +8,15 @@
 
 #pragma once
 
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::uniform_int_distribution
+ * \brief 範囲内に一様に分布した整数値
+ * \note std::uniform_int_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

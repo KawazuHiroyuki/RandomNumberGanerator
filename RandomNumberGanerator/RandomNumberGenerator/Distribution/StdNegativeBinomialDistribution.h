@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdNegativeBinomialDistribution.h
- * \brief  乱数分布
+ * \brief  負の二項分布
  *
  * \author japan
  * \date   December 2021
@@ -8,14 +8,15 @@
 
 #pragma once
 
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::negative_binomial_distribution
+ * \brief 負の二項分布
+ * \note std::negative_binomial_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

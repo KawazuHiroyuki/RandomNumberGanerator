@@ -146,7 +146,7 @@
   <ItemGroup>
     <ClInclude Include="RandomNumberGenerator\Distribution\AbstractRandomNumberDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\SeedEngine\CurrentTimeSeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\CurrentTimeSeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\NoAdaptDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdCauchyDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Distribution\StdChiSquaredDistribution.h" />
@@ -171,8 +171,8 @@
     <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineUtility.h" />
-    <ClInclude Include="RandomNumberGenerator\SeedEngine\SeedEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\SeedEngine\SeedEngineFactory.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\SeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\SeedEngineFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdKnuthRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdLiearCongruentialRandomNumberEngine.h" />
@@ -182,7 +182,7 @@
     <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_32BitRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_64BitRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdRandomDevice.h" />
-    <ClInclude Include="RandomNumberGenerator\SeedEngine\StdRandomDeviceSeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\StdRandomDeviceSeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux24RandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux48RandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdSubtractWithCarryRandomNumberEngine.h" />

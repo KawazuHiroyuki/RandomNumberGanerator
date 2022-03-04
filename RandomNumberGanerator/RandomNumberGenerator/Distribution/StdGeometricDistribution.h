@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdGeometricDistribution.h
- * \brief  乱数分布
+ * \brief  幾何分布
  *
  * \author japan
  * \date   December 2021
@@ -8,14 +8,15 @@
 
 #pragma once
 
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::geometric_distribution
+ * \brief 幾何分布
+ * \note std::geometric_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

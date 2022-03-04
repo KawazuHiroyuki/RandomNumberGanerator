@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdDiscreteDistribution.h
- * \brief  乱数分布
+ * \brief  離散分布
  *
  * \author japan
  * \date   December 2021
@@ -10,14 +10,15 @@
 
 // C++
 #include <initializer_list>
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::discrete_distribution
+ * \brief 離散分布
+ * \note std::discrete_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

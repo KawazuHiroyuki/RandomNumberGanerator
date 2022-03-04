@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   PrimaryPseudoRandomNumberEngine.h
- * \brief  乱数エンジン
+ * \brief  プライマリ疑似乱数エンジン
  * 
  * \author japan
  * \date   December 2021
@@ -10,10 +10,10 @@
 
 // C++
 #include <memory>
-// MyProject
+// My
 #include "Parameter/RandomNumberEngineParameter.h"
+#include "Seed/SeedEngine.h"
 #include "AbstractRandomNumberEngine.h"
-#include "SeedEngine.h"
 
 namespace random_number_generator
 {

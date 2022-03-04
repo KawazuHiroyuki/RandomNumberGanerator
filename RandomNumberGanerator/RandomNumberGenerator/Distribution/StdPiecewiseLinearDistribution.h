@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdPiecewiseLinearDistribution.h
- * \brief  乱数分布
+ * \brief  指定された区間に線形に分布
  *
  * \author japan
  * \date   December 2021
@@ -8,16 +8,17 @@
 
 #pragma once
 
- // C++
+// C++
 #include <initializer_list>
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::piecewise_linear_distribution
+ * \brief 指定された区間に線形に分布
+ * \note std::piecewise_linear_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

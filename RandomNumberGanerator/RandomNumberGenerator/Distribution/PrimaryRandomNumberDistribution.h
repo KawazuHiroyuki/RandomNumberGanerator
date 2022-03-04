@@ -1,13 +1,22 @@
+/*****************************************************************//**
+ * \file   PrimaryRandomNumberDistribution.h
+ * \brief  プライマリ乱数分布
+ * 
+ * \author japan
+ * \date   March 2022
+ *********************************************************************/
+
 #pragma once
 
-#include "../RandomNumberDistributionParameter.h"
+// My
+#include "Parameter/RandomNumberDistributionParameter.h"
 #include "AbstractRandomNumberDistribution.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布
- * \tparam Distribution_乱数分布
+ * \brief プライマリ乱数分布
+ * \tparam Distribution_ 乱数分布
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

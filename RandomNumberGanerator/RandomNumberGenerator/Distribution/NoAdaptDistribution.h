@@ -1,22 +1,23 @@
 /*****************************************************************//**
  * \file   NoAdaptDistribution.h
- * \brief  乱数分布 - 無適応
+ * \brief  分布無適応
  *
  * \author japan
  * \date   December 2021
  *********************************************************************/
 
 #pragma once
+
 // C++
 #include <type_traits>
 // MyProject
-#include "../RandomNumberDistributionParameter.h"
- #include "AbstractRandomNumberDistribution.h"
+#include "Parameter/RandomNumberDistributionParameter.h"
+#include "AbstractRandomNumberDistribution.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - 無適応
+ * \brief 分布無適応
  * \tparam DistributionResultType_ 乱数生成結果の型(算術型)
  */
 template <

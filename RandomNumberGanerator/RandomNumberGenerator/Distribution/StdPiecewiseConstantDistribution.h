@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   StdPiecewiseConstantDistribution.h
- * \brief  乱数分布
+ * \brief  指定された区間に一定に分布
  *
  * \author japan
  * \date   December 2021
@@ -10,14 +10,15 @@
 
 // C++
 #include <initializer_list>
-// MyProject
+// My
 #include "PrimaryRandomNumberDistribution.h"
 #include "RandomNumberDistributionUtility.h"
 
 namespace random_number_generator
 {
 /**
- * \brief 乱数分布 - std::piecewise_constant_distribution
+ * \brief 指定された区間に一定に分布
+ * \note std::piecewise_constant_distribution
  * \tparam DistributionResultType_ 乱数分布 生成結果の型
  */
 template <

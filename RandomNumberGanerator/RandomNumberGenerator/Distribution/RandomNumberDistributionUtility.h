@@ -1,10 +1,17 @@
-
+/*****************************************************************//**
+ * \file   RandomNumberDistributionUtility.h
+ * \brief  乱数分布ユーティリティ
+ * 
+ * \author japan
+ * \date   March 2022
+ *********************************************************************/
 
 #pragma once
+
 // C++
 #include <random>
 // My
-#include "../Utility.h"
+#include "Utility/Utility.h"
 
 namespace random_number_generator
 {
@@ -71,8 +78,6 @@ using BaseDistribution =
     utility::Case<std::is_same<Distribution, StdPiecewiseLinearDistribution<ResultType>>::value, std::piecewise_linear_distribution<ResultType>>
     >::type;
 
-
 template <typename Distribution, typename ResultType>
 using DistributionResultType = typename BaseDistribution<Distribution, ResultType>::result_type;
-
 } // namespace random_number_generator
