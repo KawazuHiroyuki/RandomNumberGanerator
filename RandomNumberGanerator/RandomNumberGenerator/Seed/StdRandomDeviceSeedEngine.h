@@ -23,21 +23,14 @@ namespace random_number_generator
 template <typename Seed_>
 class StdRandomDeviceSeedEngine : public PrimarySeedEngine<Seed_>
 {
-    using PrimarySeedEngine<Seed_>::Seed;
-
-    /**
-     * \brief エンジンの型
-     */
-    using Engine = std::random_device;
-
 public:
     /**
      * \brief コンストラクタ
      */
     StdRandomDeviceSeedEngine(void)
-        : PrimarySeedEngine<Seed>(SeedEngineParameter<Seed>{
+        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{
             SeedEngineID::StdRandomDevice,
-            []() { return Engine()(); }
+            []() { return std::random_device()(); }
             })
     {
     }

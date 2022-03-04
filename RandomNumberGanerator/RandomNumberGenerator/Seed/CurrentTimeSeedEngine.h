@@ -22,16 +22,14 @@ namespace random_number_generator
 template <typename Seed_>
 class CurrentTimeSeedEngine : public PrimarySeedEngine<Seed_>
 {
-    using PrimarySeedEngine<Seed_>::Seed;
-
 public:
     /**
      * \brief コンストラクタ
      */
     CurrentTimeSeedEngine(void)
-        : PrimarySeedEngine<Seed>(SeedEngineParameter<Seed>{
+        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{
             SeedEngineID::CurrentTime,
-            []() { return static_cast<Seed>(std::time(nullptr)); }
+            []() { return static_cast<Seed_>(std::time(nullptr)); }
             })
     {
     }

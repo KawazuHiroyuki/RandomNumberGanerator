@@ -38,7 +38,7 @@ public:
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<PrimarySeedEngine<Seed_>> seed)
+    StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdSubtractWithCarry, Engine(seed->operator()()), seed)
     {
     }

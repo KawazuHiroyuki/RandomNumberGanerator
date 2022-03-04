@@ -38,7 +38,7 @@ public:
      * \brief コンストラクタ
      * \param seed シードエンジン
      */
-    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<PrimarySeedEngine<Seed_>> seed)
+    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
         : Base(RandomNumberEngineID::StdLiearCongruential, Engine(seed->operator()()), seed)
     {
     }

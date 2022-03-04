@@ -14,6 +14,7 @@
 #include "PrimarySeedEngine.h"
 #include "CurrentTimeSeedEngine.h"
 #include "StdRandomDeviceSeedEngine.h"
+#include "CustomSeedEngine.h"
 
 namespace random_number_generator
 {
@@ -42,7 +43,7 @@ public:
                 if (!param.engine) {
                     return nullptr;
                 }
-                return std::make_shared<PrimarySeedEngine<Seed_>>(param);
+                return std::make_shared<CustomSeedEngine<Seed_>>(param.engine);
             default:
                 return nullptr;
         }

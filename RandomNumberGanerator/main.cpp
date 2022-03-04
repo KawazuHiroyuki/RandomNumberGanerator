@@ -12,7 +12,7 @@ int main()
     using namespace random_number_generator;
 
     using Seed = unsigned int;
-    std::vector<std::shared_ptr<PrimarySeedEngine<Seed>>> seeds = {
+    std::vector<std::shared_ptr<AbstractSeedEngine<Seed>>> seeds = {
         SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::StdRandomDevice }),
         SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::CurrentTime }),
         SeedEngineFactory::create(SeedEngineParameter<Seed>{ SeedEngineID::Custom, []() { return 10;  } })
