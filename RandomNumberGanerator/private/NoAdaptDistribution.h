@@ -1,13 +1,14 @@
 /*****************************************************************//**
  * \file   NoAdaptDistribution.h
- * \brief  —”•ª•z
+ * \brief  —”•ª•z - –³“K‰
  *
  * \author japan
  * \date   December 2021
  *********************************************************************/
 
 #pragma once
-
+// C++
+#include <type_traits>
 // MyProject
 #include "../RandomNumberDistributionParameter.h"
  #include "AbstractRandomNumberDistribution.h"
@@ -16,13 +17,15 @@ namespace random_number_generator
 {
 /**
  * \brief —”•ª•z - –³“K‰
- * \tparam DistributionResultType_ —”•ª•z ¶¬Œ‹‰Ê‚ÌŒ^
+ * \tparam DistributionResultType_ —”¶¬Œ‹‰Ê‚ÌŒ^(ZpŒ^)
  */
 template <
     typename DistributionResultType_
 >
 class NoAdaptDistribution : public AbstractRandomNumberDistribution<DistributionResultType_>
 {
+    static_assert(std::is_arithmetic_v<DistributionResultType_>);
+
 private:
     using Base = AbstractRandomNumberDistribution<DistributionResultType_>;
 
@@ -44,7 +47,7 @@ public:
     template <typename RandomNumberEngine>
     virtual DistributionResultType_ operator()(RandomNumberEngine& engine) override
     {
-        DistributionResultType_ result = engine(); // TODO cast‚·‚éH
+        DistributionResultType_ result = static_cast<DistributionResultType_>(engine());
         return result;
     }
 

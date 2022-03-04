@@ -185,6 +185,54 @@
     <ClInclude Include="private\StdBernoulliDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
     </ClInclude>
+    <ClInclude Include="private\StdBinomialDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdGeometricDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdNegativeBinomialDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdPoissonDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdExponentialDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdGammaDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdWeibullDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdExtremeValueDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdNormalDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdLognormalDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdChiSquaredDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdCauchyDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdStudentTDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdDiscreteDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdPiecewiseConstantDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="private\StdPiecewiseLinearDistribution.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\private\RandomNumberDistribution</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
