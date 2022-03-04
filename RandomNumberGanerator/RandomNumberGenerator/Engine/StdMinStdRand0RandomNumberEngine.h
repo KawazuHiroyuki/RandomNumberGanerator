@@ -31,10 +31,10 @@ private:
 public:
     /**
      * \brief コンストラクタ
-     * \param seed シードエンジン
+     * \param seedParam シードエンジンパラメータ
      */
-    StdMinStdRand0RandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
-        : Base(RandomNumberEngineID::StdMinStdRand0, Engine(seed->operator()()), seed)
+    StdMinStdRand0RandomNumberEngine(const SeedEngineParameter<Seed_>& seedParam = {})
+        : Base(RandomNumberEngineID::StdMinStdRand0, seedParam)
     {
     }
 };

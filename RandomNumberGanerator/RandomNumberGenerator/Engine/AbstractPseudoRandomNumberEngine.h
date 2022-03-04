@@ -19,33 +19,39 @@ namespace random_number_generator
 /**
  * \brief 抽象疑似乱数エンジン
  * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam SeedEngine_ シードエンジンの型
  * \tparam Seed_ シードの型
  */
 template <
     typename EngineResultType_,
+    typename SeedEngine_,
     typename Seed_
 >
 class AbstractPseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
 {
 public:
-#if 0
     /**
-     * \brief シードを設定
-     * \param seed シード
+     * \brief シードエンジンの型
      */
-    virtual void setSeed(Seed_ seed) override
-    {
-        m_engine.seed(seed);
-    }
-#endif
+    using SeedEngine = SeedEngine_;
 
+    /**
+     * \brief シードの型
+     */
+    using Seed = Seed_;
 
+public:
+    /**
+     * \brief シードエンジンを設定
+     * \param seed シードエンジン
+     */
+    virtual void setSeedEngine(std::shared_ptr<SeedEngine> seed) = 0;
 
 protected:
     /**
      * \brief シードを取得
      * \return シード
      */
-    virtual Seed_ getSeed(void) const = 0;
+    virtual Seed getSeed(void) const = 0;
 };
 } // namespace random_number_generator

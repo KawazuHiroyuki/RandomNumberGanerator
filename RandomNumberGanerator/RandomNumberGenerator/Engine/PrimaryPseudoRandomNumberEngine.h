@@ -12,7 +12,8 @@
 #include <memory>
 // My
 #include "Seed/AbstractSeedEngine.h"
-#include "AbstractRandomNumberEngine.h"
+#include "Seed/SeedEngineFactory.h"
+#include "AbstractPseudoRandomNumberEngine.h"
 #include "RandomNumberEngineParameter.h"
 
 namespace random_number_generator
@@ -28,7 +29,7 @@ template <
     typename EngineResultType_,
     typename Seed_
 >
-class PrimaryPseudoRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
+class PrimaryPseudoRandomNumberEngine : public AbstractPseudoRandomNumberEngine<EngineResultType_, AbstractSeedEngine<Seed_>, Seed_>
 {
 public:
     /**
@@ -36,32 +37,39 @@ public:
      */
     using Engine = Engine_;
 
+    /**
+     * \brief シードエンジンの型
+     */
+    using SeedEngine = AbstractSeedEngine<Seed_>;
+
+    /**
+     * \brief シードエンジンパラメータの型
+     */
+    //using SeedParameter = SeedEngineParameter<Seed_>;
+
 public:
     /**
      * \brief コンストラクタ
      * \param param 乱数エンジンパラメータ
-     * \param engine 乱数エンジン
-     * \param seed シード生成器
+     * \param seedParam シードエンジンパラメータ
      */
-    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, Engine&& engine, std::shared_ptr<AbstractSeedEngine<Seed_>> seed = nullptr)
+    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, const SeedEngineParameter<Seed_>& seedParam = {})
         : m_param(param)
-        , m_engine(engine)
-        , m_seed(seed)
+        , m_seed(SeedEngineFactory<Seed_>::create(seedParam))
+        , m_engine(Engine(m_seed->operator()()))
     {
     }
 
     virtual ~PrimaryPseudoRandomNumberEngine(void) = default;
 
-#if 0
     /**
-     * \brief シードを設定
-     * \param seed シード
+     * \brief シードエンジンを設定
+     * \param seed シードエンジン
      */
-    virtual void setSeed(Seed_ seed) override
+    virtual void setSeedEngine(std::shared_ptr<SeedEngine> seed) override
     {
-        m_engine.seed(seed);
+        m_seed = seed;
     }
-#endif
 
     /**
      * \brief 乱数を生成
@@ -122,7 +130,7 @@ protected:
      * \brief シードを取得
      * \return シード
      */
-    Seed_ getSeed(void) const /*override*/
+    Seed_ getSeed(void) const override
     {
         return (*m_seed)();
     }
@@ -134,13 +142,13 @@ protected:
     RandomNumberEngineParameter m_param;
 
     /**
+     * \brief シードエンジン
+     */
+    std::shared_ptr<SeedEngine> m_seed;
+
+    /**
      * \brief 乱数エンジン
      */
     Engine m_engine;
-
-    /**
-     * \brief シードエンジン
-     */
-    std::shared_ptr<AbstractSeedEngine<Seed_>> m_seed;
 };
 } // namespace random_number_generator

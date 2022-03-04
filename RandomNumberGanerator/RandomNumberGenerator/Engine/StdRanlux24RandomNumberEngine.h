@@ -12,6 +12,7 @@
 #include <random>
 // My
 #include "PrimaryPseudoRandomNumberEngine.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
@@ -30,10 +31,10 @@ private:
 public:
     /**
      * \brief コンストラクタ
-     * \param seed シードエンジン
+     * \param seedParam シードエンジンパラメータ
      */
-    StdRanlux24RandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
-        : Base(RandomNumberEngineID::StdRanlux24, Engine(seed->operator()()), seed)
+    StdRanlux24RandomNumberEngine(const SeedEngineParameter<Seed_>& seedParam = {})
+        : Base(RandomNumberEngineID::StdRanlux24, seedParam)
     {
     }
 };

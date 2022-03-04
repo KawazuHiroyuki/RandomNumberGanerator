@@ -13,6 +13,7 @@
 // My
 #include "StdLiearCongruentialRandomNumberEngineParameter.h"
 #include "PrimaryPseudoRandomNumberEngine.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
@@ -36,10 +37,10 @@ private:
 public:
     /**
      * \brief コンストラクタ
-     * \param seed シードエンジン
+     * \param seedParam シードエンジンパラメータ
      */
-    StdLiearCongruentialRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
-        : Base(RandomNumberEngineID::StdLiearCongruential, Engine(seed->operator()()), seed)
+    StdLiearCongruentialRandomNumberEngine(const SeedEngineParameter<Seed_>& seedParam = {})
+        : Base(RandomNumberEngineID::StdLiearCongruential, seedParam)
     {
     }
 };

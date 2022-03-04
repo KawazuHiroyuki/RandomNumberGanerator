@@ -12,6 +12,7 @@
 #include <random>
 // My
 #include "PrimaryPseudoRandomNumberEngine.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
@@ -39,10 +40,10 @@ private:
 public:
     /**
      * \brief コンストラクタ
-     * \param seed シードエンジン
+     * \param seedParam シードエンジンパラメータ
      */
-    StdMersenneTwisterRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
-        : Base(RandomNumberEngineID::StdMersenneTwister, Engine(seed->operator()()), seed)
+    StdMersenneTwisterRandomNumberEngine(const SeedEngineParameter<Seed_>& seedParam = {})
+        : Base(RandomNumberEngineID::StdMersenneTwister, seedParam)
     {
     }
 };

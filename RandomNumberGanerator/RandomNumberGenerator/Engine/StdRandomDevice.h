@@ -11,8 +11,8 @@
 // C++
 #include <random>
 // My
-#include "RandomNumberBaseEngine.h"
 #include "PrimaryTrueRandomNumberEngine.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
@@ -22,6 +22,5 @@ namespace random_number_generator
  */
 class StdRandomDevice : public PrimaryTrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>
 {
-
 };
 } // namespace random_number_generator

@@ -45,14 +45,6 @@ public:
 
     virtual ~PrimaryTrueRandomNumberEngine(void) = default;
 
-#if 0
-    /**
-     * \brief シードを設定
-     * \param seed シード
-     */
-    virtual void setSeed(void) = delete;
-#endif
-
     /**
      * \brief 乱数を生成
      * \return 乱数

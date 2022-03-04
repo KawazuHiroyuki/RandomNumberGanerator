@@ -11,8 +11,8 @@
 // C++
 #include <random>
 // My
-#include "RandomNumberBaseEngine.h"
 #include "PrimaryPseudoRandomNumberEngine.h"
+#include "RandomNumberBaseEngine.h"
 
 namespace random_number_generator
 {
@@ -36,10 +36,10 @@ private:
 public:
     /**
      * \brief コンストラクタ
-     * \param seed シードエンジン
+     * \param seedParam シードエンジンパラメータ
      */
-    StdSubtractWithCarryRandomNumberEngine(std::shared_ptr<AbstractSeedEngine<Seed_>> seed)
-        : Base(RandomNumberEngineID::StdSubtractWithCarry, Engine(seed->operator()()), seed)
+    StdSubtractWithCarryRandomNumberEngine(const SeedEngineParameter<Seed_>& seedParam = {})
+        : Base(RandomNumberEngineID::StdSubtractWithCarry, seedParam)
     {
     }
 };
