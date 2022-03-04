@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "../SeedEngineParameter.h"
+#include "Parameter/SeedEngineParameter.h"
 
 namespace random_number_generator
 {

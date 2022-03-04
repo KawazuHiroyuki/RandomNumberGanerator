@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)RandomNumberGenerator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)RandomNumberGenerator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,51 +144,51 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RandomNumberGenerator\Private\AbstractRandomNumberDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\AbstractRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\CurrentTimeSeedEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\NoAdaptDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdCauchyDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdChiSquaredDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdDiscreteDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdExponentialDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdExtremeValueDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdGammaDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdLognormalDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdNormalDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdPiecewiseConstantDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdPiecewiseLinearDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdPoissonDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\PrimaryPseudoRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\PrimaryRandomNumberDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\RandomNumberDistributionUtility.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdBernoulliDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdBinomialDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdGeometricDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdNegativeBinomialDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdStudentTDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdUniformIntDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\RandomNumberDistributionFactory.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\RandomNumberEngineFactory.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\RandomNumberEngineUtility.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\SeedEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\SeedEngineFactory.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdDefaultRandomEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdKnuthRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdLiearCongruentialRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdMersenneTwisterRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdMinStdRand0RandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdMinStdRandRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdMt199937_32BitRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdMt199937_64BitRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdRandomDevice.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdRandomDeviceSeedEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdRanlux24RandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdRanlux48RandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdSubtractWithCarryRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\PrimaryTrueRandomNumberEngine.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdUniformRealDistribution.h" />
-    <ClInclude Include="RandomNumberGenerator\Private\StdWeibullDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\AbstractRandomNumberDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\SeedEngine\CurrentTimeSeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\NoAdaptDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdCauchyDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdChiSquaredDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdDiscreteDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdExponentialDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdExtremeValueDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdGammaDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdLognormalDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdNormalDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdPiecewiseConstantDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdPiecewiseLinearDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdPoissonDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\PrimaryPseudoRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\PrimaryRandomNumberDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionUtility.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdBernoulliDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdBinomialDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdGeometricDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdNegativeBinomialDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdStudentTDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdUniformIntDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\RandomNumberDistributionFactory.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineFactory.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineUtility.h" />
+    <ClInclude Include="RandomNumberGenerator\SeedEngine\SeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\SeedEngine\SeedEngineFactory.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdKnuthRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdLiearCongruentialRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMersenneTwisterRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRand0RandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRandRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_32BitRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_64BitRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRandomDevice.h" />
+    <ClInclude Include="RandomNumberGenerator\SeedEngine\StdRandomDeviceSeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux24RandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux48RandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdSubtractWithCarryRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\PrimaryTrueRandomNumberEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdUniformRealDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdWeibullDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\ID\RandomNumberDistributionID.h" />
     <ClInclude Include="RandomNumberGenerator\Parameter\RandomNumberDistributionParameter.h" />
     <ClInclude Include="RandomNumberGenerator\ID\RandomNumberEngineID.h" />

@@ -12,8 +12,8 @@
 
 #include "private/RandomNumberEngineFactory.h"
 
-#include "RandomNumberEngineParameter.h"
-#include "SeedEngineParameter.h"
+#include "Parameter/RandomNumberEngineParameter.h"
+#include "Parameter/SeedEngineParameter.h"
 
 
 namespace random_number_generator

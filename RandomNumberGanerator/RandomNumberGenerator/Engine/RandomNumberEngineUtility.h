@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "../Utility.h"
+#include "Utility/Utility.h"
 
 namespace random_number_generator
 {

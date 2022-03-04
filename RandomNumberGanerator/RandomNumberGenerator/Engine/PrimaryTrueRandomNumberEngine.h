@@ -2,7 +2,7 @@
 // C++
 #include <memory>
 // MyProject
-#include "../RandomNumberEngineParameter.h"
+#include "Parameter/RandomNumberEngineParameter.h"
 #include "AbstractRandomNumberEngine.h"
 
 namespace random_number_generator

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "RandomNumberGenerator.h"
+#include "RandomNumberGenerator/RandomNumberGenerator.h"
 
 int main()
 {
