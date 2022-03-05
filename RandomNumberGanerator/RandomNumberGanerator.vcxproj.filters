@@ -94,6 +94,9 @@
     <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberDistribution\Distribution\Sampling">
       <UniqueIdentifier>{fb9b7df2-d5c4-4efb-9dc5-bdd20e054299}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\RandomNumberGanerator\SeedEngine\Utility">
+      <UniqueIdentifier>{03914491-e892-4fc2-8278-8a885b27ff6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -280,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator\Distribution\StdFisherFDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberDistribution\Distribution\Normal</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumberGenerator\Seed\DefaultSeedEngineResultType.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\SeedEngine\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

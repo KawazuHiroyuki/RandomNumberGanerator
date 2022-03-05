@@ -18,7 +18,7 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象疑似乱数エンジン
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  * \tparam SeedEngine_ シードエンジンの型
  * \tparam Seed_ シードの型
  */

@@ -17,30 +17,30 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジンパラメータ
- * \tparam Seed_ シードの型
+ * \tparam Seed_ シードエンジン生成結果の型
  */
 template <typename Seed_>
 struct SeedEngineParameter
 {
     /**
-     * \brief シードの型
+     * \brief シードエンジン生成結果の型
      */
     using Seed = Seed_;
 
     /**
-     * \brief シードエンジン関数の型
+     * \brief シード生成関数
      */
     template <typename Seed_>
-    using Engine = std::function<Seed_()>;
+    using Generator = std::function<Seed_()>;
 
     /**
      * \brief コンストラクタ
      * \param id_ シードエンジンID
-     * \param engine_ シードエンジン関数
+     * \param engine_ シード生成関数
      */
-    SeedEngineParameter(SeedEngineID id_ = DEFAULT_SEED_ENGINE_ID, Engine<Seed> engine_ = {})
+    SeedEngineParameter(SeedEngineID id_ = DEFAULT_SEED_ENGINE_ID, Generator<Seed> generator_ = {})
         : id(id_)
-        , engine(engine_)
+        , generator(generator_)
     {
     }
 
@@ -50,8 +50,8 @@ struct SeedEngineParameter
     SeedEngineID id = DEFAULT_SEED_ENGINE_ID;
 
     /**
-     * \brief シードエンジン関数
+     * \brief シード生成関数
      */
-    Engine<Seed> engine = {};
+    Generator<Seed> generator = {};
 };
 } // namespace random_number_generator

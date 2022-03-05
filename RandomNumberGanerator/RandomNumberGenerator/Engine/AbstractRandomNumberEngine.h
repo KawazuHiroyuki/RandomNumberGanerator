@@ -17,14 +17,14 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象乱数エンジン
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  */
 template <typename EngineResultType_>
 class AbstractRandomNumberEngine
 {
 public:
     /**
-     * \brief エンジン生成結果の型
+     * \brief 乱数エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 

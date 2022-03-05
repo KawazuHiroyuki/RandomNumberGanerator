@@ -18,7 +18,7 @@ namespace random_number_generator
 /**
  * \brief 予測不能な乱数生成 シードエンジン
  * \note std::random_device
- * \tparam Seed_ シードの型
+ * \tparam Seed_ シードエンジン生成結果の型
  */
 template <typename Seed_>
 class StdRandomDeviceSeedEngine : public PrimarySeedEngine<Seed_>
@@ -28,16 +28,16 @@ public:
      * \brief コンストラクタ
      */
     StdRandomDeviceSeedEngine(void)
-        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::StdRandomDevice, createEngine()})
+        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::StdRandomDevice, createGenerator()})
     {
     }
 
 private:
     /**
-     * \brief シードエンジン生成
-     * \return シードエンジン
+     * \brief シード生成関数を生成
+     * \return シード生成関数
      */
-    SeedEngineParameter<Seed_>::Engine<Seed_> createEngine(void) const
+    SeedEngineParameter<Seed_>::Generator<Seed_> createGenerator(void) const
     {
         return []() { return static_cast<Seed_>(std::random_device()()); };
     }

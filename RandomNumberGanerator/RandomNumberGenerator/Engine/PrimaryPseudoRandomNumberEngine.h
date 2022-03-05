@@ -20,8 +20,8 @@ namespace random_number_generator
 {
 /**
  * \brief 疑似乱数エンジン
- * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam Engine_ 乱数エンジンの型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  * \tparam Seed_ シードの型
  */
 template <
@@ -33,7 +33,7 @@ class PrimaryPseudoRandomNumberEngine : public AbstractPseudoRandomNumberEngine<
 {
 public:
     /**
-     * \brief エンジンの型
+     * \brief 乱数エンジンの型
      */
     using Engine = Engine_;
 

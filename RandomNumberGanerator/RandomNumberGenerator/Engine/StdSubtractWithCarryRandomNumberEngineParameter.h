@@ -18,7 +18,7 @@ namespace random_number_generator
 /**
  * \brief キャリー付き減算法
  * \note std::subtract_with_carry_engine
- * \tparam EngineResultType_ エンジン生成結果の型(符号なし整数)
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型(符号なし整数)
  * \tparam WordSize_ ワードサイズ
  * \tparam ShortLag_ 短いラグ
  * \tparam LongLag_ 長いラグ
@@ -32,7 +32,7 @@ template <
 struct StdSubtractWithCarryRandomNumberEngineParameter
 {
     /**
-     * \brief エンジン生成結果の型(符号なし整数)
+     * \brief 乱数エンジン生成結果の型(符号なし整数)
      */
     using EngineResultType = EngineResultType_;
 

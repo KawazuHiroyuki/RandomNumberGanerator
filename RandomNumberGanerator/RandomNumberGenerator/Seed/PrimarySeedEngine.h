@@ -16,14 +16,14 @@ namespace random_number_generator
 {
 /**
  * \brief プライマリシードエンジン
- * \tparam Seed_ シードの型
+ * \tparam Seed_ シードエンジン生成結果の型
  */
 template <typename Seed_>
 class PrimarySeedEngine : public AbstractSeedEngine<Seed_>
 {
 public:
     /**
-     * \brief 乱数エンジンに渡すシードの型
+     * \brief シードエンジン生成結果の型
      */
     using Seed = Seed_;
 
@@ -43,7 +43,7 @@ public:
      */
     virtual Seed operator()(void) override
     {
-        return m_param.engine();
+        return m_param.generator();
     }
 
     /**

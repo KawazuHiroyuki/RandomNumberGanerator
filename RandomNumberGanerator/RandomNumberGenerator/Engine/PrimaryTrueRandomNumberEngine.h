@@ -18,8 +18,8 @@ namespace random_number_generator
 {
 /**
  * \brief プライマリ真性乱数エンジン
- * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam Engine_ 乱数エンジンの型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  */
 template <
     typename Engine_,
@@ -29,7 +29,7 @@ class PrimaryTrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineRe
 {
 public:
     /**
-     * \brief エンジンの型
+     * \brief 乱数エンジンの型
      */
     using Engine = Engine_;
 

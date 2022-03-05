@@ -19,14 +19,14 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジンファクトリ
- * \tparam Seed_ シードの型
+ * \tparam Seed_ シードエンジン生成結果の型
  */
 template <typename Seed_>
 class SeedEngineFactory
 {
 private:
     /**
-     * \brief シードの型
+     * \brief シードエンジン生成結果の型
      */
     using Seed = Seed_;
 
@@ -35,7 +35,6 @@ public:
      * \brief シードエンジンを生成
      * \param param シードエンジンパラメータ
      * \return シートエンジン
-     * \
      */
     static std::shared_ptr<AbstractSeedEngine<Seed>> create(const SeedEngineParameter<Seed>& param = {})
     {
@@ -45,10 +44,10 @@ public:
             case SeedEngineID::CurrentTime:
                 return std::make_shared <CurrentTimeSeedEngine<Seed>>();
             case SeedEngineID::Custom:
-                if (!param.engine) {
+                if (!param.generator) {
                     return nullptr;
                 }
-                return std::make_shared<CustomSeedEngine<Seed>>(param.engine);
+                return std::make_shared<CustomSeedEngine<Seed>>(param.generator);
             default:
                 return nullptr;
         }

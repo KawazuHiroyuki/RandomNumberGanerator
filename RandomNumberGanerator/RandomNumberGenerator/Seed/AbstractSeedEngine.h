@@ -15,14 +15,14 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象シードエンジン
- * \tparam Seed_ シードの型
+ * \tparam Seed_ シードエンジン生成結果の型
  */
 template <typename Seed_>
 class AbstractSeedEngine
 {
 public:
     /**
-     * \brief シードの型
+     * \brief シードエンジン生成結果の型
      */
     using Seed = Seed_;
 

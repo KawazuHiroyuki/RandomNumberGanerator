@@ -175,6 +175,7 @@
     <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberEngineFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\RandomNumberBaseEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\CustomSeedEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Seed\DefaultSeedEngineResultType.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\PrimarySeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\SeedEngineFactory.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngine.h" />

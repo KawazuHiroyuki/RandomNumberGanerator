@@ -18,7 +18,7 @@ namespace random_number_generator
 /**
  * \brief メルセンヌツイスター法
  * \note std::mersenne_twister_engine
- * \tparam EngineResultType_ エンジン生成結果の型(符号なし整数)
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型(符号なし整数)
  * \tparam WordSize_ ワードサイズ
  * \tparam StateSize_ 状態のサイズ
  * \tparam ShiftSize_ シフトサイズ
@@ -52,7 +52,7 @@ template <
 struct StdMersenneTwisterRandomNumberEngineParameter
 {
     /**
-     * \brief エンジン生成結果の型(符号なし整数)
+     * \brief 乱数エンジン生成結果の型(符号なし整数)
      */
     using EngineResultType = EngineResultType_;
 

@@ -33,7 +33,7 @@ class StdDefaultRandomEngine;
 
 /**
  * \brief ベース乱数エンジン
- * \tparam Engine 乱数エンジンクラスの型
+ * \tparam Engine 乱数エンジンの型
  * \tparam Seed シードの型
  */
 template <typename Engine, typename Seed = void>
@@ -52,6 +52,8 @@ using BaseEngine =
 
 /**
  * \brief ベース乱数エンジン生成結果の型
+ * \tparam Engine 乱数エンジンの型
+ * \tparam Seed シードの型
  */
 template <typename Engine, typename Seed = void>
 using BaseEngineResultType = typename BaseEngine<Engine, Seed>::result_type;

@@ -27,8 +27,8 @@ namespace random_number_generator
 {
 /**
  * \brief 真性乱数エンジンファクトリ
- * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam Engine_ 乱数エンジンの型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  */
 template <
     typename Engine_,
@@ -38,12 +38,12 @@ class TrueRandomNumberEngineFactory
 {
 private:
     /**
-     * \brief エンジンの型
+     * \brief 乱数エンジンの型
      */
     using Engine = Engine_;
 
     /**
-     * \brief エンジン生成結果の型
+     * \brief 乱数エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 
@@ -57,8 +57,8 @@ public:
 
 /**
  * \brief 疑似乱数エンジンファクトリ
- * \tparam Engine_ エンジンの型
- * \tparam EngineResultType_ エンジン生成結果の型
+ * \tparam Engine_ 乱数エンジンの型
+ * \tparam EngineResultType_ 乱数エンジン生成結果の型
  * \tparam Seed_ シードの型
  */
 template <
@@ -70,12 +70,12 @@ class PseudoRandomNumberEngineFactory
 {
 private:
     /**
-     * \brief エンジンの型
+     * \brief 乱数エンジンの型
      */
     using Engine = Engine_;
 
     /**
-     * \brief エンジン生成結果の型
+     * \brief 乱数エンジン生成結果の型
      */
     using EngineResultType = EngineResultType_;
 
@@ -143,6 +143,11 @@ public:
     }
 };
 
+/**
+ * \brief 乱数エンジンファクトリの型
+ * \tparam Engine_ 乱数エンジンの型
+ * \tparam Seed_ シードの型
+ */
 template <typename Engine, typename Seed = void>
 using EngineFactory =
 typename utility::Switch<
