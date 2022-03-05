@@ -11,56 +11,50 @@
 // C++
 #include <memory>
 // My
-#include "AbstractRandomNumberEngine.h"
+#include "AbstractTrueRandomNumberEngine.h"
 #include "RandomNumberEngineParameter.h"
 
 namespace random_number_generator
 {
 /**
  * \brief プライマリ真性乱数エンジン
- * \tparam Engine_ 乱数エンジンの型
- * \tparam EngineResultType_ 乱数エンジン生成結果の型
+ * \tparam BaseEngine_ ベース乱数エンジンの型
+ * \tparam BaseEngineResultType_ ベース乱数エンジン生成結果の型
  */
 template <
-    typename Engine_,
-    typename EngineResultType_
+    typename BaseEngine_,
+    typename BaseEngineResultType_
 >
-class PrimaryTrueRandomNumberEngine : public AbstractRandomNumberEngine<EngineResultType_>
+class PrimaryTrueRandomNumberEngine : public AbstractTrueRandomNumberEngine<BaseEngineResultType_>
 {
 public:
     /**
-     * \brief 乱数エンジンの型
+     * \brief ベース乱数エンジンの型
      */
-    using Engine = Engine_;
+    using BaseEngine = BaseEngine_;
 
 public:
     /**
      * \brief コンストラクタ
      */
-    PrimaryTrueRandomNumberEngine(void)
-        : m_param(RandomNumberEngineID::StdRandomDevice)
-        , m_engine()
+    PrimaryTrueRandomNumberEngine(const RandomNumberEngineParameter& param)
+        : m_param(param)
+        , m_baseEngine()
     {
     }
 
+    /**
+     * \brief デストラクタ
+     */
     virtual ~PrimaryTrueRandomNumberEngine(void) = default;
 
     /**
      * \brief 乱数を生成
      * \return 乱数
      */
-    virtual EngineResultType_ operator()(void) override
+    virtual BaseEngineResultType_ operator()(void) override
     {
-        return m_engine();
-    }
-
-    /**
-     * \brief 指定した回数だけ疑似乱数を生成し、内部状態を進める
-     * \param times 指定回数
-     */
-    void discard(std::uint64_t skip) override
-    {
-        // なし
+        return m_baseEngine();
     }
 
     /**
@@ -69,25 +63,25 @@ public:
      */
     double getEntropy(void) const noexcept override
     {
-        return m_engine.entropy();
+        return m_baseEngine.entropy();
     }
 
     /**
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    virtual EngineResultType_ getMin(void) const override
+    virtual BaseEngineResultType_ getMin(void) const override
     {
-        return Engine::min();
+        return BaseEngine::min();
     }
 
     /**
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    virtual EngineResultType_ getMax(void) const override
+    virtual BaseEngineResultType_ getMax(void) const override
     {
-        return Engine::max();
+        return BaseEngine::max();
     }
 
     /**
@@ -106,8 +100,8 @@ protected:
     RandomNumberEngineParameter m_param;
 
     /**
-     * \brief 乱数エンジン
+     * \brief ベース乱数エンジン
      */
-    Engine m_engine;
+    BaseEngine m_baseEngine;
 };
 } // namespace random_number_generator

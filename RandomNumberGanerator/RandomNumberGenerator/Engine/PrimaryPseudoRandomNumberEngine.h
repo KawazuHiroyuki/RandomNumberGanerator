@@ -20,32 +20,27 @@ namespace random_number_generator
 {
 /**
  * \brief 疑似乱数エンジン
- * \tparam Engine_ 乱数エンジンの型
- * \tparam EngineResultType_ 乱数エンジン生成結果の型
- * \tparam Seed_ シードの型
+ * \tparam BaseEngine_ ベース乱数エンジンの型
+ * \tparam BaseEngineResultType_ ベース乱数エンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
 template <
-    typename Engine_,
-    typename EngineResultType_,
-    typename Seed_
+    typename BaseEngine_,
+    typename BaseEngineResultType_,
+    typename SeedEngineResultType_
 >
-class PrimaryPseudoRandomNumberEngine : public AbstractPseudoRandomNumberEngine<EngineResultType_, AbstractSeedEngine<Seed_>, Seed_>
+class PrimaryPseudoRandomNumberEngine : public AbstractPseudoRandomNumberEngine<BaseEngineResultType_, AbstractSeedEngine<SeedEngineResultType_>, SeedEngineResultType_>
 {
 public:
     /**
-     * \brief 乱数エンジンの型
+     * \brief ベース乱数エンジンの型
      */
-    using Engine = Engine_;
+    using BaseEngine = BaseEngine_;
 
     /**
      * \brief シードエンジンの型
      */
-    using SeedEngine = AbstractSeedEngine<Seed_>;
-
-    /**
-     * \brief シードエンジンパラメータの型
-     */
-    //using SeedParameter = SeedEngineParameter<Seed_>;
+    using SeedEngine = AbstractSeedEngine<SeedEngineResultType_>;
 
 public:
     /**
@@ -53,10 +48,10 @@ public:
      * \param param 乱数エンジンパラメータ
      * \param seedParam シードエンジンパラメータ
      */
-    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, const SeedEngineParameter<Seed_>& seedParam = {})
+    PrimaryPseudoRandomNumberEngine(const RandomNumberEngineParameter& param, const SeedEngineParameter<SeedEngineResultType_>& seedParam = {})
         : m_param(param)
-        , m_seed(SeedEngineFactory<Seed_>::create(seedParam))
-        , m_engine(Engine(m_seed->operator()()))
+        , m_seedEngine(SeedEngineFactory<SeedEngineResultType_>::create(seedParam))
+        , m_baseEngine(BaseEngine(m_seedEngine->operator()()))
     {
     }
 
@@ -64,20 +59,20 @@ public:
 
     /**
      * \brief シードエンジンを設定
-     * \param seed シードエンジン
+     * \param seedEngine シードエンジン
      */
-    virtual void setSeedEngine(std::shared_ptr<SeedEngine> seed) override
+    virtual void setSeedEngine(std::shared_ptr<SeedEngine> seedEngine) override
     {
-        m_seed = seed;
+        m_seedEngine = seedEngine;
     }
 
     /**
      * \brief 乱数を生成
      * \return 乱数
      */
-    virtual EngineResultType_ operator()(void) override
+    virtual BaseEngineResultType_ operator()(void) override
     {
-        return m_engine();
+        return m_baseEngine();
     }
 
     /**
@@ -86,7 +81,7 @@ public:
      */
     virtual void discard(std::uint64_t skip) override
     {
-        m_engine.discard(skip);
+        m_baseEngine.discard(skip);
     }
 
     /**
@@ -102,18 +97,18 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-    virtual EngineResultType_ getMin(void) const override
+    virtual BaseEngineResultType_ getMin(void) const override
     {
-        return Engine::min();
+        return BaseEngine::min();
     }
 
     /**
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-    virtual EngineResultType_ getMax(void) const override
+    virtual BaseEngineResultType_ getMax(void) const override
     {
-        return Engine::max();
+        return BaseEngine::max();
     }
 
     /**
@@ -130,9 +125,9 @@ protected:
      * \brief シードを取得
      * \return シード
      */
-    Seed_ getSeed(void) const override
+    SeedEngineResultType_ getSeed(void) const override
     {
-        return (*m_seed)();
+        return (*m_seedEngine)();
     }
 
 protected:
@@ -144,11 +139,11 @@ protected:
     /**
      * \brief シードエンジン
      */
-    std::shared_ptr<SeedEngine> m_seed;
+    std::shared_ptr<SeedEngine> m_seedEngine;
 
     /**
-     * \brief 乱数エンジン
+     * \brief ベース乱数エンジン
      */
-    Engine m_engine;
+    BaseEngine m_baseEngine;
 };
 } // namespace random_number_generator

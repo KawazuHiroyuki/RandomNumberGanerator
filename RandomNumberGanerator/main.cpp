@@ -5,7 +5,11 @@
 #include <iostream>
 #include <vector>
 
-#include "RandomNumberGenerator/RandomNumberGenerator.h"
+//#include "RandomNumberGenerator/RandomNumberGenerator.h"
+
+#include "Seed/SeedEngineFactory.h"
+#include "StdRandomDevice.h"
+#include "StdDefaultRandomEngine.h"
 
 int main()
 {
@@ -34,7 +38,7 @@ int main()
         std::cout << "Gene1 :" << engine->operator()() << std::endl;
     };
 
-    std::shared_ptr<StdRandomDevice> a0 = EngineFactory<StdRandomDevice>::create(RandomNumberEngineID::StdRandomDevice);
+    std::shared_ptr<StdRandomDevice> a0 = std::make_shared<StdRandomDevice>();
     printTrueRandomNumberEngine("StdRandomDevice", a0);
 
     std::cout << "--- Pseudo Random Number ---" << std::endl;
@@ -50,29 +54,29 @@ int main()
     };
 
     using Seed1 = std::uint_fast32_t;
-    std::shared_ptr<StdMinStdRand0RandomNumberEngine<Seed1>> a1 = EngineFactory<StdMinStdRand0RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand0, { SeedEngineID::CurrentTime });
-    printPseudoRandomNumberEngine("StdMinStdRand0RandomNumberEngine", a1);
+    //std::shared_ptr<StdMinStdRand0RandomNumberEngine<Seed1>> a1 = EngineFactory<StdMinStdRand0RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand0, { SeedEngineID::CurrentTime });
+    //printPseudoRandomNumberEngine("StdMinStdRand0RandomNumberEngine", a1);
 
-    std::shared_ptr<StdMinStdRandRandomNumberEngine<Seed1>> a2 = EngineFactory<StdMinStdRandRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand, { SeedEngineID::Custom, []() { return static_cast<std::uint_fast32_t>(10); } });
-    printPseudoRandomNumberEngine("StdMinStdRandRandomNumberEngine", a2);
+    //std::shared_ptr<StdMinStdRandRandomNumberEngine<Seed1>> a2 = EngineFactory<StdMinStdRandRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand, { SeedEngineID::Custom, []() { return static_cast<std::uint_fast32_t>(10); } });
+    //printPseudoRandomNumberEngine("StdMinStdRandRandomNumberEngine", a2);
 
-    std::shared_ptr<StdMt199937_32BitRandomNumberEngine<Seed1>> a3 = EngineFactory<StdMt199937_32BitRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMt199937_32Bit);
-    printPseudoRandomNumberEngine("StdMt199937_32BitRandomNumberEngine", a3);
+    //std::shared_ptr<StdMt199937_32BitRandomNumberEngine<Seed1>> a3 = EngineFactory<StdMt199937_32BitRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMt199937_32Bit);
+    //printPseudoRandomNumberEngine("StdMt199937_32BitRandomNumberEngine", a3);
 
-    using Seed2 = std::uint_fast64_t;
-    std::shared_ptr<StdMt199937_64BitRandomNumberEngine<Seed2>> a4 = EngineFactory<StdMt199937_64BitRandomNumberEngine<Seed2>, Seed2>::create(RandomNumberEngineID::StdMt199937_64Bit);
-    printPseudoRandomNumberEngine("StdMt199937_64BitRandomNumberEngine", a4);
+    //using Seed2 = std::uint_fast64_t;
+    //std::shared_ptr<StdMt199937_64BitRandomNumberEngine<Seed2>> a4 = EngineFactory<StdMt199937_64BitRandomNumberEngine<Seed2>, Seed2>::create(RandomNumberEngineID::StdMt199937_64Bit);
+    //printPseudoRandomNumberEngine("StdMt199937_64BitRandomNumberEngine", a4);
 
-    std::shared_ptr<StdRanlux24RandomNumberEngine<Seed1>> a5 = EngineFactory<StdRanlux24RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdRanlux24);
-    printPseudoRandomNumberEngine("StdRanlux24RandomNumberEngine", a5);
+    //std::shared_ptr<StdRanlux24RandomNumberEngine<Seed1>> a5 = EngineFactory<StdRanlux24RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdRanlux24);
+    //printPseudoRandomNumberEngine("StdRanlux24RandomNumberEngine", a5);
 
-    std::shared_ptr<StdRanlux48RandomNumberEngine<Seed2>> a6 = EngineFactory<StdRanlux48RandomNumberEngine<Seed2>, Seed2>::create(RandomNumberEngineID::StdRanlux48);
-    printPseudoRandomNumberEngine("StdRanlux48RandomNumberEngine", a6);
+    //std::shared_ptr<StdRanlux48RandomNumberEngine<Seed2>> a6 = EngineFactory<StdRanlux48RandomNumberEngine<Seed2>, Seed2>::create(RandomNumberEngineID::StdRanlux48);
+    //printPseudoRandomNumberEngine("StdRanlux48RandomNumberEngine", a6);
 
-    std::shared_ptr<StdKnuthRandomNumberEngine<Seed1>> a7 = EngineFactory<StdKnuthRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdKnuth);
-    printPseudoRandomNumberEngine("StdKnuthRandomNumberEngine", a7);
+    //std::shared_ptr<StdKnuthRandomNumberEngine<Seed1>> a7 = EngineFactory<StdKnuthRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdKnuth);
+    //printPseudoRandomNumberEngine("StdKnuthRandomNumberEngine", a7);
 
-    std::shared_ptr<StdDefaultRandomEngine<Seed1>> a8 = EngineFactory<StdDefaultRandomEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdDefaultRandomEngine);
+    std::shared_ptr<StdDefaultRandomEngine/*<Seed1>*/> a8 = std::make_shared<StdDefaultRandomEngine/*<Seed1>*/>();
     printPseudoRandomNumberEngine("StdDefaultRandomEngine", a8);
 
 }

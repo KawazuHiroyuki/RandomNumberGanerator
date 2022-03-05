@@ -7,7 +7,7 @@
  *********************************************************************/
 
 #pragma once
-
+#if 0
 // C++
 #include <random>
 // My
@@ -39,3 +39,4 @@ public:
     }
 };
 } // namespace random_number_generator
+#endif
