@@ -31,6 +31,8 @@ public:
     {
     }
 
+    virtual ~CurrentTimeSeedEngine(void) override = default;
+
 private:
     /**
      * \brief シード生成関数を生成

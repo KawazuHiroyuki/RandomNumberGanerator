@@ -32,6 +32,8 @@ public:
     {
     }
 
+    virtual ~StdRandomDeviceSeedEngine(void) override = default;
+
 private:
     /**
      * \brief シード生成関数を生成

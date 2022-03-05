@@ -284,7 +284,7 @@
     <ClInclude Include="RandomNumberGenerator\Distribution\StdFisherFDistribution.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberDistribution\Distribution\Normal</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Seed\DefaultSeedEngineResultType.h">
+    <ClInclude Include="RandomNumberGenerator\Seed\DefaultSeedEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\SeedEngine\Utility</Filter>
     </ClInclude>
   </ItemGroup>

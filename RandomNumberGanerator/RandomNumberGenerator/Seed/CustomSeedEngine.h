@@ -29,5 +29,7 @@ public:
         : PrimarySeedEngine<SeedEngineResultType_>(SeedEngineParameter<SeedEngineResultType_>{SeedEngineID::Custom, generator})
     {
     }
+
+    virtual ~CustomSeedEngine(void) override = default;
 };
 } // namespace random_number_generator

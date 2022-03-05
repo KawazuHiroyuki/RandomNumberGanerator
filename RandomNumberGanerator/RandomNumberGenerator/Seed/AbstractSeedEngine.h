@@ -26,6 +26,11 @@ public:
      */
     using SeedEngineResultType = SeedEngineResultType_;
 
+    /**
+     * \brief ードエンジンパラメータの型
+     */
+    using SeedEngineParameter = SeedEngineParameter<SeedEngineResultType>;
+
 public:
     /**
      * \brief シードを生成
@@ -37,6 +42,6 @@ public:
      * \brief シードエンジンパラメータを取得
      * \return シードエンジンパラメータ
      */
-    virtual SeedEngineParameter<SeedEngineResultType> getParam(void) const = 0;
+    virtual SeedEngineParameter getParam(void) const = 0;
 };
 } // namespace random_number_generator

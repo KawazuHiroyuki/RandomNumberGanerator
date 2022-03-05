@@ -36,6 +36,8 @@ public:
         : m_param(param)
     {
     }
+    
+    virtual ~PrimarySeedEngine() = 0;
 
     /**
      * \brief シードを生成
@@ -61,4 +63,7 @@ private:
      */
     SeedEngineParameter<SeedEngineResultType_> m_param;
 };
+
+template <typename SeedEngineResultType_>
+PrimarySeedEngine<SeedEngineResultType_>::~PrimarySeedEngine(void) {}
 } // namespace random_number_generator
