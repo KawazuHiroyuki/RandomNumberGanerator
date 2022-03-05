@@ -19,16 +19,16 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジンファクトリ
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
+template <typename SeedEngineResultType_>
 class SeedEngineFactory
 {
 private:
     /**
      * \brief シードエンジン生成結果の型
      */
-    using Seed = Seed_;
+    using SeedEngineResultType = SeedEngineResultType_;
 
 public:
     /**
@@ -36,18 +36,18 @@ public:
      * \param param シードエンジンパラメータ
      * \return シートエンジン
      */
-    static std::shared_ptr<AbstractSeedEngine<Seed>> create(const SeedEngineParameter<Seed>& param = {})
+    static std::shared_ptr<AbstractSeedEngine<SeedEngineResultType>> create(const SeedEngineParameter<SeedEngineResultType>& param = {})
     {
         switch (param.id) {
             case SeedEngineID::StdRandomDevice:
-                return std::make_shared<StdRandomDeviceSeedEngine<Seed>>();
+                return std::make_shared<StdRandomDeviceSeedEngine<SeedEngineResultType>>();
             case SeedEngineID::CurrentTime:
-                return std::make_shared <CurrentTimeSeedEngine<Seed>>();
+                return std::make_shared <CurrentTimeSeedEngine<SeedEngineResultType>>();
             case SeedEngineID::Custom:
                 if (!param.generator) {
                     return nullptr;
                 }
-                return std::make_shared<CustomSeedEngine<Seed>>(param.generator);
+                return std::make_shared<CustomSeedEngine<SeedEngineResultType>>(param.generator);
             default:
                 return nullptr;
         }

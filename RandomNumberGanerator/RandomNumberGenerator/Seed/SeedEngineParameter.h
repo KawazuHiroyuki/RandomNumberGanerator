@@ -17,15 +17,15 @@ namespace random_number_generator
 {
 /**
  * \brief シードエンジンパラメータ
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
+template <typename SeedEngineResultType_>
 struct SeedEngineParameter
 {
     /**
      * \brief シードエンジン生成結果の型
      */
-    using Seed = Seed_;
+    using SeedEngineResultType = SeedEngineResultType_;
 
     /**
      * \brief シード生成関数
@@ -38,7 +38,7 @@ struct SeedEngineParameter
      * \param id_ シードエンジンID
      * \param engine_ シード生成関数
      */
-    SeedEngineParameter(SeedEngineID id_ = DEFAULT_SEED_ENGINE_ID, Generator<Seed> generator_ = {})
+    SeedEngineParameter(SeedEngineID id_ = DEFAULT_SEED_ENGINE_ID, Generator<SeedEngineResultType> generator_ = {})
         : id(id_)
         , generator(generator_)
     {
@@ -52,6 +52,6 @@ struct SeedEngineParameter
     /**
      * \brief シード生成関数
      */
-    Generator<Seed> generator = {};
+    Generator<SeedEngineResultType> generator = {};
 };
 } // namespace random_number_generator

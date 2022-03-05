@@ -15,28 +15,28 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象シードエンジン
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
+template <typename SeedEngineResultType_>
 class AbstractSeedEngine
 {
 public:
     /**
      * \brief シードエンジン生成結果の型
      */
-    using Seed = Seed_;
+    using SeedEngineResultType = SeedEngineResultType_;
 
 public:
     /**
      * \brief シードを生成
      * \return シード
      */
-    virtual Seed operator()(void) = 0;
+    virtual SeedEngineResultType operator()(void) = 0;
 
     /**
      * \brief シードエンジンパラメータを取得
      * \return シードエンジンパラメータ
      */
-    virtual SeedEngineParameter<Seed> getParam(void) const = 0;
+    virtual SeedEngineParameter<SeedEngineResultType> getParam(void) const = 0;
 };
 } // namespace random_number_generator

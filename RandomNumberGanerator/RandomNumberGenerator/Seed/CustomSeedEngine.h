@@ -15,18 +15,18 @@ namespace random_number_generator
 {
 /**
  * \brief カスタム シードエンジン
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
-class CustomSeedEngine : public PrimarySeedEngine<Seed_>
+template <typename SeedEngineResultType_>
+class CustomSeedEngine : public PrimarySeedEngine<SeedEngineResultType_>
 {
 public:
     /**
      * \brief コンストラクタ
      * \param generator シード生成関数
      */
-    CustomSeedEngine(SeedEngineParameter::Generator<Seed_> generator)
-        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::Custom, generator})
+    CustomSeedEngine(SeedEngineParameter::Generator<SeedEngineResultType_> generator)
+        : PrimarySeedEngine<SeedEngineResultType_>(SeedEngineParameter<SeedEngineResultType_>{SeedEngineID::Custom, generator})
     {
     }
 };

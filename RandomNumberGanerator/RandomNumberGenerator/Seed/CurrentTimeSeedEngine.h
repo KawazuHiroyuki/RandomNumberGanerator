@@ -17,17 +17,17 @@ namespace random_number_generator
 {
 /**
  * \brief 現在時刻 シードエンジン
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
-class CurrentTimeSeedEngine : public PrimarySeedEngine<Seed_>
+template <typename SeedEngineResultType_>
+class CurrentTimeSeedEngine : public PrimarySeedEngine<SeedEngineResultType_>
 {
 public:
     /**
      * \brief コンストラクタ
      */
     CurrentTimeSeedEngine(void)
-        : PrimarySeedEngine<Seed_>(SeedEngineParameter<Seed_>{SeedEngineID::CurrentTime, createGenerator()})
+        : PrimarySeedEngine<SeedEngineResultType_>(SeedEngineParameter<SeedEngineResultType_>{SeedEngineID::CurrentTime, createGenerator()})
     {
     }
 
@@ -36,9 +36,9 @@ private:
      * \brief シード生成関数を生成
      * \return シード生成関数
      */
-    SeedEngineParameter<Seed_>::Generator<Seed_> createGenerator(void) const
+    SeedEngineParameter<SeedEngineResultType_>::Generator<SeedEngineResultType_> createGenerator(void) const
     {
-        return []() { return static_cast<Seed_>(std::time(nullptr)); };
+        return []() { return static_cast<SeedEngineResultType_>(std::time(nullptr)); };
     }
 };
 } // namespace random_number_generator

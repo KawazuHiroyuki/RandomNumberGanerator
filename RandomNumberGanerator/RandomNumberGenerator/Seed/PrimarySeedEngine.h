@@ -16,23 +16,23 @@ namespace random_number_generator
 {
 /**
  * \brief プライマリシードエンジン
- * \tparam Seed_ シードエンジン生成結果の型
+ * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
-template <typename Seed_>
-class PrimarySeedEngine : public AbstractSeedEngine<Seed_>
+template <typename SeedEngineResultType_>
+class PrimarySeedEngine : public AbstractSeedEngine<SeedEngineResultType_>
 {
 public:
     /**
      * \brief シードエンジン生成結果の型
      */
-    using Seed = Seed_;
+    //using SeedEngineResultType = SeedEngineResultType_;
 
 public:
     /**
      * \brief コンストラクタ
      * \param param シードエンジンパラメータ
      */
-    PrimarySeedEngine(SeedEngineParameter<Seed> param = {})
+    PrimarySeedEngine(SeedEngineParameter<SeedEngineResultType_> param = {})
         : m_param(param)
     {
     }
@@ -41,7 +41,7 @@ public:
      * \brief シードを生成
      * \return シード
      */
-    virtual Seed operator()(void) override
+    virtual SeedEngineResultType_ operator()(void) override
     {
         return m_param.generator();
     }
@@ -50,7 +50,7 @@ public:
      * \brief シードエンジンパラメータを取得
      * \return シードエンジンパラメータ
      */
-    virtual SeedEngineParameter<Seed> getParam(void) const override
+    virtual SeedEngineParameter<SeedEngineResultType_> getParam(void) const override
     {
         return m_param;
     }
@@ -59,6 +59,6 @@ private:
     /**
      * \brief シードエンジンパラメータ
      */
-    SeedEngineParameter<Seed> m_param;
+    SeedEngineParameter<SeedEngineResultType_> m_param;
 };
 } // namespace random_number_generator
