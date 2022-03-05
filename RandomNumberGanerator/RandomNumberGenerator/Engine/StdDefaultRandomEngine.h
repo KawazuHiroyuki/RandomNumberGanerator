@@ -22,10 +22,10 @@ namespace random_number_generator
  * \tparam Seed_ シードの型
  */
 template <typename Seed_ = std::uint32_t>
-class StdDefaultRandomEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdDefaultRandomEngine<Seed_>, Seed_>, EngineResultType<StdDefaultRandomEngine<Seed_>, Seed_>, Seed_>
+class StdDefaultRandomEngine : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdDefaultRandomEngine<Seed_>, Seed_>, BaseEngineResultType<StdDefaultRandomEngine<Seed_>, Seed_>, Seed_>
 {
 private:
-    using Base = PrimaryPseudoRandomNumberEngine<BaseEngine<StdDefaultRandomEngine<Seed_>, Seed_>, EngineResultType<StdDefaultRandomEngine<Seed_>, Seed_>, Seed_>;
+    using Base = PrimaryPseudoRandomNumberEngine<BaseEngine<StdDefaultRandomEngine<Seed_>, Seed_>, BaseEngineResultType<StdDefaultRandomEngine<Seed_>, Seed_>, Seed_>;
     using Engine = BaseEngine<StdDefaultRandomEngine<Seed_>, Seed_>;
 
 public:

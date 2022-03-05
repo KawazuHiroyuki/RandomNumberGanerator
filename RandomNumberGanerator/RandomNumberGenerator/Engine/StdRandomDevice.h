@@ -20,7 +20,7 @@ namespace random_number_generator
  * \brief 予測不能な乱数生成器
  * \note std::random_device
  */
-class StdRandomDevice : public PrimaryTrueRandomNumberEngine<BaseEngine<StdRandomDevice>, EngineResultType<StdRandomDevice>>
+class StdRandomDevice : public PrimaryTrueRandomNumberEngine<BaseEngine<StdRandomDevice>, BaseEngineResultType<StdRandomDevice>>
 {
 };
 } // namespace random_number_generator

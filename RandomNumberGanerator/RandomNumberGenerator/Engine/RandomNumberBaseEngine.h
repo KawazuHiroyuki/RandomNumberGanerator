@@ -54,5 +54,5 @@ using BaseEngine =
  * \brief ベース乱数エンジン生成結果の型
  */
 template <typename Engine, typename Seed = void>
-using EngineResultType = typename BaseEngine<Engine, Seed>::result_type;
+using BaseEngineResultType = typename BaseEngine<Engine, Seed>::result_type;
 } // namespace random_number_generator

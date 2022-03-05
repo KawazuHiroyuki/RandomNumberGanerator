@@ -146,14 +146,14 @@ public:
 template <typename Engine, typename Seed = void>
 using EngineFactory =
 typename utility::Switch<
-    utility::Case<std::is_same<Engine, StdRandomDevice>::value, TrueRandomNumberEngineFactory<StdRandomDevice, EngineResultType<StdRandomDevice>>>,
-    utility::Case<std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, EngineResultType<StdMinStdRand0RandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRandRandomNumberEngine<Seed>, EngineResultType<StdMinStdRandRandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, EngineResultType<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_64BitRandomNumberEngine<Seed>, EngineResultType<StdMt199937_64BitRandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdRanlux24RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdRanlux24RandomNumberEngine<Seed>, EngineResultType<StdRanlux24RandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdRanlux48RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdRanlux48RandomNumberEngine<Seed>, EngineResultType<StdRanlux48RandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdKnuthRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdKnuthRandomNumberEngine<Seed>, EngineResultType<StdKnuthRandomNumberEngine<Seed>, Seed>, Seed>>,
-    utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdDefaultRandomEngine<Seed>, EngineResultType<StdDefaultRandomEngine<Seed>, Seed>, Seed>>
+    utility::Case<std::is_same<Engine, StdRandomDevice>::value, TrueRandomNumberEngineFactory<StdRandomDevice, BaseEngineResultType<StdRandomDevice>>>,
+    utility::Case<std::is_same<Engine, StdMinStdRand0RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRand0RandomNumberEngine<Seed>, BaseEngineResultType<StdMinStdRand0RandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdMinStdRandRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMinStdRandRandomNumberEngine<Seed>, BaseEngineResultType<StdMinStdRandRandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdMt199937_32BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_32BitRandomNumberEngine<Seed>, BaseEngineResultType<StdMt199937_32BitRandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdMt199937_64BitRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdMt199937_64BitRandomNumberEngine<Seed>, BaseEngineResultType<StdMt199937_64BitRandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdRanlux24RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdRanlux24RandomNumberEngine<Seed>, BaseEngineResultType<StdRanlux24RandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdRanlux48RandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdRanlux48RandomNumberEngine<Seed>, BaseEngineResultType<StdRanlux48RandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdKnuthRandomNumberEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdKnuthRandomNumberEngine<Seed>, BaseEngineResultType<StdKnuthRandomNumberEngine<Seed>, Seed>, Seed>>,
+    utility::Case<std::is_same<Engine, StdDefaultRandomEngine<Seed>>::value, PseudoRandomNumberEngineFactory<StdDefaultRandomEngine<Seed>, BaseEngineResultType<StdDefaultRandomEngine<Seed>, Seed>, Seed>>
 >::type;
 } // namespace random_number_generator

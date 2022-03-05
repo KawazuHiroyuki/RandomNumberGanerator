@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomNumberGenerator\Distribution\AbstractRandomNumberDistribution.h" />
+    <ClInclude Include="RandomNumberGenerator\Distribution\StdFisherFDistribution.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractPseudoRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\AbstractSeedEngine.h" />

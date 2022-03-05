@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   StdStudentTDistribution.h
- * \brief  	スチューデントのt分布
+ * \brief  スチューデントのt分布
  *
  * \author japan
  * \date   December 2021
