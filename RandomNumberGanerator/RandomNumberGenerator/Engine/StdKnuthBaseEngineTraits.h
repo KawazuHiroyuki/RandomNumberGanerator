@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   StdMinStdRand0BaseEngineTraits.h
- * \brief  最小標準MINSTD擬似乱数生成器の乱数ベースエンジン特性
+ * \brief  KnuthのリオーダーアルゴリズムB擬似乱数生成器の乱数ベースエンジン特性
  *
  * \author japan
  * \date   March 2022
@@ -16,8 +16,8 @@
 namespace random_number_generator
 {
 /**
- * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジン特性
- * \note std::minstd_rand0
+ * \brief KnuthのリオーダーアルゴリズムB擬似乱数生成器の乱数ベースエンジン特性
+ * \note std::knuth_b
  */
-using StdMinStdRand0BaseEngineTraits = AbstractBaseEngineTraits<std::minstd_rand0, RandomNumberEngineID::StdMinStdRand0>;
+using StdKnuthBaseEngineTraits = AbstractBaseEngineTraits<std::knuth_b, RandomNumberEngineID::StdKnuth>;
 } // namespace random_number_generator

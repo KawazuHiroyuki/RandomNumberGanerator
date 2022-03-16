@@ -146,6 +146,7 @@
     <ClCompile Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="RandomNumberGenerator\Engine\AbstractBaseEngineTraits.h" />
     <ClInclude Include="RandomNumberGenerator\AbstractBaseRandomNumberGenerator.h" />
     <ClInclude Include="RandomNumberGenerator\AbstractPseudoRandomNumberGenerator.h" />
     <ClInclude Include="RandomNumberGenerator\AbstractTrueRandomNumberGenerator.h" />
@@ -216,6 +217,11 @@
     <ClInclude Include="RandomNumberGenerator\Engine\StdMersenneTwisterRandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdSubtractWithCarryRandomNumberEngineParameter.h" />
     <ClInclude Include="RandomNumberGenerator\Utility\Utility.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdKnuthBaseEngineTraits.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_32BitBaseEngineTraits.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMt199937_64BitBaseEngineTraits.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux24BaseEngineTraits.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRanlux48BaseEngineTraits.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

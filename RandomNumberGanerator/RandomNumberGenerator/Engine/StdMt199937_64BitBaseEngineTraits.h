@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
  * \file   StdMinStdRand0BaseEngineTraits.h
- * \brief  最小標準MINSTD擬似乱数生成器の乱数ベースエンジン特性
+ * \brief  メルセンヌツイスターの64ビット版擬似乱数生成器の乱数ベースエンジン特性
  *
  * \author japan
  * \date   March 2022
@@ -16,8 +16,8 @@
 namespace random_number_generator
 {
 /**
- * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジン特性
- * \note std::minstd_rand0
+ * \brief メルセンヌツイスターの64ビット版擬似乱数生成器の乱数ベースエンジン特性
+ * \note std::mt19937_64
  */
-using StdMinStdRand0BaseEngineTraits = AbstractBaseEngineTraits<std::minstd_rand0, RandomNumberEngineID::StdMinStdRand0>;
+using StdMt199937_64BitBaseEngineTraits = AbstractBaseEngineTraits<std::mt19937_64, RandomNumberEngineID::StdMt199937_64Bit>;
 } // namespace random_number_generator
