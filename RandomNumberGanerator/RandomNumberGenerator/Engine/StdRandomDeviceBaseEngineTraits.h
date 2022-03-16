@@ -8,6 +8,8 @@
 
 #pragma once
 
+// C++
+#include <random>
 // My
 #include "RandomNumberEngineID.h"
 
@@ -19,9 +21,19 @@ namespace random_number_generator
  */
 struct StdRandomDeviceBaseEngineTraits
 {
+    /**
+     * \brief ベースエンジン
+     */
     using BaseEngine = std::random_device;
+
+    /**
+     * \brief ベースエンジン生成結果の型
+     */
     using BaseEngineResultType = BaseEngine::result_type;
 
+    /**
+     * \brief 乱数エンジンID
+     */
     static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdRandomDevice;
 };
 } // namespace random_number_generator

@@ -40,6 +40,7 @@ public:
      * \brief シードエンジン生成結果の型
      */
     using SeedEngineResultType = SeedEngineResultType_;
+    // TODO SeedEngineのinvoke結果から推論可能？
 
 public:
     /**

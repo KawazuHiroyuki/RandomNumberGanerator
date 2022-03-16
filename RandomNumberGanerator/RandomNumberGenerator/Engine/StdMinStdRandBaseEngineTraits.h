@@ -9,7 +9,6 @@
 #pragma once
 
 // C++
-#include <cstdint>
 #include <random>
 // My
 #include "RandomNumberEngineID.h"
@@ -22,10 +21,24 @@ namespace random_number_generator
  */
 struct StdMinStdRandBaseEngineTraits
 {
+    /**
+     * \brief ベースエンジン
+     */
     using BaseEngine = std::minstd_rand;
+
+    /**
+     * \brief ベースエンジン生成結果の型
+     */
     using BaseEngineResultType = BaseEngine::result_type;
+
+    /**
+     * \brief デフォルトのシードエンジン生成結果の型
+     */
     using DefaultSeedEngineResultType = BaseEngine::result_type;
 
+    /**
+     * \brief 乱数エンジンID
+     */
     static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdMinStdRand;
 };
 } // namespace random_number_generator

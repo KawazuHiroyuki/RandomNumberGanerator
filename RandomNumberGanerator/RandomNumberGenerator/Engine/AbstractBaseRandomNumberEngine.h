@@ -8,9 +8,7 @@
 
 #pragma once
 
- // C++
- //#include <cstdint>
- // My
+// My
 #include "AbstractRandomNumberEngine.h"
 #include "RandomNumberEngineID.h"
 

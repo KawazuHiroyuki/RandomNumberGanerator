@@ -55,6 +55,9 @@ public:
     {
     }
 
+    /**
+     * \brief デストラクタ
+     */
     virtual ~PrimaryPseudoRandomNumberEngine(void) = default;
 
     /**

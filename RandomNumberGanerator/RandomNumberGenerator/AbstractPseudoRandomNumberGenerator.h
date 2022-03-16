@@ -12,8 +12,6 @@
 #include <memory>
 // My
 #include "Seed/AbstractSeedEngine.h"
-#include "Seed//SeedEngineParameter.h"
-//#include "Engine/AbstractRandomNumberEngine.h"
 #include "Engine/PrimaryPseudoRandomNumberEngine.h"
 #include "AbstractBaseRandomNumberGenerator.h"
 
@@ -21,31 +19,48 @@ namespace random_number_generator
 {
 /**
  * \brief 抽象疑似乱数生成器
- * \tparam ResultType_ 乱数の型
- * \tparam SeedType_ シードの型
+ * \tparam BaseEngineFactory_ 乱数ベースエンジンファクトリ
  */
- //template <
- //    typename ResultType_,
- //    typename SeedType_
- //>
 template <typename BaseEngineFactory_>
-class AbstractPseudoRandomNumberGenerator : public AbstractBaseRandomNumberGenerator/*<ResultType_>*/
+class AbstractPseudoRandomNumberGenerator : public AbstractBaseRandomNumberGenerator
 {
 private:
+    /**
+     * \brief 乱数ベースエンジンファクトリ
+     */
     using BaseEngineFactory = BaseEngineFactory_;
-    using BaseEngineTraits = typename BaseEngineFactory::BaseEngineTraits;
-    using BaseEngine = typename BaseEngineTraits::BaseEngine;
-    using DefaultSeedEngineResultType = typename BaseEngineTraits::DefaultSeedEngineResultType;
-    using BaseEngineResultType = typename BaseEngineTraits::BaseEngineResultType;
-    //template <typename SeedEngineResultType>
-    //using Engine = typename BaseEngineFactory::Engine<SeedEngineResultType>;
 
+    /**
+     * \brief 乱数ベースエンジン特性
+     */
+    using BaseEngineTraits = typename BaseEngineFactory::BaseEngineTraits;
+
+    /**
+     * \brief 乱数ベースエンジン
+     */
+    using BaseEngine = typename BaseEngineTraits::BaseEngine;
+
+    /**
+     * \brief デフォルトのシードエンジン生成結果の型
+     */
+    using DefaultSeedEngineResultType = typename BaseEngineTraits::DefaultSeedEngineResultType;
+
+    /**
+     * \brief ベースエンジン生成結果の型
+     */
+    using BaseEngineResultType = typename BaseEngineTraits::BaseEngineResultType;
+
+    /**
+     * \brief 乱数エンジン  TODO factoryと共用できないか？
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     */
     template <typename SeedEngineResultType>
     using Engine = PrimaryPseudoRandomNumberEngine<BaseEngine, BaseEngineResultType, SeedEngineResultType>;
 
 public:
     /**
      * \brief コンストラクタ
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
      * \param seedParam シードエンジンパラメータ
      */
     template <typename SeedEngineResultType = DefaultSeedEngineResultType>
@@ -56,7 +71,7 @@ public:
 
     /**
      * \brief シードエンジンを設定
-     * \tparam SeedType_ シードの型
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
      * \param seed シードエンジン
      */
     template <typename SeedEngineResultType = DefaultSeedEngineResultType>
@@ -67,10 +82,8 @@ public:
 
     /**
      * \brief 乱数を生成
-     * \tparam ResultType 乱数の型
      * \return 乱数
      */
-     /*template <typename ResultType>*/
     virtual BaseEngineResultType operator()(void) /*override*/
     {
         BaseEngineResultType result = getBaseEngine()->operator()();
@@ -100,8 +113,7 @@ public:
      * \brief 生成する値の最小値を取得
      * \return 最小値
      */
-     /*template <typename ResultType>*/
-    BaseEngineResultType getMin(void) noexcept /*override*/
+    BaseEngineResultType getMin(void) const noexcept /*override*/
     {
         BaseEngineResultType min = getBaseEngine()->getMin();
         return min;
@@ -111,14 +123,19 @@ public:
      * \brief 生成する値の最大値を取得
      * \return 最大値
      */
-     //template <typename ResultType>
-    BaseEngineResultType getMax(void) noexcept /*override*/
+    BaseEngineResultType getMax(void) const noexcept /*override*/
     {
         BaseEngineResultType max = getBaseEngine()->getMax();
         return max;
     }
 
 private:
+    /**
+     * \brief 乱数ベースエンジンを生成
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     * \param seedParam シードエンジンパラメータ
+     * \return 乱数ベースエンジン
+     */
     template <typename SeedEngineResultType = DefaultSeedEngineResultType>
     std::shared_ptr<AbstractRandomNumberEngine> createBaseEngine(const SeedEngineParameter<SeedEngineResultType>& seedParam)
     {
@@ -126,6 +143,10 @@ private:
         return factory.create<SeedEngineResultType>(seedParam);
     }
 
+    /**
+     * \brief 乱数ベースエンジンを取得
+     * \return 乱数ベースエンジン
+     */
     template <typename SeedEngineResultType = DefaultSeedEngineResultType>
     std::shared_ptr<Engine<SeedEngineResultType>> getBaseEngine(void) const
     {
@@ -138,28 +159,5 @@ private:
      * \brief 乱数ベースエンジン
      */
     std::shared_ptr<AbstractRandomNumberEngine> m_baseEngine;
-
-public:
-    /**
-     * \brief シードの型
-     */
-    //using SeedType = SeedType_;
-
-private:
-    /**
-     * \brief シードエンジンの型
-     */
-    //using SeedEngine = AbstractSeedEngine<SeedType>;
-
-public:
-#if 0
-    /**
-     * \brief シードエンジンを設定
-     * \tparam SeedType_ シードの型
-     * \param seed シードエンジン
-     */
-    template <typename SeedType>
-    void setSeedEngine(std::shared_ptr<AbstractSeedEngine<SeedType>> seedEngine) = 0;
-#endif
 };
 } // namespace random_number_generator

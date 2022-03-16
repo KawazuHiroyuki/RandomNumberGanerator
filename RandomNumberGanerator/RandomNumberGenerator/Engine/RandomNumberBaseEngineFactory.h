@@ -39,50 +39,35 @@ namespace random_number_generator
  */
 class RandomNumberBaseEngineFactory
 {
-public:
-    /**
-     * \brief 乱数ベースエンジンを生成
-     * \return 乱数ベースエンジン
-     */
-    virtual std::shared_ptr<AbstractRandomNumberEngine> create(void) = 0;
-
-    /**
-     * \brief 乱数ベースエンジンを生成
-     * \return 乱数ベースエンジン
-     */
-    //template <
-    //    typename SeedEngineResultType
-    //>
-    //virtual std::shared_ptr<AbstractRandomNumberEngine> create(std::shared_ptr<AbstractSeedEngine<SeedEngineResultType>>) = 0;
 };
 
 /**
  * \brief 真性乱数ベースエンジンファクトリ
  */
-//class TrueRandomNumberBaseEngineFactory
-//{
-//public:
-//    /**
-//     * \brief 乱数ベースエンジンを生成
-//     * \return 乱数ベースエンジン
-//     */
-//    virtual std::shared_ptr<AbstractRandomNumberEngine> create(void) = 0;
-//};
+class TrueRandomNumberBaseEngineFactory
+{
+};
 
 /**
  * \brief 予測不能な乱数生成器の乱数ベースエンジンファクトリ
  */
-class StdRandomDeviceBaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
+class StdRandomDeviceBaseEngineFactory : public TrueRandomNumberBaseEngineFactory
 {
 public:
+    /**
+     * \brief 乱数ベースエンジン特性
+     */
     using BaseEngineTraits = StdRandomDeviceBaseEngineTraits;
+
+    /**
+     * \brief 乱数エンジン
+     */
     using Engine = PrimaryTrueRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType>;
-    //using BaseEngineResult = AbstractTrueRandomNumberEngine<StdRandomDeviceBaseEngine::BaseEngineResultType>;
 
 public:
     /**
-     * \brief 乱数ベースエンジンを生成
-     * \return 乱数ベースエンジン
+     * \brief 乱数エンジンを生成
+     * \return 乱数エンジン
      */
     virtual std::shared_ptr<AbstractRandomNumberEngine> create(void)
     {
@@ -92,21 +77,37 @@ public:
 };
 
 /**
+ * \brief 疑似乱数ベースエンジンファクトリ
+ */
+class PseudoRandomNumberBaseEngineFactory
+{
+};
+
+
+/**
  * \brief 非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジンファクトリ
  */
-class StdDefaultRandomEngineBaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
+class StdDefaultRandomEngineBaseEngineFactory : public PseudoRandomNumberBaseEngineFactory
 {
 public:
+    /**
+     * \brief 乱数ベースエンジン特性
+     */
     using BaseEngineTraits = StdDefaultRandomEngineBaseEngineTraits;
+
+    /**
+     * \brief 乱数エンジン
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     */
     template <typename SeedEngineResultType>
     using Engine = PrimaryPseudoRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType, SeedEngineResultType>;
 
 public:
     /**
-     * \brief 乱数ベースエンジンを生成
+     * \brief 乱数エンジンを生成
      * \tparam SeedEngineResultType シードエンジン生成結果の型
      * \param seedParam シートエンジンパラメータ
-     * \return 乱数ベースエンジン
+     * \return 乱数エンジン
      */
     template <typename SeedEngineResultType>
     std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
@@ -119,19 +120,27 @@ public:
 /**
  * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジンファクトリ
  */
-class StdMinStdRand0BaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
+class StdMinStdRand0BaseEngineFactory : public PseudoRandomNumberBaseEngineFactory
 {
 public:
+    /**
+     * \brief 乱数ベースエンジン特性
+     */
     using BaseEngineTraits = StdMinStdRand0BaseEngineTraits;
+
+    /**
+     * \brief 乱数エンジン
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     */
     template <typename SeedEngineResultType>
     using Engine = PrimaryPseudoRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType, SeedEngineResultType>;
 
 public:
     /**
-     * \brief 乱数ベースエンジンを生成
+     * \brief 乱数エンジンを生成
      * \tparam SeedEngineResultType シードエンジン生成結果の型
      * \param seedParam シートエンジンパラメータ
-     * \return 乱数ベースエンジン
+     * \return 乱数エンジン
      */
     template <typename SeedEngineResultType>
     std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
