@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   StdDefaultRandomEngineBaseEngine.h
- * \brief  非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン
+ * \file   StdDefaultRandomEngineBaseEngineTraits.h
+ * \brief  非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン特性
  *
  * \author japan
  * \date   March 2022
@@ -17,10 +17,10 @@
 namespace random_number_generator
 {
 /**
- * \brief 非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン
+ * \brief 非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン特性
  * \note std::default_random_engine
  */
-struct StdDefaultRandomEngineBaseEngine // Traits
+struct StdDefaultRandomEngineBaseEngineTraits // Traits
 {
     using BaseEngine = std::default_random_engine;
     using BaseEngineResultType = BaseEngine::result_type;

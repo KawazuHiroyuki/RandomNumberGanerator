@@ -25,12 +25,13 @@ class AbstractTrueRandomNumberGenerator : public AbstractBaseRandomNumberGenerat
 {
 private:
     using BaseEngineFactory = BaseEngineFactory_;
-    using BaseEngine = typename BaseEngineFactory::BaseEngine;
+    using BaseEngineTraits = typename BaseEngineFactory::BaseEngineTraits;
+    using BaseEngine = typename BaseEngineTraits::BaseEngine;
     //using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
-    using BaseEngineResultType = typename BaseEngine::BaseEngineResultType;
+    using BaseEngineResultType = typename BaseEngineTraits::BaseEngineResultType;
 
     //using Engine = typename BaseEngineFactory::Engine;
-    using Engine = typename PrimaryTrueRandomNumberEngine<typename BaseEngine::BaseEngine, BaseEngineResultType>;
+    using Engine = typename PrimaryTrueRandomNumberEngine<BaseEngine, BaseEngineResultType>;
 
 public:
     AbstractTrueRandomNumberGenerator(void)

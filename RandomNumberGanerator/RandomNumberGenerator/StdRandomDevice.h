@@ -22,11 +22,11 @@ class StdRandomDevice : public AbstractTrueRandomNumberGenerator<StdRandomDevice
 {
 private:
     using Base = AbstractTrueRandomNumberGenerator<StdRandomDeviceBaseEngineFactory>;
-    using BaseEngineFactory = StdRandomDeviceBaseEngineFactory;
-    using BaseEngine = BaseEngineFactory::BaseEngine;
-    //using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
-    using BaseEngineResultType = BaseEngine::BaseEngineResultType;
-    using Engine = BaseEngineFactory::Engine;
+    //using BaseEngineFactory = StdRandomDeviceBaseEngineFactory;
+    //using BaseEngine = BaseEngineFactory::BaseEngineTraits;
+    ////using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
+    //using BaseEngineResultType = BaseEngineTraits::BaseEngineResultType;
+    //using Engine = BaseEngineFactory::Engine;
 
 public:
     StdRandomDevice(void)

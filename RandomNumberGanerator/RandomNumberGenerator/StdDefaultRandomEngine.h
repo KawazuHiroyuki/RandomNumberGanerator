@@ -24,12 +24,12 @@ class StdDefaultRandomEngine : public AbstractPseudoRandomNumberGenerator<StdDef
 {
 private:
     using Base = AbstractPseudoRandomNumberGenerator<StdDefaultRandomEngineBaseEngineFactory>;
-    using BaseEngineFactory = StdDefaultRandomEngineBaseEngineFactory;
-    using BaseEngine = BaseEngineFactory::BaseEngine;
-    using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
-    using BaseEngineResultType = BaseEngine::BaseEngineResultType;
-    template <typename SeedEngineResultType>
-    using Engine = BaseEngineFactory::Engine<SeedEngineResultType>;
+    //using BaseEngineFactory = StdDefaultRandomEngineBaseEngineFactory;
+    //using BaseEngine = BaseEngineFactory::BaseEngine;
+    using DefaultSeedEngineResultType = StdDefaultRandomEngineBaseEngineFactory::BaseEngineTraits::DefaultSeedEngineResultType;
+    //using BaseEngineResultType = BaseEngine::BaseEngineResultType;
+    //template <typename SeedEngineResultType>
+    //using Engine = BaseEngineFactory::Engine<SeedEngineResultType>;
 
 
 private:

@@ -100,13 +100,13 @@
     <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Base\Primary">
       <UniqueIdentifier>{92357a1c-67bf-4f21-9b35-7f101e16b487}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine">
+    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits">
       <UniqueIdentifier>{6f44e337-e7a3-4619-b3ed-d6eab98e2887}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber">
+    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\PseudoRandomNumber">
       <UniqueIdentifier>{c879acc3-4342-4de9-813c-5e8dae05b282}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\TrueRandomNumber">
+    <Filter Include="ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\TrueRandomNumber">
       <UniqueIdentifier>{62c0bfba-3884-41d8-8ca8-3c0541a8ba78}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -266,11 +266,11 @@
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractTrueRandomNumberEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Base\Abstract</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Engine\StdRandomDeviceBaseEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\TrueRandomNumber</Filter>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdRandomDeviceBaseEngineTraits.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\TrueRandomNumber</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngineBaseEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber</Filter>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngineBaseEngineTraits.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\PseudoRandomNumber</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator\Engine\StdLiearCongruentialRandomNumberEngine.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Base</Filter>
@@ -326,11 +326,11 @@
     <ClInclude Include="RandomNumberGenerator\AbstractTrueRandomNumberGenerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRand0BaseEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber</Filter>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRand0BaseEngineTraits.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\PseudoRandomNumber</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRandBaseEngine.h">
-      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber</Filter>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRandBaseEngineTraits.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Traits\PseudoRandomNumber</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

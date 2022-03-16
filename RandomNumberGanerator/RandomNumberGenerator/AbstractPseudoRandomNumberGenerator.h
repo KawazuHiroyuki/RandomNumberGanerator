@@ -33,14 +33,15 @@ class AbstractPseudoRandomNumberGenerator : public AbstractBaseRandomNumberGener
 {
 private:
     using BaseEngineFactory = BaseEngineFactory_;
-    using BaseEngine = typename BaseEngineFactory::BaseEngine;
-    using DefaultSeedEngineResultType = typename BaseEngine::DefaultSeedEngineResultType;
-    using BaseEngineResultType = typename BaseEngine::BaseEngineResultType;
+    using BaseEngineTraits = typename BaseEngineFactory::BaseEngineTraits;
+    using BaseEngine = typename BaseEngineTraits::BaseEngine;
+    using DefaultSeedEngineResultType = typename BaseEngineTraits::DefaultSeedEngineResultType;
+    using BaseEngineResultType = typename BaseEngineTraits::BaseEngineResultType;
     //template <typename SeedEngineResultType>
     //using Engine = typename BaseEngineFactory::Engine<SeedEngineResultType>;
 
     template <typename SeedEngineResultType>
-    using Engine = PrimaryPseudoRandomNumberEngine<typename BaseEngine::BaseEngine, BaseEngineResultType, SeedEngineResultType>;
+    using Engine = PrimaryPseudoRandomNumberEngine<BaseEngine, BaseEngineResultType, SeedEngineResultType>;
 
 public:
     /**
