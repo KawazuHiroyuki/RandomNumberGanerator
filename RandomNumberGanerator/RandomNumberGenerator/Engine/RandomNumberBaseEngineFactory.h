@@ -8,8 +8,6 @@
 
 #pragma once
 
-// C++
-#include <random>
 // My
 #include "PrimaryTrueRandomNumberEngine.h" 
 #include "PrimaryPseudoRandomNumberEngine.h"
@@ -36,33 +34,92 @@ namespace random_number_generator
 
 /**
  * \brief 乱数ベースエンジンファクトリ
+ * \tparam BaseEngineTraits_ 乱数ベースエンジン特性
  */
+template <typename BaseEngineTraits_>
 class RandomNumberBaseEngineFactory
-{
-};
-
-/**
- * \brief 真性乱数ベースエンジンファクトリ
- */
-class TrueRandomNumberBaseEngineFactory
-{
-};
-
-/**
- * \brief 予測不能な乱数生成器の乱数ベースエンジンファクトリ
- */
-class StdRandomDeviceBaseEngineFactory : public TrueRandomNumberBaseEngineFactory
 {
 public:
     /**
      * \brief 乱数ベースエンジン特性
      */
-    using BaseEngineTraits = StdRandomDeviceBaseEngineTraits;
+    using BaseEngineTraits = BaseEngineTraits_;
 
+    /**
+     * \brief 乱数ベースエンジン
+     */
+    using BaseEngine = typename BaseEngineTraits::BaseEngine;
+
+    /**
+     * \brief デフォルトのシードエンジン生成結果の型
+     */
+    using DefaultSeedEngineResultType = typename BaseEngineTraits::DefaultSeedEngineResultType;
+
+     /**
+      * \brief ベースエンジン生成結果の型
+      */
+    using BaseEngineResultType = typename BaseEngineTraits::BaseEngineResultType;
+
+    /**
+     * \brief 乱数エンジンID
+     */
+    static constexpr RandomNumberEngineID ENGINE_ID = BaseEngineTraits::ID;
+};
+
+/**
+ * \brief 疑似乱数ベースエンジンファクトリ
+ * \tparam BaseEngineTraits_ 乱数ベースエンジン特性
+ */
+template <typename BaseEngineTraits_>
+class PseudoRandomNumberBaseEngineFactory : public RandomNumberBaseEngineFactory<BaseEngineTraits_>
+{
+private:
+    /**
+     * \brief 基底クラス
+     */
+    using Base = RandomNumberBaseEngineFactory<BaseEngineTraits_>;
+
+public:
+    /**
+     * \brief 乱数エンジン
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     */
+    template <typename SeedEngineResultType>
+    using Engine = PrimaryPseudoRandomNumberEngine<Base::BaseEngine, Base::BaseEngineResultType, SeedEngineResultType>;
+
+public:
+    /**
+     * \brief 乱数エンジンを生成
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     * \param seedParam シートエンジンパラメータ
+     * \return 乱数エンジン
+     */
+    template <typename SeedEngineResultType = Base::DefaultSeedEngineResultType>
+    std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
+    {
+        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(Base::ENGINE_ID);
+        return std::make_shared<Engine<SeedEngineResultType>>(engineParam, seedParam);
+    }
+};
+
+/**
+ * \brief 真性乱数ベースエンジンファクトリ
+ * \tparam BaseEngineTraits_ 乱数ベースエンジン特性
+ */
+template <typename BaseEngineTraits_>
+class TrueRandomNumberBaseEngineFactory : public RandomNumberBaseEngineFactory<BaseEngineTraits_>
+{
+private:
+    /**
+     * \brief 基底クラス
+     */
+    using Base = RandomNumberBaseEngineFactory<BaseEngineTraits_>;
+
+public:
     /**
      * \brief 乱数エンジン
      */
-    using Engine = PrimaryTrueRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType>;
+    using Engine = PrimaryTrueRandomNumberEngine<typename Base::BaseEngine, typename Base::BaseEngineResultType>;
 
 public:
     /**
@@ -71,84 +128,25 @@ public:
      */
     virtual std::shared_ptr<AbstractRandomNumberEngine> create(void)
     {
-        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngineTraits::ID);
+        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(Base::ENGINE_ID);
         return std::make_shared<Engine>(engineParam);
     }
 };
 
 /**
- * \brief 疑似乱数ベースエンジンファクトリ
+ * \brief 予測不能な乱数生成器の乱数ベースエンジンファクトリ
  */
-class PseudoRandomNumberBaseEngineFactory
-{
-};
-
+using StdRandomDeviceBaseEngineFactory = TrueRandomNumberBaseEngineFactory<StdRandomDeviceBaseEngineTraits>;
 
 /**
  * \brief 非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジンファクトリ
  */
-class StdDefaultRandomEngineBaseEngineFactory : public PseudoRandomNumberBaseEngineFactory
-{
-public:
-    /**
-     * \brief 乱数ベースエンジン特性
-     */
-    using BaseEngineTraits = StdDefaultRandomEngineBaseEngineTraits;
-
-    /**
-     * \brief 乱数エンジン
-     * \tparam SeedEngineResultType シードエンジン生成結果の型
-     */
-    template <typename SeedEngineResultType>
-    using Engine = PrimaryPseudoRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType, SeedEngineResultType>;
-
-public:
-    /**
-     * \brief 乱数エンジンを生成
-     * \tparam SeedEngineResultType シードエンジン生成結果の型
-     * \param seedParam シートエンジンパラメータ
-     * \return 乱数エンジン
-     */
-    template <typename SeedEngineResultType>
-    std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
-    {
-        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngineTraits::ID);
-        return std::make_shared<Engine<SeedEngineResultType>>(engineParam, seedParam);
-    }
-};
+using StdDefaultRandomEngineBaseEngineFactory = PseudoRandomNumberBaseEngineFactory<StdDefaultRandomEngineBaseEngineTraits>;
 
 /**
  * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジンファクトリ
  */
-class StdMinStdRand0BaseEngineFactory : public PseudoRandomNumberBaseEngineFactory
-{
-public:
-    /**
-     * \brief 乱数ベースエンジン特性
-     */
-    using BaseEngineTraits = StdMinStdRand0BaseEngineTraits;
-
-    /**
-     * \brief 乱数エンジン
-     * \tparam SeedEngineResultType シードエンジン生成結果の型
-     */
-    template <typename SeedEngineResultType>
-    using Engine = PrimaryPseudoRandomNumberEngine<BaseEngineTraits::BaseEngine, BaseEngineTraits::BaseEngineResultType, SeedEngineResultType>;
-
-public:
-    /**
-     * \brief 乱数エンジンを生成
-     * \tparam SeedEngineResultType シードエンジン生成結果の型
-     * \param seedParam シートエンジンパラメータ
-     * \return 乱数エンジン
-     */
-    template <typename SeedEngineResultType>
-    std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
-    {
-        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngineTraits::ID);
-        return std::make_shared<Engine<SeedEngineResultType>>(engineParam, seedParam);
-    }
-};
+using StdMinStdRand0BaseEngineFactory = PseudoRandomNumberBaseEngineFactory<StdMinStdRand0BaseEngineTraits>;
 
 #if 0
 /**

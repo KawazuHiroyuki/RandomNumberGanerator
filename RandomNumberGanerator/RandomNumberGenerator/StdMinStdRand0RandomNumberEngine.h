@@ -21,7 +21,11 @@ namespace random_number_generator
 class StdMinStdRand0RandomNumberEngine : public AbstractPseudoRandomNumberGenerator<StdMinStdRand0BaseEngineFactory>/* : public PrimaryPseudoRandomNumberEngine<BaseEngine<StdMinStdRand0RandomNumberEngine<Seed_>, Seed_>, BaseEngineResultType<StdMinStdRand0RandomNumberEngine<Seed_>, Seed_>, Seed_>*/
 {
 private:
+    /**
+     * \brief 基底クラス
+     */
     using Base = AbstractPseudoRandomNumberGenerator<StdMinStdRand0BaseEngineFactory>;
+
     using DefaultSeedEngineResultType = StdMinStdRand0BaseEngineFactory::BaseEngineTraits::DefaultSeedEngineResultType;
 
 public:

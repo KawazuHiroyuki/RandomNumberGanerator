@@ -21,6 +21,9 @@ namespace random_number_generator
 class StdRandomDevice : public AbstractTrueRandomNumberGenerator<StdRandomDeviceBaseEngineFactory>
 {
 private:
+    /**
+     * \brief 基底クラス
+     */
     using Base = AbstractTrueRandomNumberGenerator<StdRandomDeviceBaseEngineFactory>;
 
 public:

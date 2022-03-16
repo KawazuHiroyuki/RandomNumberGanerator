@@ -37,6 +37,10 @@ int main()
         std::cout << "Max :" << engine->getMax() << std::endl;
         std::cout << "Engropy :" << engine->getEntropy() << std::endl;
         std::cout << "Gene1 :" << engine->operator()() << std::endl;
+        std::cout << "Gene2 :" << engine->operator()() << std::endl;
+        std::cout << "Gene3 :" << engine->operator()() << std::endl;
+        std::cout << "Gene4 :" << engine->operator()() << std::endl;
+        std::cout << "Gene5 :" << engine->operator()() << std::endl;
     };
 
     std::shared_ptr<StdRandomDevice> a0 = std::make_shared<StdRandomDevice>();
@@ -50,8 +54,11 @@ int main()
         std::cout << "Max :" << engine->getMax() << std::endl;
         std::cout << "Engropy :" << engine->getEntropy() << std::endl;
         std::cout << "Gene1 :" << (*engine).operator()() << std::endl;
-        engine->discard(0);
+        engine->discard(1);
         std::cout << "Gene2 :" << engine->operator()() << std::endl;
+        std::cout << "Gene3 :" << engine->operator()() << std::endl;
+        std::cout << "Gene4 :" << engine->operator()() << std::endl;
+        std::cout << "Gene5 :" << engine->operator()() << std::endl;
     };
 
     using Seed1 = std::uint_fast32_t;
