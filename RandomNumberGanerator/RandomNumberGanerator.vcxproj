@@ -156,6 +156,8 @@
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractTrueRandomNumberEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdDefaultRandomEngineBaseEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRand0BaseEngine.h" />
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRandBaseEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\StdRandomDeviceBaseEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\AbstractSeedEngine.h" />
     <ClInclude Include="RandomNumberGenerator\Seed\CurrentTimeSeedEngine.h" />

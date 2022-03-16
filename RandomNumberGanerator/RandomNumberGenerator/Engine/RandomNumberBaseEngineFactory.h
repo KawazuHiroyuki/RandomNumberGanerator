@@ -15,6 +15,7 @@
 #include "PrimaryPseudoRandomNumberEngine.h"
 #include "StdRandomDeviceBaseEngine.h"
 #include "StdDefaultRandomEngineBaseEngine.h"
+#include "StdMinStdRand0BaseEngine.h"
 
 //#include "Utility/Utility.h"
 //#include "StdRandomDevice.h"
@@ -74,7 +75,8 @@ public:
 class StdRandomDeviceBaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
 {
 public:
-    using BaseEngine = PrimaryTrueRandomNumberEngine<StdRandomDeviceBaseEngine::BaseEngine, StdRandomDeviceBaseEngine::BaseEngineResultType>;
+    using BaseEngine = StdRandomDeviceBaseEngine;
+    using Engine = PrimaryTrueRandomNumberEngine<BaseEngine::BaseEngine, BaseEngine::BaseEngineResultType>;
     //using BaseEngineResult = AbstractTrueRandomNumberEngine<StdRandomDeviceBaseEngine::BaseEngineResultType>;
 
 public:
@@ -84,8 +86,8 @@ public:
      */
     virtual std::shared_ptr<AbstractRandomNumberEngine> create(void)
     {
-        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(StdRandomDeviceBaseEngine::ID);
-        return std::make_shared<BaseEngine>(engineParam);
+        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngine::ID);
+        return std::make_shared<Engine>(engineParam);
     }
 };
 
@@ -95,8 +97,9 @@ public:
 class StdDefaultRandomEngineBaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
 {
 public:
+    using BaseEngine = StdDefaultRandomEngineBaseEngine;
     template <typename SeedEngineResultType>
-    using BaseEngine = PrimaryPseudoRandomNumberEngine<StdDefaultRandomEngineBaseEngine::BaseEngine, StdDefaultRandomEngineBaseEngine::BaseEngineResultType, SeedEngineResultType>;
+    using Engine = PrimaryPseudoRandomNumberEngine<BaseEngine::BaseEngine, BaseEngine::BaseEngineResultType, SeedEngineResultType>;
 
 public:
     /**
@@ -108,11 +111,35 @@ public:
     template <typename SeedEngineResultType>
     std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
     {
-        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(StdDefaultRandomEngineBaseEngine::ID);
-        return std::make_shared<BaseEngine<SeedEngineResultType>>(engineParam, seedParam);
+        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngine::ID);
+        return std::make_shared<Engine<SeedEngineResultType>>(engineParam, seedParam);
     }
 };
 
+/**
+ * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジンファクトリ
+ */
+class StdMinStdRand0BaseEngineFactory /*: public RandomNumberBaseEngineFactory*/
+{
+public:
+    using BaseEngine = StdMinStdRand0BaseEngine;
+    template <typename SeedEngineResultType>
+    using Engine = PrimaryPseudoRandomNumberEngine<BaseEngine::BaseEngine, BaseEngine::BaseEngineResultType, SeedEngineResultType>;
+
+public:
+    /**
+     * \brief 乱数ベースエンジンを生成
+     * \tparam SeedEngineResultType シードエンジン生成結果の型
+     * \param seedParam シートエンジンパラメータ
+     * \return 乱数ベースエンジン
+     */
+    template <typename SeedEngineResultType>
+    std::shared_ptr<AbstractRandomNumberEngine> create(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
+    {
+        RandomNumberEngineParameter engineParam = RandomNumberEngineParameter(BaseEngine::ID);
+        return std::make_shared<Engine<SeedEngineResultType>>(engineParam, seedParam);
+    }
+};
 
 #if 0
 /**

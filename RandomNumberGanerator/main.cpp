@@ -10,6 +10,7 @@
 #include "Seed/SeedEngineFactory.h"
 #include "StdRandomDevice.h"
 #include "StdDefaultRandomEngine.h"
+#include "StdMinStdRand0RandomNumberEngine.h"
 
 int main()
 {
@@ -54,8 +55,8 @@ int main()
     };
 
     using Seed1 = std::uint_fast32_t;
-    //std::shared_ptr<StdMinStdRand0RandomNumberEngine<Seed1>> a1 = EngineFactory<StdMinStdRand0RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand0, { SeedEngineID::CurrentTime });
-    //printPseudoRandomNumberEngine("StdMinStdRand0RandomNumberEngine", a1);
+    std::shared_ptr<StdMinStdRand0RandomNumberEngine/*<Seed1>*/> a1 = std::make_shared<StdMinStdRand0RandomNumberEngine/*<Seed1>*/>(/*SeedEngineParameter{ SeedEngineID::CurrentTime }*/);//EngineFactory<StdMinStdRand0RandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand0, { SeedEngineID::CurrentTime });
+    printPseudoRandomNumberEngine("StdMinStdRand0RandomNumberEngine", a1);
 
     //std::shared_ptr<StdMinStdRandRandomNumberEngine<Seed1>> a2 = EngineFactory<StdMinStdRandRandomNumberEngine<Seed1>, Seed1>::create(RandomNumberEngineID::StdMinStdRand, { SeedEngineID::Custom, []() { return static_cast<std::uint_fast32_t>(10); } });
     //printPseudoRandomNumberEngine("StdMinStdRandRandomNumberEngine", a2);

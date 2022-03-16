@@ -20,11 +20,17 @@ namespace random_number_generator
  * \tparam SeedEngineResultType_ シードエンジン生成結果の型
  */
 //template <typename SeedEngineResultType_ = StdDefaultRandomEngineBaseEngine::DefaultSeedEngineResultType>
-class StdDefaultRandomEngine /*: public AbstractPseudoRandomNumberGenerator*/
+class StdDefaultRandomEngine : public AbstractPseudoRandomNumberGenerator<StdDefaultRandomEngineBaseEngineFactory>
 {
 private:
+    using Base = AbstractPseudoRandomNumberGenerator<StdDefaultRandomEngineBaseEngineFactory>;
     using BaseEngineFactory = StdDefaultRandomEngineBaseEngineFactory;
-    using BaseEngine = StdDefaultRandomEngineBaseEngine;
+    using BaseEngine = BaseEngineFactory::BaseEngine;
+    using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
+    using BaseEngineResultType = BaseEngine::BaseEngineResultType;
+    template <typename SeedEngineResultType>
+    using Engine = BaseEngineFactory::Engine<SeedEngineResultType>;
+
 
 private:
     //using SeedEngineResultType = SeedEngineResultType_;
@@ -34,18 +40,19 @@ public:
      * \brief コンストラクタ
      * \param seedParam シードエンジンパラメータ
      */
-    template <typename SeedEngineResultType = BaseEngine::DefaultSeedEngineResultType>
+    template <typename SeedEngineResultType = DefaultSeedEngineResultType>
     StdDefaultRandomEngine(const SeedEngineParameter<SeedEngineResultType>& seedParam = {})
-        : m_baseEngine(createBaseEngine<SeedEngineResultType>(seedParam))
+        : Base(seedParam)
     {
     }
 
+#if 0
     /**
      * \brief シードエンジンを設定
      * \tparam SeedType_ シードの型
      * \param seed シードエンジン
      */
-    template <typename SeedEngineResultType = BaseEngine::DefaultSeedEngineResultType>
+    template <typename SeedEngineResultType = DefaultSeedEngineResultType>
     void setSeedEngine(std::shared_ptr<AbstractSeedEngine<SeedEngineResultType>> seedEngine) /*override*/
     {
         getBaseEngine()->setSeedEngine(seedEngine);
@@ -57,9 +64,9 @@ public:
      * \return 乱数
      */
     /*template <typename ResultType>*/
-    virtual BaseEngine::BaseEngineResultType operator()(void) /*override*/
+    virtual BaseEngineResultType operator()(void) /*override*/
     {
-        BaseEngine::BaseEngineResultType result = getBaseEngine()->operator()();
+        BaseEngineResultType result = getBaseEngine()->operator()();
         return result;
     }
 
@@ -87,9 +94,9 @@ public:
      * \return 最小値
      */
     /*template <typename ResultType>*/
-    BaseEngine::BaseEngineResultType getMin(void) noexcept /*override*/
+    BaseEngineResultType getMin(void) noexcept /*override*/
     {
-        BaseEngine::BaseEngineResultType min = getBaseEngine()->getMin();
+        BaseEngineResultType min = getBaseEngine()->getMin();
         return min;
     }
 
@@ -98,24 +105,24 @@ public:
      * \return 最大値
      */
     //template <typename ResultType>
-    BaseEngine::BaseEngineResultType getMax(void) noexcept /*override*/
+    BaseEngineResultType getMax(void) noexcept /*override*/
     {
-        BaseEngine::BaseEngineResultType max = getBaseEngine()->getMax();
+        BaseEngineResultType max = getBaseEngine()->getMax();
         return max;
     }
 
 private:
-    template <typename SeedEngineResultType = BaseEngine::DefaultSeedEngineResultType>
+    template <typename SeedEngineResultType = DefaultSeedEngineResultType>
     std::shared_ptr<AbstractRandomNumberEngine> createBaseEngine(const SeedEngineParameter<SeedEngineResultType>& seedParam)
     {
         BaseEngineFactory factory;
         return factory.create<SeedEngineResultType>(seedParam);
     }
 
-    template <typename SeedEngineResultType = BaseEngine::DefaultSeedEngineResultType>
-    std::shared_ptr<BaseEngineFactory::BaseEngine<SeedEngineResultType>> getBaseEngine(void) const
+    template <typename SeedEngineResultType = DefaultSeedEngineResultType>
+    std::shared_ptr<Engine<SeedEngineResultType>> getBaseEngine(void) const
     {
-        std::shared_ptr<BaseEngineFactory::BaseEngine<SeedEngineResultType>> engine = std::dynamic_pointer_cast<BaseEngineFactory::BaseEngine<SeedEngineResultType>>(m_baseEngine);
+        std::shared_ptr<Engine<SeedEngineResultType>> engine = std::dynamic_pointer_cast<Engine<SeedEngineResultType>>(m_baseEngine);
         return engine;
     }
 
@@ -124,5 +131,6 @@ private:
      * \brief 乱数ベースエンジン
      */
     std::shared_ptr<AbstractRandomNumberEngine> m_baseEngine;
+#endif
 };
 } // namespace random_number_generator

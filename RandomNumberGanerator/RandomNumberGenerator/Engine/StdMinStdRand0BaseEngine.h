@@ -1,6 +1,6 @@
 ﻿/*****************************************************************//**
- * \file   StdDefaultRandomEngineBaseEngine.h
- * \brief  非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン
+ * \file   StdMinStdRand0BaseEngine.h
+ * \brief  最小標準MINSTD擬似乱数生成器の乱数ベースエンジン
  *
  * \author japan
  * \date   March 2022
@@ -17,15 +17,15 @@
 namespace random_number_generator
 {
 /**
- * \brief 非専門用途でデフォルト使用する擬似乱数生成器の乱数ベースエンジン
- * \note std::default_random_engine
+ * \brief 最小標準MINSTD擬似乱数生成器の乱数ベースエンジン
+ * \note std::minstd_rand0
  */
-struct StdDefaultRandomEngineBaseEngine // Traits
+struct StdMinStdRand0BaseEngine
 {
-    using BaseEngine = std::default_random_engine;
+    using BaseEngine = std::minstd_rand0;
     using BaseEngineResultType = BaseEngine::result_type;
     using DefaultSeedEngineResultType = BaseEngine::result_type;
 
-    static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdDefaultRandomEngine;
+    static constexpr RandomNumberEngineID ID = RandomNumberEngineID::StdMinStdRand0;
 };
 } // namespace random_number_generator

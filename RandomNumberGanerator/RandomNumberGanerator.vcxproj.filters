@@ -326,6 +326,12 @@
     <ClInclude Include="RandomNumberGenerator\AbstractTrueRandomNumberGenerator.h">
       <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberGenerator</Filter>
     </ClInclude>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRand0BaseEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumberGenerator\Engine\StdMinStdRandBaseEngine.h">
+      <Filter>ソース ファイル\RandomNumberGanerator\RandomNumberBaseEngine\Engine\PseudoRandomNumber</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

@@ -18,26 +18,31 @@ namespace random_number_generator
  * \brief 予測不能な乱数生成器
  * \note std::random_device
  */
-class StdRandomDevice /*: public AbstractTrueRandomNumberGenerator*/
+class StdRandomDevice : public AbstractTrueRandomNumberGenerator<StdRandomDeviceBaseEngineFactory>
 {
 private:
+    using Base = AbstractTrueRandomNumberGenerator<StdRandomDeviceBaseEngineFactory>;
     using BaseEngineFactory = StdRandomDeviceBaseEngineFactory;
-    using BaseEngine = StdRandomDeviceBaseEngine;
+    using BaseEngine = BaseEngineFactory::BaseEngine;
+    //using DefaultSeedEngineResultType = BaseEngine::DefaultSeedEngineResultType;
+    using BaseEngineResultType = BaseEngine::BaseEngineResultType;
+    using Engine = BaseEngineFactory::Engine;
 
 public:
     StdRandomDevice(void)
-        : m_baseEngine(createBaseEngine())
+        : Base()
     {}
 
+#if 0
     /**
      * \brief 乱数を生成
      * \tparam ResultType 乱数の型
      * \return 乱数
      */
     //template <typename ResultType>
-    BaseEngine::BaseEngineResultType operator()(void) /*override*/
+    BaseEngineResultType operator()(void) /*override*/
     {
-        BaseEngine::BaseEngineResultType result = getBaseEngine()->operator()();
+        BaseEngineResultType result = getBaseEngine()->operator()();
         return result;
     }
 
@@ -64,9 +69,9 @@ public:
      * \return 最小値
      */
     //template <typename ResultType>
-    virtual BaseEngine::BaseEngineResultType getMin(void) noexcept /*override*/
+    virtual BaseEngineResultType getMin(void) noexcept /*override*/
     {
-        BaseEngine::BaseEngineResultType min = getBaseEngine()->getMin();
+        BaseEngineResultType min = getBaseEngine()->getMin();
         return min;
     }
 
@@ -75,9 +80,9 @@ public:
      * \return 最大値
      */
     //template <typename ResultType>
-    virtual BaseEngine::BaseEngineResultType getMax(void) noexcept /*override*/
+    virtual BaseEngineResultType getMax(void) noexcept /*override*/
     {
-        BaseEngine::BaseEngineResultType max = getBaseEngine()->getMax();
+        BaseEngineResultType max = getBaseEngine()->getMax();
         return max;
     }
 
@@ -88,9 +93,9 @@ private:
         return factory.create();
     }
 
-    std::shared_ptr<BaseEngineFactory::BaseEngine> getBaseEngine(void) const
+    std::shared_ptr<Engine> getBaseEngine(void) const
     {
-        std::shared_ptr<BaseEngineFactory::BaseEngine> engine = std::dynamic_pointer_cast<BaseEngineFactory::BaseEngine>(m_baseEngine);
+        std::shared_ptr<Engine> engine = std::dynamic_pointer_cast<Engine>(m_baseEngine);
         return engine;
     }
 
@@ -99,5 +104,6 @@ private:
      * \brief 乱数ベースエンジン
      */
     std::shared_ptr<AbstractRandomNumberEngine> m_baseEngine;
+#endif
 };
 } // namespace random_number_generator
