@@ -17,7 +17,7 @@ namespace random_number_generator
 /**
  * \brief プライマリ乱数分布
  * \tparam Distribution_ 乱数分布
- * \tparam DistributionResultType_ 乱数分布 生成結果の型
+ * \tparam DistributionResultType_ 乱数分布生成結果の型
  */
 template <
     typename Distribution_,

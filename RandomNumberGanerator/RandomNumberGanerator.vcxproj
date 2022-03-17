@@ -146,6 +146,7 @@
     <ClCompile Include="RandomNumberGenerator\Engine\AbstractRandomNumberEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="RandomNumberGenerator\Distribution\AbstractBaseDistributionTraits.h" />
     <ClInclude Include="RandomNumberGenerator\Engine\AbstractBaseEngineTraits.h" />
     <ClInclude Include="RandomNumberGenerator\AbstractBaseRandomNumberGenerator.h" />
     <ClInclude Include="RandomNumberGenerator\AbstractPseudoRandomNumberGenerator.h" />
